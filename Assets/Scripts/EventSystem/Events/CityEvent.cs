@@ -1,6 +1,9 @@
 using MyBox;
 using PFAS.Stats;
 using UnityEngine;
+using System.Collections.Generic;
+using System;
+using System.Linq;
 
 namespace PFAS.EventSystem.Events
 {
@@ -8,11 +11,30 @@ namespace PFAS.EventSystem.Events
     {
         [Separator]
         [Header("City")]
-        public CityStats statesToChange;
-        public float amount;
+        public List<CityStatsForEvent> statsToChange = new List<CityStatsForEvent>();
 
         int _cityID;
 
+        // Appelé automatiquement lors de la modification de l'objet dans l'éditeur
+        private void OnValidate()
+        {
+            // S'assurer que la liste est correctement initialisée lorsque l'éditeur charge l'objet
+            InitializeStatsToChange();
+        }
+
+        // Cette méthode est appelée pour initialiser ou ajouter des changements pour chaque CityStats.
+        public void InitializeStatsToChange()
+        {
+            // Si la liste est déjà initialisée, ne rien faire.
+            if (statsToChange.Count > 0)
+                return;
+
+            // Initialisation de la liste avec les valeurs par défaut.
+            foreach (CityStats stat in Enum.GetValues(typeof(CityStats)))
+            {
+                statsToChange.Add(new CityStatsForEvent(stat, 0)); // Initialisation à 0, tu peux ajuster selon la logique.
+            }
+        }
 
         public bool CanUse()
         {
@@ -21,20 +43,29 @@ namespace PFAS.EventSystem.Events
 
         public override string ToString()
         {
-            return $"La ville {GameManager.instance.cities[_cityID].name} gagne {amount} en {statesToChange.ToString()}";
+            var changes = new List<string>();
+
+            changes.AddRange(statsToChange
+                .Where(stats => stats.amount != 0) // Exclure les stats avec un montant de 0
+                .Select(stats => $"{stats.amount} en {stats.stateToChange}"));
+
+            return changes.Count > 0
+                ? $"La ville {GameManager.instance.cities[_cityID].name} gagne {string.Join(", ", changes)}"
+                : $"La ville {GameManager.instance.cities[_cityID].name} ne gagne rien.";
         }
 
         public void Use()
         {
-            _cityID = Random.Range(0, GameManager.instance.cities.Count);
+            _cityID = UnityEngine.Random.Range(0, GameManager.instance.cities.Count);
 
             City t_city = GameManager.instance.cities[_cityID];
 
-            switch (statesToChange)
+            foreach (var stats in statsToChange)
             {
-                case CityStats.Adaptability: t_city.OnEvent(0, 0, amount); break;
-                case CityStats.Vulnerability: t_city.OnEvent(amount, 0, 0); break;
-                case CityStats.SocialResilience: t_city.OnEvent(0, amount, 0); break;
+                if (Enum.IsDefined(typeof(CityStats), stats.stateToChange))
+                {
+                    t_city.OnEvent(stats.stateToChange, stats.amount);
+                }
             }
         }
     }
