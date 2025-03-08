@@ -9,8 +9,8 @@ namespace PFAS.EventSystem
     {
         [Header("UI")]
         public GameObject eventPanel;
-        public TMPro.TextMeshProUGUI eventTitle;
-        public TMPro.TextMeshProUGUI eventDescription;
+        public TextMeshProUGUI eventTitle;
+        public TextMeshProUGUI eventDescription;
 
         List<EventObject> _events = new List<EventObject>();
 
