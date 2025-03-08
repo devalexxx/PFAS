@@ -2,37 +2,48 @@ using UnityEngine;
 
 namespace PFAS.Map
 {
-    public class CountryHighlight : MonoBehaviour
+    public class CountryOutline : MonoBehaviour
     {
-        // The color of the country when it is selected
-        private Color _highlightColor = Color.red;
+        // The outline of the country
+        private GameObject _outline;
 
-        // The original color of the country to restore it
-        private Color _originalColor;
-        private Renderer _spriteRenderer;
+        // The scale factor of the country when it is selected
+        [SerializeField] private float _selectionScaleFactor = 1.1f;
+        // The original scale of the country to restore it
+        private Vector3 _originalScale;
 
         private void Awake()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            if(_spriteRenderer != null)
+            _outline = transform.Find("Outline").gameObject;
+
+            // Save the original scale of the country
+            _originalScale = transform.localScale;
+
+            if(_outline != null)
             {
-                _originalColor = _spriteRenderer.material.color;
+                _outline.SetActive(false);
             }
         }
 
-        public void Highlight()
+        public void Outline()
         {
-            if (_spriteRenderer != null)
+            if (_outline != null)
             {
-                _spriteRenderer.material.color = _highlightColor;
+                _outline.SetActive(true);
+
+                transform.position += new Vector3(0, 0, -2);
+                transform.localScale = _originalScale * _selectionScaleFactor;
             }
         }
 
-        public void RemoveHighlight()
+        public void RemoveOutline()
         {
-            if (_spriteRenderer != null)
+            if (_outline != null)
             {
-                _spriteRenderer.material.color = _originalColor;
+                _outline.SetActive(false);
+
+                transform.position += new Vector3(0, 0, 2);
+                transform.localScale = _originalScale;
             }
         }
     }
