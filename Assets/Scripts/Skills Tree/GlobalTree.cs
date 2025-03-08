@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace pfas.gameplay
+namespace PFAS.Gameplay
 {
     public class GlobalTree : MonoBehaviour
     {

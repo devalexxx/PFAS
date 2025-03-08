@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace pfas
+namespace PFAS
 {
     public class GameManager : MonoBehaviour
     {
