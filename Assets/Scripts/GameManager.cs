@@ -12,6 +12,7 @@ namespace PFAS
         private void Awake()
         {
             instance = this;
+            cities.ForEach(city => city.Setup());
         }
     }
 }

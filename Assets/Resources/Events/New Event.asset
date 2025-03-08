@@ -10,17 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ec1437e53721b94f93e0e05dc6df2c1, type: 3}
-  m_Name: Test Event
+  m_Name: New Event
   m_EditorClassIdentifier: 
   eventName: Event de test
-  eventDescription: c'est juste du test
+  eventDescription: c'est que du test tona
   instance:
-    rid: 305424735578357828
+    rid: 305424735578357829
   references:
     version: 2
     RefIds:
-    - rid: 305424735578357828
+    - rid: 305424735578357829
       type: {class: CityEvent, ns: PFAS.EventSystem.Events, asm: Assembly-CSharp}
       data:
-        statesToChange: 0
-        amount: 15
+        statsToChange:
+        - stateToChange: 0
+          amount: 12
+        - stateToChange: 2
+          amount: 5
