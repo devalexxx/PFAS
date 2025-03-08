@@ -19,8 +19,9 @@ namespace PFAS.Cam
         public float edgeThickness = 20f;
 
         [Header("Pan Boundaries")]
-        public Vector2 panLimitMin;             // Limite minimale (x, y) du déplacement en world space
-        public Vector2 panLimitMax;             // Limite maximale (x, y) du déplacement en world space
+        //coordinates of the boundaries in world space
+        public Vector2 panLimitMin;
+        public Vector2 panLimitMax;
 
         private Camera _cam;
 
@@ -39,6 +40,7 @@ namespace PFAS.Cam
         private void Awake()
         {
             _cam = GetComponent<Camera>();
+
             _panAction.action.started += ctx => _isDragging = true;
             _panAction.action.canceled += ctx => _isDragging = false;
         }
@@ -49,30 +51,30 @@ namespace PFAS.Cam
             float t_scroll = _zoomAction.action.ReadValue<float>();
             if ( t_scroll != 0)
             {
-                HandleZoom(t_scroll);
+                _HandleZoom(t_scroll);
             }
 
             _panAxis = _panAxisAction.action.ReadValue<Vector2>();
             _mousePos = _mousePosAction.action.ReadValue<Vector2>();
 
-            Debug.Log("Pan Axis: " + _panAxis);
-            Debug.Log("Mouse Pos: " + _mousePos);
-
             if (_isDragging)
             {
+                //get new pos of camera
                 _newPos = transform.position + new Vector3(-_panAxis.x, -_panAxis.y, 0) * PanSpeed * Time.deltaTime;
-                
-                // Application des limites de déplacement sur la caméra
+
+                //Apply pan limits to the camera
                 _newPos.x = Mathf.Clamp(_newPos.x, panLimitMin.x, panLimitMax.x);
                 _newPos.y = Mathf.Clamp(_newPos.y, panLimitMin.y, panLimitMax.y);
-                _newPos.z = transform.position.z; // Conserver la position en Z
+                _newPos.z = transform.position.z;
 
+                //apply new position to camera
                 transform.position = _newPos;
             }
             else
             {
                 Vector3 t_move = Vector3.zero;
 
+                //Handle the camera pan when the mouse is at the edge of the screen
                 if (_mousePos.x < edgeThickness)
                 {
                     t_move.x -= PanSpeed * Time.deltaTime;
@@ -90,19 +92,21 @@ namespace PFAS.Cam
                     t_move.y += PanSpeed * Time.deltaTime;
                 }
 
+                // Get new position of the camera
                 _newPos = transform.position + t_move;
 
-                // Application des limites de déplacement sur la caméra
+                // Apply pan limits to the camera
                 _newPos.x = Mathf.Clamp(_newPos.x, panLimitMin.x, panLimitMax.x);
                 _newPos.y = Mathf.Clamp(_newPos.y, panLimitMin.y, panLimitMax.y);
-                _newPos.z = transform.position.z; // Conserver la position en Z
+                _newPos.z = transform.position.z;
 
+                // Apply new position to camera
                 transform.position = _newPos;
             }
         }
 
-        // Gestion du zoom via la molette de la souris
-        void HandleZoom(float p_scroll)
+        // Handle the zoom of the camera
+        private void _HandleZoom(float p_scroll)
         {
             float t_newSize = _cam.orthographicSize - p_scroll * zoomSpeed;
             _cam.orthographicSize = Mathf.Clamp(t_newSize, maxZoom, maxUnzoom);
