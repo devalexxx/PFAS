@@ -99,9 +99,10 @@ GameObject:
   - component: {fileID: 6137455446678794430}
   - component: {fileID: 7189563817091882233}
   - component: {fileID: 6089833185516016809}
+  - component: {fileID: 4035115570451436022}
   m_Layer: 3
   m_Name: Country
-  m_TagString: Untagged
+  m_TagString: Country
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -243,3 +244,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _selectionScaleFactor: 1.1
+--- !u!114 &4035115570451436022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4152819044110050443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4267c08f761a44c7b93c3ecd53d25a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <cities>k__BackingField: []

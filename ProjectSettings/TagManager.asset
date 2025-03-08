@@ -4,12 +4,12 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Not Selected
+  - Country
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Map
+  - 
   - Water
   - UI
   - 
