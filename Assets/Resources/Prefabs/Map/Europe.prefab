@@ -111,6 +111,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 169887028395249781}
     m_Modifications:
+    - target: {fileID: 4035115570451436022, guid: 1c59ed5d6b16f164eb9deb4265ff062d, type: 3}
+      propertyPath: <cities>k__BackingField.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4152819044110050443, guid: 1c59ed5d6b16f164eb9deb4265ff062d, type: 3}
       propertyPath: m_Name
       value: Portugal
@@ -173,6 +177,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 169887028395249781}
     m_Modifications:
+    - target: {fileID: 4035115570451436022, guid: 1c59ed5d6b16f164eb9deb4265ff062d, type: 3}
+      propertyPath: <cities>k__BackingField.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4035115570451436022, guid: 1c59ed5d6b16f164eb9deb4265ff062d, type: 3}
+      propertyPath: <cities>k__BackingField.Array.data[0].name
+      value: Oui
+      objectReference: {fileID: 0}
     - target: {fileID: 4152819044110050443, guid: 1c59ed5d6b16f164eb9deb4265ff062d, type: 3}
       propertyPath: m_Name
       value: France
