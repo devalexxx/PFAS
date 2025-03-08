@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using PFAS.Utils;
+using Unity.Collections.LowLevel.Unsafe;
 
 namespace PFAS.EventSystem.Events
 {
@@ -13,8 +14,12 @@ namespace PFAS.EventSystem.Events
         [Separator]
         [Header("City")]
         public EnumArray<CityStats, float> statsToChange = new EnumArray<CityStats, float>();
+        public bool asCityCondition = false;
+        [ConditionalField(nameof(asCityCondition))] public EnumArray<CityStats, float> maxStats = new EnumArray<CityStats, float>();
+        [ConditionalField(nameof(asCityCondition))] public EnumArray<CityStats, float> minStats = new EnumArray<CityStats, float>();
 
-        int _cityID;
+
+        City _city;
 
         public bool CanUse()
         {
@@ -36,20 +41,57 @@ namespace PFAS.EventSystem.Events
             }
 
             return changes.Count > 0
-                ? $"La ville {GameManager.instance.cities[_cityID].name} gagne {string.Join(", ", changes)}"
-                : $"La ville {GameManager.instance.cities[_cityID].name} ne gagne rien.";
+                ? $"La ville {_city.name} gagne {string.Join(", ", changes)}"
+                : $"La ville {_city.name} ne gagne rien.";
         }
 
+        public City GetRandomCity()
+        {
+            if (!asCityCondition) return GameManager.instance.cities[UnityEngine.Random.Range(0, GameManager.instance.cities.Count)];
+            List<City> t_cities = new List<City>();
+
+            foreach (var city in GameManager.instance.cities)
+            {
+                int t_correctValue = 0;
+                int t_maxValue = 0;
+
+                foreach (CityStats type in Enum.GetValues(typeof(CityStats)))
+                {
+                    // Check max stats condition
+                    if (maxStats[type] <= 0)
+                    {
+                        t_maxValue++;
+                        if (city.stats[type] <= maxStats[type])
+                            t_correctValue++;
+                    }
+
+                    // Check min stats condition
+                    if (minStats[type] <= 0)
+                    {
+                        t_maxValue++;
+                        if (city.stats[type] >= minStats[type])
+                            t_correctValue++;
+                    }
+                }
+
+                // If correct values are greater than or equal to max values, add the city
+                if (t_correctValue >= t_maxValue)
+                    t_cities.Add(city);
+            }
+
+            if (t_cities.Count == 0) return null;
+
+            return t_cities[UnityEngine.Random.Range(0, t_cities.Count)];
+        }
 
         public void Use()
         {
-            _cityID = UnityEngine.Random.Range(0, GameManager.instance.cities.Count);
-
-            City t_city = GameManager.instance.cities[_cityID];
+            _city = GetRandomCity();
+            if(_city == null) return;
 
             foreach (CityStats stat in Enum.GetValues(typeof(CityStats)))
             {
-                t_city.OnEvent(stat, statsToChange[stat]);
+                _city.OnEvent(stat, statsToChange[stat]);
             }
         }
     }
