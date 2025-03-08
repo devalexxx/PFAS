@@ -6,7 +6,7 @@ namespace PFAS.Map
     public class MapInputManager : MonoBehaviour
     {
         // The selected country
-        private CountryHighlight _selectedCountry;
+        private CountryOutline _selectedCountry;
 
         void Update()
         {
@@ -23,28 +23,40 @@ namespace PFAS.Map
                 if (t_hit.collider != null)
                 {
 
-                    // Get the country highlight component of the hit object
-                    CountryHighlight t_country = t_hit.collider.GetComponent<CountryHighlight>();
-                    
-                    // If the hit object has a country highlight component
-                    if(t_country != null)
+                    // Get the country outline component of the hit object
+                    CountryOutline t_country = t_hit.collider.GetComponent<CountryOutline>();
+
+                    // If the hit object has a country outline component
+                    if (t_country != null)
                     {
-                        // if another country was selected, remove highlight
                         if (_selectedCountry != null)
                         {
-                            _selectedCountry.RemoveHighlight();
+                            // remove outline
+                            _selectedCountry.RemoveOutline();
                         }
 
                         // If the hit country is not the selected country
                         if (_selectedCountry != t_country)
                         {
-                            // Highlight the country and set it as the selected country
+                            // Outline the country and set it as the selected country
                             _selectedCountry = t_country;
-                            _selectedCountry.Highlight();
+                            _selectedCountry.Outline();
 
                         }
+                        else
+                        {
+                            _selectedCountry = null;
+                        }
                     }
-                    
+                    else
+                    {
+                        if (_selectedCountry != null)
+                        {
+                            // remove outline
+                            _selectedCountry.RemoveOutline();
+                            _selectedCountry = null;
+                        }
+                    }
                 }
             }
         }
