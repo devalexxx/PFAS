@@ -691,9 +691,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cities:
   - name: Moulins
-    <vulnerability>k__BackingField: 0
-    <socialResilience>k__BackingField: 0
-    <adaptability>k__BackingField: 0
+    stats:
+      _array:
+      - 0
+      - 0
+      - 0
 --- !u!1 &1307436473
 GameObject:
   m_ObjectHideFlags: 0

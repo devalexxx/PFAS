@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using PFAS.Utils;
 
 namespace PFAS.EventSystem.Events
 {
@@ -11,30 +12,9 @@ namespace PFAS.EventSystem.Events
     {
         [Separator]
         [Header("City")]
-        public List<CityStatsForEvent> statsToChange = new List<CityStatsForEvent>();
+        public EnumArray<CityStats, float> statsToChange = new EnumArray<CityStats, float>();
 
         int _cityID;
-
-        // Appelé automatiquement lors de la modification de l'objet dans l'éditeur
-        private void OnValidate()
-        {
-            // S'assurer que la liste est correctement initialisée lorsque l'éditeur charge l'objet
-            InitializeStatsToChange();
-        }
-
-        // Cette méthode est appelée pour initialiser ou ajouter des changements pour chaque CityStats.
-        public void InitializeStatsToChange()
-        {
-            // Si la liste est déjà initialisée, ne rien faire.
-            if (statsToChange.Count > 0)
-                return;
-
-            // Initialisation de la liste avec les valeurs par défaut.
-            foreach (CityStats stat in Enum.GetValues(typeof(CityStats)))
-            {
-                statsToChange.Add(new CityStatsForEvent(stat, 0)); // Initialisation à 0, tu peux ajuster selon la logique.
-            }
-        }
 
         public bool CanUse()
         {
@@ -45,14 +25,21 @@ namespace PFAS.EventSystem.Events
         {
             var changes = new List<string>();
 
-            changes.AddRange(statsToChange
-                .Where(stats => stats.amount != 0) // Exclure les stats avec un montant de 0
-                .Select(stats => $"{stats.amount} en {stats.stateToChange}"));
+            // Parcourt toutes les statistiques et ajoute celles qui ont un montant non nul
+            foreach (CityStats stat in Enum.GetValues(typeof(CityStats)))
+            {
+                float amount = statsToChange[stat];
+                if (amount != 0)
+                {
+                    changes.Add($"{amount} en {stat}");
+                }
+            }
 
             return changes.Count > 0
                 ? $"La ville {GameManager.instance.cities[_cityID].name} gagne {string.Join(", ", changes)}"
                 : $"La ville {GameManager.instance.cities[_cityID].name} ne gagne rien.";
         }
+
 
         public void Use()
         {
@@ -60,12 +47,9 @@ namespace PFAS.EventSystem.Events
 
             City t_city = GameManager.instance.cities[_cityID];
 
-            foreach (var stats in statsToChange)
+            foreach (CityStats stat in Enum.GetValues(typeof(CityStats)))
             {
-                if (Enum.IsDefined(typeof(CityStats), stats.stateToChange))
-                {
-                    t_city.OnEvent(stats.stateToChange, stats.amount);
-                }
+                t_city.OnEvent(stat, statsToChange[stat]);
             }
         }
     }
