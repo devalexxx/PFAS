@@ -582,6 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 825923574}
   - component: {fileID: 825923575}
+  - component: {fileID: 825923576}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -618,7 +619,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventPanel: {fileID: 1378947874}
   eventTitle: {fileID: 792089}
-  eventDescription: {fileID: 0}
+  eventDescription: {fileID: 416058113}
+--- !u!114 &825923576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825923573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99396696d475a2146bb896f504e004db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cities:
+  - name: Moulins
+    <vulnerability>k__BackingField: 0
+    <socialResilience>k__BackingField: 0
+    <adaptability>k__BackingField: 0
 --- !u!1 &1307436473
 GameObject:
   m_ObjectHideFlags: 0

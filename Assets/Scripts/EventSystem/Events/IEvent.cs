@@ -7,7 +7,5 @@ namespace PFAS.EventSystem.Events
         public bool CanUse();
 
         public void Use();
-
-        public string toString();
     }
 }
