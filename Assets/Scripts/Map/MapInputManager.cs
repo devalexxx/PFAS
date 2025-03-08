@@ -1,5 +1,5 @@
 using UnityEngine;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
+using UnityEngine.InputSystem;
 
 namespace PFAS.Map
 {
@@ -8,54 +8,58 @@ namespace PFAS.Map
         // The selected country
         private CountryOutline _selectedCountry;
 
-        void Update()
+        [SerializeField] private InputActionReference _selectAction;
+
+        private void Awake()
         {
-            // Check if the player has clicked the mouse
-            if (Input.GetMouseButtonDown(0))
+            //manage click action
+            _selectAction.action.performed += ctx => _SelectCoutry();
+        }
+
+        private void _SelectCoutry()
+        {
+            // Get the mouse position in the world
+            Vector3 t_worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 t_worldPoint2D = new Vector2(t_worldPoint.x, t_worldPoint.y);
+
+            // Get the collider that is hit by the ray
+            RaycastHit2D t_hit = Physics2D.Raycast(t_worldPoint2D, Vector2.zero);
+
+            if (t_hit.collider != null)
             {
-                // Get the mouse position in the world
-                Vector3 t_worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Vector2 t_worldPoint2D = new Vector2(t_worldPoint.x, t_worldPoint.y);
 
-                // Get the collider that is hit by the ray
-                RaycastHit2D t_hit = Physics2D.Raycast(t_worldPoint2D, Vector2.zero);
+                // Get the country outline component of the hit object
+                CountryOutline t_country = t_hit.collider.GetComponent<CountryOutline>();
 
-                if (t_hit.collider != null)
+                // If the hit object has a country outline component
+                if (t_country != null)
                 {
-
-                    // Get the country outline component of the hit object
-                    CountryOutline t_country = t_hit.collider.GetComponent<CountryOutline>();
-
-                    // If the hit object has a country outline component
-                    if (t_country != null)
+                    if (_selectedCountry != null)
                     {
-                        if (_selectedCountry != null)
-                        {
-                            // remove outline
-                            _selectedCountry.RemoveOutline();
-                        }
+                        // remove outline
+                        _selectedCountry.RemoveOutline();
+                    }
 
-                        // If the hit country is not the selected country
-                        if (_selectedCountry != t_country)
-                        {
-                            // Outline the country and set it as the selected country
-                            _selectedCountry = t_country;
-                            _selectedCountry.Outline();
+                    // If the hit country is not the selected country
+                    if (_selectedCountry != t_country)
+                    {
+                        // Outline the country and set it as the selected country
+                        _selectedCountry = t_country;
+                        _selectedCountry.Outline();
 
-                        }
-                        else
-                        {
-                            _selectedCountry = null;
-                        }
                     }
                     else
                     {
-                        if (_selectedCountry != null)
-                        {
-                            // remove outline
-                            _selectedCountry.RemoveOutline();
-                            _selectedCountry = null;
-                        }
+                        _selectedCountry = null;
+                    }
+                }
+                else
+                {
+                    if (_selectedCountry != null)
+                    {
+                        // remove outline
+                        _selectedCountry.RemoveOutline();
+                        _selectedCountry = null;
                     }
                 }
             }
