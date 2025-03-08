@@ -23,7 +23,7 @@ MonoBehaviour:
       type: {class: CityEvent, ns: PFAS.EventSystem.Events, asm: Assembly-CSharp}
       data:
         statsToChange:
-        - stateToChange: 0
-          amount: 12
-        - stateToChange: 2
-          amount: 5
+          _array:
+          - 20
+          - 5
+          - 0
