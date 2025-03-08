@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using PFAS.EventSystem.Events;
 using PFAS.Objects;
+using PFAS.Stats;
 using TMPro;
 using UnityEngine;
 
@@ -35,7 +38,7 @@ namespace PFAS.EventSystem
             List<EventObject> t_events = new List<EventObject>();
             t_events.AddRange(_events.Where(item => item.instance.CanUse()));
 
-            return t_events[Random.Range(0, t_events.Count)];
+            return t_events[UnityEngine.Random.Range(0, t_events.Count)];
         }
 
         public void ShowEvent()
