@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
-namespace PFAS.Attributes
+namespace PFAS.Attribute
 {
     [AttributeUsage(AttributeTargets.Field, AllowMultiple = false, Inherited = true)]
     public class SubclassPickerAttribute : PropertyAttribute
@@ -20,7 +20,7 @@ namespace PFAS.Internal
     using System.Collections.Generic;
     using UnityEditor;
 
-    [CustomPropertyDrawer(typeof(Attributes.SubclassPickerAttribute))]
+    [CustomPropertyDrawer(typeof(Attribute.SubclassPickerAttribute))]
     public class SubclassPickerPropertyDrawer : PropertyDrawer
     {
         public override float GetPropertyHeight(SerializedProperty p_property, GUIContent p_label)

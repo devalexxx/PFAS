@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventName: Event de test
   eventDescription: c'est juste du test
-  Event:
-    rid: -2
+  instance:
+    rid: 305424735578357828
   references:
     version: 2
     RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    - rid: 305424735578357828
+      type: {class: CityEvent, ns: PFAS.EventSystem.Events, asm: Assembly-CSharp}
+      data:
+        statesToChange: 0
+        amount: 15
