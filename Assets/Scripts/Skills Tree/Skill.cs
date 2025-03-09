@@ -1,3 +1,6 @@
+using System;
+using PFAS.Stats;
+using PFAS.Utils;
 using UnityEngine;
 
 namespace PFAS.Gameplay
@@ -7,23 +10,22 @@ namespace PFAS.Gameplay
         public string name { get; private set; }
         public string description { get; private set; }
         public int cost { get; private set; }
-        public float regulation { get; private set; }
-        public float technologie { get; private set; }
-        public float prevention { get; private set; }
-        public float globalPollution { get; private set; }
+        public EnumArray<GlobalStats, float> stats;
         public Skill[] after { get; private set; }
         public Skill[] previous { get; private set; }
         public bool unlocked { get; private set; }
         public bool purchased { get; private set; } = false;
+
         public Skill(string p_name, string p_description, int p_cost, float p_regulation, float p_technologie, float p_prevention, float p_globalPollution, bool p_unlocked, Skill[] p_after = default(Skill[]), Skill[] p_previous = default(Skill[]))
         {
             name = p_name;
             description = p_description;
             cost = p_cost;
-            regulation = p_regulation;
-            technologie = p_technologie;
-            prevention = p_prevention;
-            globalPollution = p_globalPollution;
+            stats = new EnumArray<GlobalStats, float>();
+            stats[GlobalStats.Prevention] = p_prevention;
+            stats[GlobalStats.Regulation] = p_regulation;
+            stats[GlobalStats.Technologie] = p_technologie;
+            stats[GlobalStats.GlobalPollution] = p_globalPollution;
             unlocked = p_unlocked;
             after = p_after;
             previous = p_previous;
@@ -35,7 +37,10 @@ namespace PFAS.Gameplay
             {
                 if (unlocked)
                 {
-                    GameManager.instance.UpdateStats(regulation, technologie, prevention, globalPollution, cost);
+                    foreach (GlobalStats currentStat in Enum.GetValues(typeof(GlobalStats)))
+                    {
+                        GameManager.instance.UpdateStats(currentStat, stats[currentStat], cost);
+                    }
                     purchased = true;
                     foreach (Skill skill in after)
                     {

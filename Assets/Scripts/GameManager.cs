@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyBox;
+using PFAS.Stats;
+using PFAS.Utils;
 using UnityEngine;
 
 namespace PFAS
@@ -9,10 +11,7 @@ namespace PFAS
     {
         public static GameManager instance;
 
-        public float regulation = 0;
-        public float technologie = 0;
-        public float prevention = 0;
-        public float globalPollution = 0;
+        public EnumArray<GlobalStats, float> gloablStats = new EnumArray<GlobalStats, float>();
 
         public int competencePoints = 0;
 
@@ -36,13 +35,10 @@ namespace PFAS
                    .ToList();
         }
 
-        public void UpdateStats(float p_regulation, float p_technologie, float p_prevention, float p_globalPollution, int cost)
+        public void UpdateStats(GlobalStats p_stat, float p_amount, int p_cost)
         {
-            regulation += p_regulation;
-            technologie += p_technologie;
-            prevention += p_prevention;
-            globalPollution += p_globalPollution;
-            competencePoints -= cost;
+            gloablStats[p_stat] += p_amount;
+            competencePoints -= p_cost;
         }
 
         public List<City> GetAllCities() => countries.SelectMany(c => c.cities).ToList();
