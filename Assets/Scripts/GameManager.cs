@@ -21,7 +21,6 @@ namespace PFAS
 
         private void Awake()
         {
-            cities = new List<City>();
             if (instance != null)
             {
                 Debug.Log("Il y a plusieurs GameManager dans la scene");
@@ -35,8 +34,6 @@ namespace PFAS
             countries = GameObject.FindGameObjectsWithTag("Country")
                    .Select(country => country.GetComponent<Country>())
                    .ToList();
-
-            cities.AddRange(countries.SelectMany(country => country.cities));
         }
 
         public void UpdateStats(float p_regulation, float p_technologie, float p_prevention, float p_globalPollution, int cost)
