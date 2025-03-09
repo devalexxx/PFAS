@@ -47,10 +47,11 @@ namespace PFAS.EventSystem.Events
 
         public City GetRandomCity()
         {
+            List<City> t_cities = GameManager.instance.GetAllCities();
             if (!asCityCondition)
-                return GameManager.instance.cities[UnityEngine.Random.Range(0, GameManager.instance.cities.Count)];
+                return t_cities[UnityEngine.Random.Range(0, t_cities.Count)];
 
-            List<City> filteredCities = GameManager.instance.cities
+            List<City> filteredCities = t_cities
                 .Where(city => (!onlyOnCapital || city.isCapital) && MatchesStats(city))
                 .ToList();
 
