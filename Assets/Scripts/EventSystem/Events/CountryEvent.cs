@@ -11,23 +11,65 @@ namespace PFAS.EventSystem.Events
 {
     public class CountryEvent : IEvent
     {
+        /// <summary>
+        /// A variable that holds an EnumArray mapping CityStats to corresponding float values. It is used to track and modify statistics for cities.
+        /// </summary>
         [Separator]
         [Header("Country")]
         public EnumArray<CityStats, float> statsToChange = new EnumArray<CityStats, float>();
+
+        /// <summary>
+        /// A boolean flag that determines whether the stat changes should be divided equally among all cities in the country.
+        /// </summary>
         public bool divideForEachCity = true;
+
+        /// <summary>
+        /// A flag indicating whether the current logic is based on country conditions.
+        /// </summary>
         [Separator]
         public bool asCountryCondition = false;
-        [ConditionalField(nameof(asCountryCondition))] public int maxCity, minCity = -1;
+
+        /// <summary>
+        /// The maximum number of cities a country can have in order to meet the conditions.
+        /// </summary>
+        [ConditionalField(nameof(asCountryCondition))] public int maxCity = -1;
+
+        /// <summary>
+        /// The minimum number of cities a country can have in order to meet the conditions.
+        /// </summary>
+        [ConditionalField(nameof(asCountryCondition))] public int minCity = -1;
+
+        /// <summary>
+        /// A list of maximum values for different statistics that a country must have to meet the conditions.
+        /// </summary>
         [ConditionalField(nameof(asCountryCondition))] public EnumArray<CityStats, float> maxStats = new EnumArray<CityStats, float>();
+
+        /// <summary>
+        /// A list of minimum values for different statistics that a country must have to meet the conditions.
+        /// </summary>
         [ConditionalField(nameof(asCountryCondition))] public EnumArray<CityStats, float> minStats = new EnumArray<CityStats, float>();
 
+
+        /// <summary>
+        /// A private field representing the country that is currently selected or being used.
+        /// </summary>
         Country _country;
 
+
+
+        /// <summary>
+        /// This function checks if the action can be performed.
+        /// </summary>
+        /// <returns>Returns a boolean value indicating if the action can be performed</returns>
         public bool CanUse()
         {
             return true;
         }
 
+        /// <summary>
+        /// This function selects a country based on the given conditions. If asCountryCondition is true, it filters countries based on the city count and statistics conditions.
+        /// </summary>
+        /// <returns>Returns a random Country object that matches the given conditions, or a fallback country if none match.</returns>
         public Country GetCountry()
         {
             List<Country> t_countries = GameManager.instance.countries;
@@ -71,6 +113,9 @@ namespace PFAS.EventSystem.Events
                 : t_countries[UnityEngine.Random.Range(0, t_countries.Count)];
         }
 
+        /// <summary>
+        /// This function applies the selected statistics changes to the chosen country.
+        /// </summary>
         public void Use()
         {
             _country = GetCountry();
@@ -83,7 +128,10 @@ namespace PFAS.EventSystem.Events
                 .ForEach(stat => _country.OnEvent(stat, statsToChange[stat], divideForEachCity));
         }
 
-
+        /// <summary>
+        /// This function returns a string representation of the actions taken on the country, including the statistics that were changed and their values.
+        /// </summary>
+        /// <returns>Returns a string describing the changes made to the country's statistics.</returns>
         public override string ToString()
         {
             var changes = new List<string>();
