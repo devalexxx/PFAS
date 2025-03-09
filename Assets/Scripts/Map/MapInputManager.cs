@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace PFAS.Map
@@ -18,6 +19,9 @@ namespace PFAS.Map
 
         private void _SelectCoutry()
         {
+            //if the mouse is over a UI element, we do nothing
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) { return; }
+
             // Get the mouse position in the world
             Vector3 t_worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 t_worldPoint2D = new Vector2(t_worldPoint.x, t_worldPoint.y);
