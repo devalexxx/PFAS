@@ -48,8 +48,8 @@ namespace PFAS.EventSystem
             t_event.instance.Use();
 
             eventPanel.SetActive(true);
-            eventTitle.text = t_event.eventName;
-            eventDescription.text = t_event.eventDescription + " " + t_event.instance.ToString();
+            eventTitle.text  = t_event.eventName;
+            eventDescription.text = t_event.eventDescription + "\n" + t_event.instance.ToString();
         }
     }
 }
