@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using PFAS.Objects;
+using PFAS.Timer;
 using TMPro;
 using UnityEngine;
 
@@ -24,6 +25,9 @@ namespace PFAS.SystemEvent
         /// </summary>
         public TextMeshProUGUI eventDescription;
 
+        public int EventDay = 30;
+        int _currentDay = 0;
+
 
         /// <summary>
         /// A list of available events in the game.
@@ -35,14 +39,8 @@ namespace PFAS.SystemEvent
             eventPanel.SetActive(false);
 
             _events = new List<EventObject>(Resources.LoadAll<EventObject>("Events"));
-        }
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                ShowEvent();
-            }
+            TimerManager.OnTick += ChangeDay;
         }
 
         /// <summary>
@@ -70,6 +68,16 @@ namespace PFAS.SystemEvent
             eventPanel.SetActive(true);
             eventTitle.text  = t_event.eventName;
             eventDescription.text = t_event.eventDescription + "\n" + t_event.instance.ToString();
+        }
+
+        public void ChangeDay()
+        {
+            _currentDay++;
+            if(_currentDay == EventDay)
+            {
+                if (Random.value < 0.5f) ShowEvent();
+                _currentDay = 0;
+            }
         }
     }
 }
