@@ -205,12 +205,12 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 4
   m_WholeNumbers: 1
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1759303556}
-        m_TargetAssemblyTypeName: TimerManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: PFAS.Timer.TimerManager, Assembly-CSharp
         m_MethodName: SetTimeScale
         m_Mode: 0
         m_Arguments:
@@ -1842,7 +1842,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerText: {fileID: 442872821}
-  _timeScale: 1
+  _timeScaleInput: {fileID: 84622714}
+  _timeScale: 0
   _accumulatorMax: 1
 --- !u!4 &1759303557
 Transform:
