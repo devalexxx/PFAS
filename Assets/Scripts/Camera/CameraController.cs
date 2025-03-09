@@ -60,7 +60,7 @@ namespace PFAS.Cam
             if (_isDragging)
             {
                 //get new pos of camera
-                _newPos = transform.position + new Vector3(-_panAxis.x, -_panAxis.y, 0) * PanSpeed;
+                _newPos = transform.position + new Vector3(-_panAxis.x, -_panAxis.y, 0) * panSpeed;
 
                 //Apply pan limits to the camera
                 _newPos.x = Mathf.Clamp(_newPos.x, panLimitMin.x, panLimitMax.x);
@@ -77,19 +77,19 @@ namespace PFAS.Cam
                 //Handle the camera pan when the mouse is at the edge of the screen
                 if (_mousePos.x < edgeThickness)
                 {
-                    t_move.x -= PanSpeed;
+                    t_move.x -= panSpeed;
                 }
                 if (_mousePos.x > Screen.width - edgeThickness)
                 {
-                    t_move.x += PanSpeed;
+                    t_move.x += panSpeed;
                 }
                 if (_mousePos.y < edgeThickness)
                 {
-                    t_move.y -= PanSpeed;
+                    t_move.y -= panSpeed;
                 }
                 if (_mousePos.y > Screen.height - edgeThickness)
                 {
-                    t_move.y += PanSpeed;
+                    t_move.y += panSpeed;
                 }
 
                 // Get new position of the camera
