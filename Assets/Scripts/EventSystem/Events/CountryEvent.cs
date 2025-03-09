@@ -7,7 +7,7 @@ using PFAS.Utils;
 using UnityEngine;
 
 
-namespace PFAS.EventSystem.Events
+namespace PFAS.SystemEvent.Events
 {
     public class CountryEvent : IEvent
     {

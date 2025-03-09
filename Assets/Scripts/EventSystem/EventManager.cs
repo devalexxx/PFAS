@@ -4,7 +4,7 @@ using PFAS.Objects;
 using TMPro;
 using UnityEngine;
 
-namespace PFAS.EventSystem
+namespace PFAS.SystemEvent
 {
     public class EventManager : MonoBehaviour
     {

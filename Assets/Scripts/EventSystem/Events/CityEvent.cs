@@ -6,7 +6,7 @@ using System;
 using System.Linq;
 using PFAS.Utils;
 
-namespace PFAS.EventSystem.Events
+namespace PFAS.SystemEvent.Events
 {
     public class CityEvent : IEvent
     {

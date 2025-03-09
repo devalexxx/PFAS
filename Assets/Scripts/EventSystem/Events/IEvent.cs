@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PFAS.EventSystem.Events
+namespace PFAS.SystemEvent.Events
 {
     public interface IEvent
     {

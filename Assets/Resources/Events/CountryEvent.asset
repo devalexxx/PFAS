@@ -15,16 +15,29 @@ MonoBehaviour:
   eventName: Country Event
   eventDescription: Test test test
   instance:
-    rid: 305424754694684740
+    rid: 305424754694684743
   references:
     version: 2
     RefIds:
-    - rid: 305424754694684740
-      type: {class: CountryEvent, ns: PFAS.EventSystem.Events, asm: Assembly-CSharp}
+    - rid: 305424754694684743
+      type: {class: CountryEvent, ns: PFAS.SystemEvent.Events, asm: Assembly-CSharp}
       data:
         statsToChange:
           _array:
-          - 5
-          - 5
-          - 5
+          - 0
+          - 2
+          - 10
+        divideForEachCity: 1
         asCountryCondition: 0
+        maxCity: -1
+        minCity: -1
+        maxStats:
+          _array:
+          - 0
+          - 0
+          - 0
+        minStats:
+          _array:
+          - 0
+          - 0
+          - 0
