@@ -633,7 +633,7 @@ MonoBehaviour:
   zoomSpeed: 1
   maxZoom: 1
   maxUnzoom: 15
-  PanSpeed: 5
+  PanSpeed: 0.02
   edgeThickness: 20
   panLimitMin: {x: -6, y: -4}
   panLimitMax: {x: 6, y: 4}
