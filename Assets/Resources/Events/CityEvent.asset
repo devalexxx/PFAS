@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ec1437e53721b94f93e0e05dc6df2c1, type: 3}
-  m_Name: New Event
+  m_Name: CityEvent
   m_EditorClassIdentifier: 
   eventName: Event de test
   eventDescription: c'est que du test tona
