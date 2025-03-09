@@ -86,10 +86,11 @@ namespace PFAS.EventSystem.Events
             _city = GetRandomCity();
             if(_city == null) return;
 
-            foreach (CityStats stat in Enum.GetValues(typeof(CityStats)))
-            {
-                _city.OnEvent(stat, statsToChange[stat]);
-            }
+            Enum.GetValues(typeof(CityStats))
+                .Cast<CityStats>()
+                .Where(stat => statsToChange[stat] != 0)
+                .ToList()
+                .ForEach(stat => _city.OnEvent(stat, statsToChange[stat]));
         }
     }
 }
