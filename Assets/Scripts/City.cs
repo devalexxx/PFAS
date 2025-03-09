@@ -1,7 +1,5 @@
 using System;
 using MyBox;
-using UnityEngine;
-using System.Collections.Generic;
 using PFAS.Stats;
 using PFAS.Utils;
 
@@ -11,6 +9,7 @@ namespace PFAS
     public class City
     {
         public string name;
+        public bool isCapital;
 
         [ReadOnly]
         // Dictionnaire pour stocker les statistiques de la ville

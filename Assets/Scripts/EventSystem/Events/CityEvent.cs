@@ -15,6 +15,7 @@ namespace PFAS.EventSystem.Events
         [Header("City")]
         public EnumArray<CityStats, float> statsToChange = new EnumArray<CityStats, float>();
         public bool asCityCondition = false;
+        [ConditionalField(nameof(asCityCondition))] public bool onlyOnCapital = false;
         [ConditionalField(nameof(asCityCondition))] public EnumArray<CityStats, float> maxStats = new EnumArray<CityStats, float>();
         [ConditionalField(nameof(asCityCondition))] public EnumArray<CityStats, float> minStats = new EnumArray<CityStats, float>();
 
@@ -47,41 +48,37 @@ namespace PFAS.EventSystem.Events
 
         public City GetRandomCity()
         {
-            if (!asCityCondition) return GameManager.instance.cities[UnityEngine.Random.Range(0, GameManager.instance.cities.Count)];
-            List<City> t_cities = new List<City>();
+            if (!asCityCondition)
+                return GameManager.instance.cities[UnityEngine.Random.Range(0, GameManager.instance.cities.Count)];
 
-            foreach (var city in GameManager.instance.cities)
+            List<City> filteredCities = GameManager.instance.cities
+                .Where(city => (!onlyOnCapital || city.isCapital) && MatchesStats(city))
+                .ToList();
+
+            return filteredCities.Count > 0
+                ? filteredCities[UnityEngine.Random.Range(0, filteredCities.Count)]
+                : null;
+        }
+
+        private bool MatchesStats(City city)
+        {
+            int correctValues = 0, maxValues = 0;
+
+            foreach (CityStats type in Enum.GetValues(typeof(CityStats)))
             {
-                int t_correctValue = 0;
-                int t_maxValue = 0;
-
-                foreach (CityStats type in Enum.GetValues(typeof(CityStats)))
+                if (maxStats[type] <= 0)
                 {
-                    // Check max stats condition
-                    if (maxStats[type] <= 0)
-                    {
-                        t_maxValue++;
-                        if (city.stats[type] <= maxStats[type])
-                            t_correctValue++;
-                    }
-
-                    // Check min stats condition
-                    if (minStats[type] <= 0)
-                    {
-                        t_maxValue++;
-                        if (city.stats[type] >= minStats[type])
-                            t_correctValue++;
-                    }
+                    maxValues++;
+                    if (city.stats[type] <= maxStats[type]) correctValues++;
                 }
-
-                // If correct values are greater than or equal to max values, add the city
-                if (t_correctValue >= t_maxValue)
-                    t_cities.Add(city);
+                if (minStats[type] <= 0)
+                {
+                    maxValues++;
+                    if (city.stats[type] >= minStats[type]) correctValues++;
+                }
             }
 
-            if (t_cities.Count == 0) return null;
-
-            return t_cities[UnityEngine.Random.Range(0, t_cities.Count)];
+            return correctValues >= maxValues;
         }
 
         public void Use()
