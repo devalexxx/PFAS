@@ -35,13 +35,13 @@ namespace PFAS
                    .ToList();
         }
 
+        public List<City> GetAllCities() => countries.SelectMany(c => c.cities).ToList();
+        public List<City> GetCountryCities(string country) => countries.FirstOrDefault(c => c.name == country)?.cities ?? new List<City>();
+
         public void UpdateStats(GlobalStats p_stat, float p_amount, int p_cost)
         {
             gloablStats[p_stat] += p_amount;
             competencePoints -= p_cost;
         }
-
-        public List<City> GetAllCities() => countries.SelectMany(c => c.cities).ToList();
-        public List<City> GetCountryCities(string country) => countries.FirstOrDefault(c => c.name == country)?.cities ?? new List<City>();
     }
 }
