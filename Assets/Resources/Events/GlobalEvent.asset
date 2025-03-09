@@ -16,6 +16,16 @@ MonoBehaviour:
   eventDescription: Test
   instance:
     rid: 305424754694684741
+  condition:
+    useCondition: 0
+    maxDate: 31/03/2025
+    minDate: 09/03/2025
+    globalStats:
+      _array:
+      - 0
+      - 0
+      - 0
+      - 0
   references:
     version: 2
     RefIds:

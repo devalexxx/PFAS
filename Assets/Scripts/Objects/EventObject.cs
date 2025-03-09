@@ -1,5 +1,6 @@
 using MyBox;
 using PFAS.Attribute;
+using PFAS.Stats;
 using PFAS.SystemEvent.Events;
 using UnityEngine;
 
@@ -16,5 +17,9 @@ namespace PFAS.Objects
         [Header("Instance")]
         [field: SerializeReference, SubclassPicker]
         public IEvent instance;
+
+        [Separator]
+        [Header("Condition")]
+        public EventCondition condition;
     }
 }

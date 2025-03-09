@@ -34,8 +34,11 @@ namespace PFAS.SystemEvent
         /// </summary>
         List<EventObject> _events = new List<EventObject>();
 
+        TimerManager _timerManager;
+
         private void Start()
         {
+            _timerManager = GetComponent<TimerManager>();
             eventPanel.SetActive(false);
 
             _events = new List<EventObject>(Resources.LoadAll<EventObject>("Events"));
@@ -50,7 +53,7 @@ namespace PFAS.SystemEvent
         public EventObject GetRandomEvent()
         {
             List<EventObject> t_events = new List<EventObject>();
-            t_events.AddRange(_events.Where(item => item.instance.CanUse()));
+            t_events.AddRange(_events.Where(item => item.condition.CanUse(_timerManager)));
 
             return t_events[UnityEngine.Random.Range(0, t_events.Count)];
         }
