@@ -14,7 +14,7 @@ namespace PFAS.Cam
         public float maxUnzoom = 15f;
 
         [Header("Pan Settings")]
-        public float PanSpeed = 0.02f;
+        public float panSpeed = 0.02f;
         //thickness of the screen edge in pixels to trigger the pan
         public float edgeThickness = 20f;
 
