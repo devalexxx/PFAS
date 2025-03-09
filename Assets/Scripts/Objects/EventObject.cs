@@ -1,6 +1,6 @@
 using MyBox;
 using PFAS.Attribute;
-using PFAS.EventSystem.Events;
+using PFAS.SystemEvent.Events;
 using UnityEngine;
 
 namespace PFAS.Objects
