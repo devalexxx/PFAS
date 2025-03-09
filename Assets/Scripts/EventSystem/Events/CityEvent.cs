@@ -42,16 +42,6 @@ namespace PFAS.SystemEvent.Events
         /// </summary>
         City _city;
 
-
-        /// <summary>
-        /// This function checks if the event can be performed.
-        /// </summary>
-        /// <returns>Returns a boolean value indicating if the event can be performed/returns>
-        public bool CanUse()
-        {
-            return true;
-        }
-
         /// <summary>
         /// This function returns a string representation of the actions taken on the city, including the statistics that were changed and their values.
         /// </summary>

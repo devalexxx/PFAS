@@ -55,17 +55,6 @@ namespace PFAS.SystemEvent.Events
         /// </summary>
         Country _country;
 
-
-
-        /// <summary>
-        /// This function checks if the action can be performed.
-        /// </summary>
-        /// <returns>Returns a boolean value indicating if the action can be performed</returns>
-        public bool CanUse()
-        {
-            return true;
-        }
-
         /// <summary>
         /// This function selects a country based on the given conditions. If asCountryCondition is true, it filters countries based on the city count and statistics conditions.
         /// </summary>

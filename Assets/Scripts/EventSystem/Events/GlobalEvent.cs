@@ -4,7 +4,6 @@ using System.Linq;
 using MyBox;
 using PFAS.Stats;
 using PFAS.Utils;
-using UnityEngine;
 
 namespace PFAS.SystemEvent.Events
 {
@@ -12,11 +11,6 @@ namespace PFAS.SystemEvent.Events
     {
         [Separator]
         public EnumArray<GlobalStats, float> statsToChange = new EnumArray<GlobalStats, float>();
-
-        public bool CanUse()
-        {
-            return true;
-        }
 
         public void Use()
         {
