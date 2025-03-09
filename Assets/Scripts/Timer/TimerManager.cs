@@ -1,74 +1,79 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class TimerManager : MonoBehaviour
-{
-    [Header("UI")]
-    // Assigne ici le Text de l'UI (par exemple, un TextMeshPro -Text (UI) dans le Canvas positionné en haut à droite)
-    [SerializeField] private TextMeshProUGUI _timerText;
-
-    [Header("Time Settings")]
-    // Multiplieur de vitesse du temps : 1 = vitesse normale, 0 = pause, >1 = accéléré
-    [SerializeField] private float _timeScale = 1f;
-    // Le temps accumulé (en secondes réelles)
-    private float _accumulator = 0f;
-    [SerializeField] private float _accumulatorMax = 1f;
-
-    public DateTime startDate { get; private set; } = DateTime.Now;
-    public DateTime currentDate { get; private set; }
-
-    // Cet événement sera appelé à chaque tick (jour) pour synchroniser les calculs du jeu
-    public delegate void TickAction();
-    public event TickAction OnTick;
-
-    private void Awake()
+// all commentary are in english
+namespace PFAS.Timer
+{ 
+    public class TimerManager : MonoBehaviour
     {
-        currentDate = startDate;
-        _UpdateTimerUI();
-    }
+        [Header("UI")]
+        // Assign the UI Text for the date
+        [SerializeField] private TextMeshProUGUI _timerText;
 
-    void Update()
-    {
-        // Si le jeu est en pause (timeScale = 0), on ne fait rien
-        if (_timeScale <= 0f)
-            return;
+        [Header("Time Settings")]
+        // Time scale multiplier: 1 = normal speed, 0 = pause, >1 = accelerated (can only use integer)
+        [Range(0, 4)]
+        [SerializeField] private int _timeScale = 1;
+        // Accumulate time (in real seconds)
+        private float _accumulator = 0f;
+        // Number of seconds for a day to pass
+        [SerializeField] private float _accumulatorMax = 1f;
 
-        // On accumule le temps réel multiplié par le timeScale
-        _accumulator += Time.deltaTime * _timeScale;
-        // Quand l'accumulateur atteint ou dépasse 1 seconde (1 jour en jeu), on avance d'un jour
-        if (_accumulator >= _accumulatorMax)
+        public DateTime startDate { get; private set; } = DateTime.Now;
+        public DateTime currentDate { get; private set; }
+
+        // This event will be called at each tick (day) to synchronize the game calculations
+        public delegate void TickAction();
+        // Event to subscribe to for other scripts to update at each tick
+        public event TickAction OnTick;
+
+        private void Awake()
         {
-            _accumulator -= _accumulatorMax;
-            _AdvanceDay();
+            currentDate = startDate;
+            _UpdateTimerUI();
         }
-    }
 
-    // Avance d'un jour dans le jeu et met à jour le calendrier
-    private void _AdvanceDay()
-    {
-        currentDate = currentDate.AddDays(1);
-        _UpdateTimerUI();
-
-        // Déclenche l'événement pour que les autres systèmes du jeu se synchronisent
-        if (OnTick != null)
-            OnTick();
-    }
-
-    // Met à jour l'affichage du timer dans l'UI
-    private void _UpdateTimerUI()
-    {
-        if (_timerText != null)
+        void Update()
         {
-            _timerText.text = currentDate.ToString("dd/MM/yyyy");
-        }
-    }
+            // If the game is paused (timeScale = 0), we do nothing
+            if (_timeScale <= 0f)
+                return;
 
-    // Méthode pour modifier la vitesse du temps depuis d'autres scripts
-    public void SetTimeScale(float newTimeScale)
-    {
-        _timeScale = newTimeScale;
+            // We accumulate the real time multiplied by the timeScale
+            _accumulator += Time.deltaTime * _timeScale;
+            // When the accumulator reaches or exceeds _accumulatorMax, we advance by one day
+            if (_accumulator >= _accumulatorMax)
+            {
+                _accumulator -= _accumulatorMax;
+                _AdvanceDay();
+            }
+        }
+
+        // Advance one day in the game and update the calendar
+        private void _AdvanceDay()
+        {
+            currentDate = currentDate.AddDays(1);
+            _UpdateTimerUI();
+
+            // Trigger the event so that other game systems can synchronize
+            if (OnTick != null)
+                OnTick();
+        }
+
+        // Update the timer display in the UI
+        private void _UpdateTimerUI()
+        {
+            if (_timerText != null)
+            {
+                _timerText.text = currentDate.ToString("dd/MM/yyyy");
+            }
+        }
+
+        // Method to modify the time speed from other scripts
+        public void SetTimeScale(int newTimeScale)
+        {
+            _timeScale = newTimeScale;
+        }
     }
 }
-
