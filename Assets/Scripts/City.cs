@@ -2,6 +2,7 @@ using System;
 using MyBox;
 using PFAS.Stats;
 using PFAS.Utils;
+using UnityEngine;
 
 namespace PFAS
 {
@@ -11,17 +12,17 @@ namespace PFAS
         public string name;
         public bool isCapital;
 
-        [ReadOnly]
         // Dictionnaire pour stocker les statistiques de la ville
-        public EnumArray<CityStats, float> stats = new EnumArray<CityStats, float>();
+        public EnumArray<CityStats, float> stats = new EnumArray<CityStats, float>(() => 0f);
+
+        public City()
+        {
+            stats = new EnumArray<CityStats, float>(() => 0f); // Initialiser avec 0 par défaut
+        }
 
         public void Setup()
         {
-            // Initialisation des statistiques avec des valeurs aléatoires en utilisant foreach
-            foreach (CityStats stat in Enum.GetValues(typeof(CityStats)))
-            {
-                stats[stat] = UnityEngine.Random.Range(0, 50);
-            }
+            stats = new EnumArray<CityStats, float>(() => UnityEngine.Random.Range(0, 50));
         }
 
 
