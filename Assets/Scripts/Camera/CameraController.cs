@@ -41,8 +41,8 @@ namespace PFAS.Cam
         {
             _cam = GetComponent<Camera>();
 
-            _panAction.action.started += ctx => _isDragging = true;
-            _panAction.action.canceled += ctx => _isDragging = false;
+            _panAction.action.started += ctx => _Drag();
+            _panAction.action.canceled += ctx => _Undrag();
         }
 
         void Update()
@@ -110,6 +110,18 @@ namespace PFAS.Cam
         {
             float t_newSize = _cam.orthographicSize - p_scroll * zoomSpeed;
             _cam.orthographicSize = Mathf.Clamp(t_newSize, maxZoom, maxUnzoom);
+        }
+
+        private void _Drag()
+        {
+            //if the mouse is over a UI element, we do nothing
+            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) { return; }
+
+            _isDragging = true;
+        }
+        private void _Undrag()
+        {
+            _isDragging = false;
         }
     }
 }
