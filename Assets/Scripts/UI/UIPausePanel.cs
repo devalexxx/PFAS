@@ -5,7 +5,7 @@ public class UIPausePanel : MonoBehaviour
     public void Toggle()
     {
         gameObject.SetActive(!gameObject.activeSelf);
-        Time.timeScale = gameObject.activeSelf ? 1f : 0f;
+        Time.timeScale = gameObject.activeSelf ? 0f : 1f;
     }
 
     public void QuitGame()
