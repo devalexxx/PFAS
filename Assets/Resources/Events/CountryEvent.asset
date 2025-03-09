@@ -21,4 +21,10 @@ MonoBehaviour:
     RefIds:
     - rid: 305424754694684740
       type: {class: CountryEvent, ns: PFAS.EventSystem.Events, asm: Assembly-CSharp}
-      data: 
+      data:
+        statsToChange:
+          _array:
+          - 5
+          - 5
+          - 5
+        asCountryCondition: 0
