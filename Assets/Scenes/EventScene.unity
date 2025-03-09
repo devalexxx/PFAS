@@ -715,7 +715,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99396696d475a2146bb896f504e004db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cities: []
+  gloablStats:
+    _array:
+    - 0
+    - 0
+    - 0
+    - 0
+  competencePoints: 0
   countries: []
 --- !u!1 &1307436473
 GameObject:
@@ -729,6 +735,7 @@ GameObject:
   - component: {fileID: 1307436475}
   - component: {fileID: 1307436474}
   - component: {fileID: 1307436477}
+  - component: {fileID: 1307436478}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -854,6 +861,29 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1307436478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307436473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c909ec0132511468dc58abfa153cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomSpeed: 1
+  maxZoom: 1
+  maxUnzoom: 15
+  panSpeed: 0.02
+  edgeThickness: 20
+  panLimitMin: {x: -6, y: -4}
+  panLimitMax: {x: 6, y: 4}
+  _panAction: {fileID: 7543940388244525776, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  _panAxisAction: {fileID: -7060091435404633631, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  _zoomAction: {fileID: 6769923013451603427, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  _mousePosAction: {fileID: -4917146618988018546, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &1378947874
 GameObject:
   m_ObjectHideFlags: 0
