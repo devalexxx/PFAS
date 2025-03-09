@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,56 +7,49 @@ public class TimerManager : MonoBehaviour
 {
     [Header("UI")]
     // Assigne ici le Text de l'UI (par exemple, un TextMeshPro -Text (UI) dans le Canvas positionné en haut à droite)
-    public TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI _timerText;
 
     [Header("Time Settings")]
     // Multiplieur de vitesse du temps : 1 = vitesse normale, 0 = pause, >1 = accéléré
-    public float timeScale = 1f;
+    [SerializeField] private float _timeScale = 1f;
     // Le temps accumulé (en secondes réelles)
-    private float accumulator = 0f;
+    private float _accumulator = 0f;
+    [SerializeField] private float _accumulatorMax = 1f;
 
-    [Header("Calendar Settings")]
-    public int day = 1;
-    public int month = 1;
-    public int year = 2025; // Date de départ
-    public int daysPerMonth = 30;
-    public int monthsPerYear = 12;
+    public DateTime startDate { get; private set; } = DateTime.Now;
+    public DateTime currentDate { get; private set; }
 
     // Cet événement sera appelé à chaque tick (jour) pour synchroniser les calculs du jeu
     public delegate void TickAction();
     public event TickAction OnTick;
 
+    private void Awake()
+    {
+        currentDate = startDate;
+        _UpdateTimerUI();
+    }
+
     void Update()
     {
         // Si le jeu est en pause (timeScale = 0), on ne fait rien
-        if (timeScale <= 0f)
+        if (_timeScale <= 0f)
             return;
 
         // On accumule le temps réel multiplié par le timeScale
-        accumulator += Time.deltaTime * timeScale;
+        _accumulator += Time.deltaTime * _timeScale;
         // Quand l'accumulateur atteint ou dépasse 1 seconde (1 jour en jeu), on avance d'un jour
-        if (accumulator >= 1f)
+        if (_accumulator >= _accumulatorMax)
         {
-            accumulator -= 1f;
-            AdvanceDay();
+            _accumulator -= _accumulatorMax;
+            _AdvanceDay();
         }
     }
 
     // Avance d'un jour dans le jeu et met à jour le calendrier
-    void AdvanceDay()
+    private void _AdvanceDay()
     {
-        day++;
-        if (day > daysPerMonth)
-        {
-            day = 1;
-            month++;
-            if (month > monthsPerYear)
-            {
-                month = 1;
-                year++;
-            }
-        }
-        UpdateTimerUI();
+        currentDate = currentDate.AddDays(1);
+        _UpdateTimerUI();
 
         // Déclenche l'événement pour que les autres systèmes du jeu se synchronisent
         if (OnTick != null)
@@ -63,19 +57,18 @@ public class TimerManager : MonoBehaviour
     }
 
     // Met à jour l'affichage du timer dans l'UI
-    void UpdateTimerUI()
+    private void _UpdateTimerUI()
     {
-        if (timerText != null)
+        if (_timerText != null)
         {
-            // Exemple de format : "JJ/MM/AAAA"
-            timerText.text = string.Format("{0:00}/{1:00}/{2}", day, month, year);
+            _timerText.text = currentDate.ToString("dd/MM/yyyy");
         }
     }
 
     // Méthode pour modifier la vitesse du temps depuis d'autres scripts
     public void SetTimeScale(float newTimeScale)
     {
-        timeScale = newTimeScale;
+        _timeScale = newTimeScale;
     }
 }
 
