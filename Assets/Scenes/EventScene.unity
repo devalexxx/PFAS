@@ -409,7 +409,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Europe
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2736418878573123700, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+      propertyPath: <cities>k__BackingField.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2736418878573123700, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+      propertyPath: <cities>k__BackingField.Array.data[0].name
+      value: Moulins
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320328392064359920, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+      propertyPath: <cities>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3320328392064359920, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+      propertyPath: <cities>k__BackingField.Array.data[0].name
+      value: Moulins
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5577952416958339247, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+    - {fileID: 8663946568707063951, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+    - {fileID: 5684802004646738890, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+    - {fileID: 4600474442968347298, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+    - {fileID: 2608102811529996849, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+    - {fileID: 4572186928098918777, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+    - {fileID: 6148808551257473853, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+    - {fileID: 1694635377362946675, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+    - {fileID: 492829981079096359, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
+    - {fileID: 5081543929668607275, guid: 1a5c96a315c8482479fde5a3f6f0405b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -689,13 +715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99396696d475a2146bb896f504e004db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cities:
-  - name: Moulins
-    stats:
-      _array:
-      - 0
-      - 0
-      - 0
+  cities: []
+  countries: []
 --- !u!1 &1307436473
 GameObject:
   m_ObjectHideFlags: 0

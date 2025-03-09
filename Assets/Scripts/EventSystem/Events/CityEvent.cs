@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using PFAS.Utils;
-using Unity.Collections.LowLevel.Unsafe;
 
 namespace PFAS.EventSystem.Events
 {

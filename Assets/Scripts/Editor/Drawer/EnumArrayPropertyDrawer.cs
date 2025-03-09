@@ -23,7 +23,7 @@ namespace PFAS.Editor
 
                     float t_totalHeight = EditorGUIUtility.singleLineHeight;
 
-                    for (int i = 0; i < t_size; i++)
+                    for (int i = 0; i < array.arraySize; i++)
                     {
                         SerializedProperty t_elem = array.GetArrayElementAtIndex(i);
                         t_totalHeight += EditorGUI.GetPropertyHeight(t_elem, true) + EditorGUIUtility.standardVerticalSpacing;
@@ -57,7 +57,7 @@ namespace PFAS.Editor
                     SerializedProperty array = p_property.FindPropertyRelative("_array");
 
                     float t_yOffset = p_position.y + EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-                    for (int i = 0; i < t_names.Length; i++)
+                    for (int i = 0; i < array.arraySize; i++)
                     {
                         SerializedProperty t_elem = array.GetArrayElementAtIndex(i);
                         GUIContent t_label = new(t_names[i]);

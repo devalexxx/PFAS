@@ -27,3 +27,15 @@ MonoBehaviour:
           - 20
           - 5
           - 0
+        asCityCondition: 0
+        onlyOnCapital: 0
+        maxStats:
+          _array:
+          - 0
+          - 0
+          - 0
+        minStats:
+          _array:
+          - 0
+          - 0
+          - 0
