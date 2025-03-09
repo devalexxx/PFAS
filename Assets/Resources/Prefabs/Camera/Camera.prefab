@@ -153,10 +153,10 @@ MonoBehaviour:
   zoomSpeed: 2
   maxZoom: 1
   maxUnzoom: 15
-  PanSpeed: 5
+  panSpeed: 5
   edgeThickness: 20
-  panLimitMin: {x: -6, y: -4}
-  panLimitMax: {x: 6, y: 4}
+  panLimitMin: {x: -30, y: -30}
+  panLimitMax: {x: 30, y: 30}
   _panAction: {fileID: 7543940388244525776, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _panAxisAction: {fileID: -7060091435404633631, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _zoomAction: {fileID: 6769923013451603427, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

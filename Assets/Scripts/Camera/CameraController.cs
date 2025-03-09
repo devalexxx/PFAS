@@ -14,7 +14,7 @@ namespace PFAS.Cam
         public float maxUnzoom = 15f;
 
         [Header("Pan Settings")]
-        public float panSpeed = 0.02f;
+        public float panSpeed = 1f;
         //thickness of the screen edge in pixels to trigger the pan
         public float edgeThickness = 20f;
 
@@ -60,7 +60,7 @@ namespace PFAS.Cam
             if (_isDragging)
             {
                 //get new pos of camera
-                _newPos = transform.position + new Vector3(-_panAxis.x, -_panAxis.y, 0) * panSpeed;
+                _newPos = transform.position + new Vector3(-_panAxis.x, -_panAxis.y, 0) * panSpeed * Time.deltaTime;
 
                 //Apply pan limits to the camera
                 _newPos.x = Mathf.Clamp(_newPos.x, panLimitMin.x, panLimitMax.x);
@@ -77,19 +77,19 @@ namespace PFAS.Cam
                 //Handle the camera pan when the mouse is at the edge of the screen
                 if (_mousePos.x < edgeThickness)
                 {
-                    t_move.x -= panSpeed;
+                    t_move.x -= panSpeed * Time.deltaTime;
                 }
                 if (_mousePos.x > Screen.width - edgeThickness)
                 {
-                    t_move.x += panSpeed;
+                    t_move.x += panSpeed * Time.deltaTime;
                 }
                 if (_mousePos.y < edgeThickness)
                 {
-                    t_move.y -= panSpeed;
+                    t_move.y -= panSpeed * Time.deltaTime;
                 }
                 if (_mousePos.y > Screen.height - edgeThickness)
                 {
-                    t_move.y += panSpeed;
+                    t_move.y += panSpeed * Time.deltaTime;
                 }
 
                 // Get new position of the camera
@@ -108,6 +108,8 @@ namespace PFAS.Cam
         // Handle the zoom of the camera
         private void _HandleZoom(float p_scroll)
         {
+            if(UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) { return; }
+
             float t_newSize = _cam.orthographicSize - p_scroll * zoomSpeed;
             _cam.orthographicSize = Mathf.Clamp(t_newSize, maxZoom, maxUnzoom);
         }

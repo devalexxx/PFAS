@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4245658043981917517}
   - component: {fileID: 3646005730527015203}
   - component: {fileID: 7480375748998038445}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GoodToutouStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 5155846766140756498}
   - component: {fileID: 7909449167003881278}
   - component: {fileID: 7060673583047776360}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 7583906042408624479}
   - component: {fileID: 8521100158006488668}
   - component: {fileID: 9205168707563777050}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 1610894260042179994}
   - component: {fileID: 5525615708687516523}
   - component: {fileID: 5181414216591131349}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 7639732176956430724}
   - component: {fileID: 3808545353659335482}
   - component: {fileID: 6316928461797613503}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BadToutouStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 19814677286252786}
   - component: {fileID: 154897135860561985}
   - component: {fileID: 7272868414214302917}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TonaStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +584,7 @@ GameObject:
   - component: {fileID: 7887999585917987219}
   - component: {fileID: 1472528639125147968}
   - component: {fileID: 823805708029367138}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +659,7 @@ GameObject:
   - component: {fileID: 748408037646523855}
   - component: {fileID: 6003212028454490006}
   - component: {fileID: 1015419974244553406}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -796,7 +796,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9206305775607666142}
   - component: {fileID: 3579963673759544643}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sticks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -863,7 +863,7 @@ GameObject:
   - component: {fileID: 6963146553544455912}
   - component: {fileID: 5989340030201016753}
   - component: {fileID: 1491720238893100587}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1019,7 +1019,7 @@ GameObject:
   - component: {fileID: 747279759438974222}
   - component: {fileID: 5365269526147756751}
   - component: {fileID: 4952871314843741724}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: EventPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
