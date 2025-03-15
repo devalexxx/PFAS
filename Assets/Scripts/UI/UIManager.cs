@@ -26,7 +26,7 @@ namespace PFAS.UI {
             _pauseInput.action.Disable();
         }
 
-        public void ShowCountryPanel(GameObject p_selectedCountry)
+        public void ShowCountryPanel(Country p_selectedCountry)
         {
             _countryPanel.Show(p_selectedCountry);
         }

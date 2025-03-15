@@ -54,7 +54,7 @@ namespace PFAS.Map
                         _selectedCountry = t_country;
                         _selectedCountry.Outline();
 
-                        UIManager.ShowCountryPanel(t_country.gameObject);
+                        UIManager.ShowCountryPanel(t_country.gameObject.GetComponent<Country>());
                     }
                     else
                     {
