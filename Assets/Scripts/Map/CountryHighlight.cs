@@ -7,9 +7,6 @@ namespace PFAS.Map
         // The outline of the country
         private SpriteRenderer _renderer;
 
-        // The scale factor of the country when it is selected
-        [SerializeField] private float _selectionScaleFactor = 1.1f;
-
         private void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
