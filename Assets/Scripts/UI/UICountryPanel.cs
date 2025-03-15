@@ -33,7 +33,6 @@ namespace PFAS.UI {
             SetCountry();
         }
 
-        // Cache le panneau
         public void Hide()
         {
             gameObject.SetActive(false);
