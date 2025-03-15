@@ -1,6 +1,8 @@
 using System;
 using PFAS.Stats;
 using PFAS.Utils;
+using MyBox;
+using UnityEngine;
 
 namespace PFAS
 {
@@ -28,6 +30,14 @@ namespace PFAS
         /// </summary>
         public EnumArray<CityStats, float> stats = new EnumArray<CityStats, float>(() => 0f);
 
+        [SerializeField]
+        private float _currentContamination;
+        public float currentContamination
+        {
+            get => _currentContamination;
+            set => _currentContamination = Mathf.Max(0, Mathf.Min(100f, value));
+        }
+
         /// <summary>
         /// Default constructor to initialize the city's statistics to 0.
         /// </summary>
@@ -44,6 +54,7 @@ namespace PFAS
         public void Setup(string p_countryName)
         {
             stats = new EnumArray<CityStats, float>(() => UnityEngine.Random.Range(0, 50));
+            _currentContamination = UnityEngine.Random.Range(0, 10);
             country = p_countryName;
         }
 
