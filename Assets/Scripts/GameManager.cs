@@ -41,10 +41,7 @@ namespace PFAS
                 Destroy(this);
             }
             instance = this;
-        }
 
-        private void Start()
-        {
             countries = GameObject.FindGameObjectsWithTag("Country")
                    .Select(country => country.GetComponent<Country>())
                    .ToList();
