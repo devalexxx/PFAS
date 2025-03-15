@@ -1,11 +1,14 @@
+using PFAS.UI;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace PFAS.Map
 {
     public class MapInputManager : MonoBehaviour
     {
+        // Reference to the UI manager
+        [SerializeField] private UIManager UIManager;
+
         // The selected country
         private CountryOutline _selectedCountry;
 
@@ -51,10 +54,12 @@ namespace PFAS.Map
                         _selectedCountry = t_country;
                         _selectedCountry.Outline();
 
+                        UIManager.ShowCountryPanel(t_country.gameObject);
                     }
                     else
                     {
                         _selectedCountry = null;
+                        UIManager.HideCountryPanel();
                     }
                 }
                 else
