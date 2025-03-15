@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public class UIPausePanel : MonoBehaviour
+namespace PFAS.UI
 {
-    public void Toggle()
+    public class UIPausePanel : MonoBehaviour
     {
-        gameObject.SetActive(!gameObject.activeSelf);
-        Time.timeScale = gameObject.activeSelf ? 0f : 1f;
-    }
+        public void Toggle()
+        {
+            gameObject.SetActive(!gameObject.activeSelf);
+            Time.timeScale = gameObject.activeSelf ? 0f : 1f;
+        }
 
-    public void QuitGame()
-    {
-        Application.Quit();
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }
