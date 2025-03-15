@@ -373,11 +373,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 491922722536708662, guid: e6add66a1a75721499b9080ecc2028b6, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 491922722536708662, guid: e6add66a1a75721499b9080ecc2028b6, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 491922722536708662, guid: e6add66a1a75721499b9080ecc2028b6, type: 3}
       propertyPath: m_AnchorMin.x
@@ -389,11 +389,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 491922722536708662, guid: e6add66a1a75721499b9080ecc2028b6, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 491922722536708662, guid: e6add66a1a75721499b9080ecc2028b6, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 231.76001
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 491922722536708662, guid: e6add66a1a75721499b9080ecc2028b6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -425,11 +425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 491922722536708662, guid: e6add66a1a75721499b9080ecc2028b6, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 491922722536708662, guid: e6add66a1a75721499b9080ecc2028b6, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 115.880005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 491922722536708662, guid: e6add66a1a75721499b9080ecc2028b6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1167,6 +1167,10 @@ PrefabInstance:
       propertyPath: eventDescription
       value: 
       objectReference: {fileID: 130402638}
+    - target: {fileID: 3823719155416988145, guid: 75858eb316bfce64f860ba0b901ccb84, type: 3}
+      propertyPath: UIManager
+      value: 
+      objectReference: {fileID: 1538847711}
     - target: {fileID: 3997331574662392000, guid: 75858eb316bfce64f860ba0b901ccb84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 428.3169
