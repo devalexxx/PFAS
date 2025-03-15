@@ -70,6 +70,7 @@ MonoBehaviour:
   eventPanel: {fileID: 0}
   eventTitle: {fileID: 0}
   eventDescription: {fileID: 0}
+  EventDay: 30
 --- !u!114 &1596281324386449104
 MonoBehaviour:
   m_ObjectHideFlags: 0
