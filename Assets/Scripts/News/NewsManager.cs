@@ -1,3 +1,4 @@
+using PFAS.Timer;
 using PFAS.UI;
 using UnityEngine;
 
@@ -7,18 +8,23 @@ namespace PFAS.News
     {
         NewsList _news;
         public ScrollingText newsText;
-        
+
+        public int EventDay = 10;
+        int _currentDay = 0;
+
         void Start()
         {
             _news = Resources.Load<NewsList>("News List");
+            TimerManager.OnTick += ChangeDay;
         }
 
-        // Update is called once per frame
-        void Update()
+        public void ChangeDay()
         {
-            if (Input.GetKeyDown(KeyCode.N))
+            _currentDay++;
+            if (_currentDay == EventDay)
             {
-                newsText.SetUpNews(_news.news[Random.Range(0, _news.news.Count)]);
+                if (Random.value < 0.5f) newsText.SetUpNews(_news.news[Random.Range(0, _news.news.Count)]);
+                _currentDay = 0;
             }
         }
     }
