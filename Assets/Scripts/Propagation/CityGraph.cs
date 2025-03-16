@@ -30,7 +30,18 @@ namespace PFAS.Propagation
         
         public void BuildGraph(List<City> p_cities)
         {
-            _citiesResolver = _cities.ToDictionary(t_name => t_name, t_name => p_cities.Find(t_city => t_city.name == t_name));
+            _citiesResolver = new();
+            _cities.ForEach(t_name => {
+                var t_found = p_cities.Find(t_city => t_city.name == t_name);
+                if (t_found != null)
+                {
+                    _citiesResolver[t_name] = t_found;
+                }
+                else
+                {
+                    Debug.LogWarning($"City {t_name} can't be found in scene!");
+                }
+            });
             _mappedLinks    = _links
                 .SelectMany(t_link => new[]
                 {
@@ -38,8 +49,6 @@ namespace PFAS.Propagation
                     new KeyValuePair<(string, string), float>((t_link.rhs, t_link.lhs), t_link.factor)
                 })
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-
-            _mappedLinks.ForEach((k) => Debug.Log($"{k.Key.Item1} {k.Key.Item2}"));
         }
 
         public void Propagate(EnumArray<GlobalStats, float> p_stats)
