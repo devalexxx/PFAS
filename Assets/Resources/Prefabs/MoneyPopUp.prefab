@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8023571097717895028}
   - component: {fileID: 8952516315113891369}
   - component: {fileID: 6676076331339321250}
+  - component: {fileID: 1697515767037816560}
   m_Layer: 0
   m_Name: MoneyPopUp
   m_TagString: Untagged
@@ -138,3 +139,15 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!114 &1697515767037816560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1287751810159407715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51fec32cd5c278e4cb347009d66f9abb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
