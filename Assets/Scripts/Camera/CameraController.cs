@@ -38,8 +38,7 @@ namespace PFAS.Cam
         [SerializeField] private InputActionReference _mousePosAction;
 
         private bool _isDragging = false;
-        private Vector3 _lastDragWorldPos;
-
+        private Vector2 _lastDragScreenPos;
 
         private void Awake()
         {
@@ -76,7 +75,7 @@ namespace PFAS.Cam
             if (EventSystem.current.IsPointerOverGameObject()) return;
             _isDragging = true;
             float t_dragDistance = -_cam.transform.position.z;
-            _lastDragWorldPos = _cam.ScreenToWorldPoint(new Vector3(_mousePosAction.action.ReadValue<Vector2>().x, _mousePosAction.action.ReadValue<Vector2>().y, t_dragDistance));
+            _lastDragScreenPos = _mousePosAction.action.ReadValue<Vector2>();
         }
 
         private void _EndDrag()
@@ -87,15 +86,25 @@ namespace PFAS.Cam
         // Use World Space to compute delta of the drag
         private void _HandleDrag()
         {
-            float t_dragDistance = -_cam.transform.position.z;
-            Vector3 t_currentWorldPos = _cam.ScreenToWorldPoint(new Vector3(_mousePosAction.action.ReadValue<Vector2>().x, _mousePosAction.action.ReadValue<Vector2>().y, t_dragDistance));
-            Vector3 t_dragDelta = t_currentWorldPos - _lastDragWorldPos;
+            Vector2 t_currentScreenPos = _mousePosAction.action.ReadValue<Vector2>();
+            Vector2 t_screenDelta = t_currentScreenPos - _lastDragScreenPos;
+
+            _lastDragScreenPos = t_currentScreenPos;
+
+            float t_worldWidth = _cam.orthographicSize * 2 * _cam.aspect;
+            float t_worldHeight = _cam.orthographicSize * 2;
+
+            Vector3 t_worldDelta = new(t_screenDelta.x / Screen.width * t_worldWidth,
+                                        t_screenDelta.y / Screen.height * t_worldHeight,
+                                        0
+             );
+
+
             // To simulate a "grab" of the scene, camera move in opposite direction of the mouse
-            Vector3 t_newPos = transform.position - t_dragDelta * _panDragSpeed * Time.deltaTime;
+            Vector3 t_newPos = transform.position - t_worldDelta * _panDragSpeed;
 
             t_newPos = _ClampCameraPosition(t_newPos);
             transform.position = t_newPos;
-            _lastDragWorldPos = t_currentWorldPos;
         }
 
         // Panning by screen borders
