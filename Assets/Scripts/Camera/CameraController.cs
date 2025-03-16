@@ -41,7 +41,7 @@ namespace PFAS.Cam
         [Header("Smooth Camera Transition")]
         //coordinates of the relocation position
         [SerializeField] private Vector2 targetViewportPos = new(0.75f, 0.25f);
-
+        [SerializeField] private float _targetZoomToCountry = 10f;
         [SerializeField] private float cameraTransitionDuration = 1f;
         private Coroutine cameraTransitionCoroutine;
 
@@ -181,30 +181,33 @@ namespace PFAS.Cam
         // Move the camera so that the country is at the relocation position
         public void RelocateCountry(Vector3 p_countryPos)
         {
-            float t_distance = -_cam.transform.position.z;
-            // Relocation Position in world space
-            Vector3 t_relocationWorldPos = _cam.ViewportToWorldPoint(new(targetViewportPos.x, targetViewportPos.y,t_distance));
-            // We want t_relocationWorldPos to become p_countryPos, so delta is :
-            Vector3 t_delta = p_countryPos - t_relocationWorldPos;
-            Vector3 t_targetCamPos = transform.position + t_delta;
-            t_targetCamPos = _ClampCameraPosition(t_targetCamPos);
+            Vector3 t_offset = new((targetViewportPos.x - 0.5f) * 2f * _targetZoomToCountry*_cam.aspect,
+                                   (targetViewportPos.y - 0.5f) * 2f * _targetZoomToCountry,
+                                   0f
+            );
+
+            Vector3 t_targetCamPos = _ClampCameraPosition(p_countryPos - t_offset);
+            
 
             // Smoothly move the camera to the new position
             if (cameraTransitionCoroutine != null)
                 StopCoroutine(cameraTransitionCoroutine);
-            cameraTransitionCoroutine = StartCoroutine(_SmoothMoveCamera(transform.position, t_targetCamPos, cameraTransitionDuration));
+            cameraTransitionCoroutine = StartCoroutine(_SmoothMoveCamera(transform.position, t_targetCamPos, _cam.orthographicSize, _targetZoomToCountry,cameraTransitionDuration));
         }
 
-        private IEnumerator _SmoothMoveCamera(Vector3 p_startPos, Vector3 p_endPos, float p_duration)
+        private IEnumerator _SmoothMoveCamera(Vector3 p_startPos, Vector3 p_endPos,float p_startZoom, float p_endZoom, float p_duration)
         {
             float t_elapsed = 0;
             while (t_elapsed < p_duration)
             {
                 t_elapsed += Time.deltaTime;
-                transform.position = Vector3.Lerp(p_startPos, p_endPos, t_elapsed / p_duration);
+                float t_ratio = t_elapsed / p_duration;
+                transform.position = Vector3.Lerp(p_startPos, p_endPos, t_ratio);
+                _cam.orthographicSize = Mathf.Lerp(p_startZoom, p_endZoom, t_ratio);
                 yield return null;
             }
             transform.position = p_endPos;
+            _cam.orthographicSize = p_endZoom;
         }
 
         #endregion
