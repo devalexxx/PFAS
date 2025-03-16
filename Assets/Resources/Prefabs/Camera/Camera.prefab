@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1122933491763342952}
   - component: {fileID: 8739107000705888948}
   - component: {fileID: 5455271279937888611}
+  - component: {fileID: 8581456807843417163}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -155,9 +156,25 @@ MonoBehaviour:
   maxUnzoom: 25
   panSpeed: 10
   edgeThickness: 20
-  panLimitMin: {x: -40, y: -40}
-  panLimitMax: {x: 40, y: 40}
+  panLimitMin: {x: -40, y: -20}
+  panLimitMax: {x: 20, y: 20}
   _panAction: {fileID: 7543940388244525776, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _panAxisAction: {fileID: -7060091435404633631, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _zoomAction: {fileID: 6769923013451603427, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _mousePosAction: {fileID: -4917146618988018546, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+--- !u!114 &8581456807843417163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654979367286189006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
