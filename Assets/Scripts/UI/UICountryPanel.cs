@@ -1,3 +1,4 @@
+using System.Linq;
 using PFAS.Stats;
 using TMPro;
 using UnityEngine;
@@ -87,7 +88,7 @@ namespace PFAS.UI {
             //TODO: set the progress bar value dynamically
             _pfasProgressBarForeground.SetSizeWithCurrentAnchors(
                 RectTransform.Axis.Horizontal,
-                _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width / 10
+                _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width * (_currentCountry.cities.Sum(t_city => t_city.currentContamination) / (100f * _currentCountry.cities.Count))
             );
         }
 
@@ -100,7 +101,7 @@ namespace PFAS.UI {
             //TODO: set the progress bar value dynamically
             _pfasProgressBarForeground.SetSizeWithCurrentAnchors(
                 RectTransform.Axis.Horizontal,
-                _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width / 10
+                _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width * (p_city.currentContamination / 100f)
             );
         }
 
