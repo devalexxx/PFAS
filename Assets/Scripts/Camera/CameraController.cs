@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 
@@ -8,121 +9,158 @@ namespace PFAS.Cam
     {
 
         [Header("Zoom Settings")]
-        public float zoomSpeed = 1f;
-        public float maxZoom = 1f;
-        public float maxUnzoom = 15f;
+        [SerializeField] private float _zoomSpeed = 3f;
+        [SerializeField] private float _maxZoom = 1f;
+        [SerializeField] private float _maxUnzoom = 15f;
 
         [Header("Pan Settings")]
-        public float panSpeed = 1f;
+        [SerializeField] private float _panDragSpeed = 100f;
+        [SerializeField] private float _panEdgeSpeed = 20f;
         //thickness of the screen edge in pixels to trigger the pan
-        public float edgeThickness = 20f;
+        [SerializeField] private float _edgeThickness = 15f;
 
-        [Header("Pan Boundaries")]
+        [Header("Pan Boundaries (World Coordinates)")]
         //coordinates of the boundaries in world space
-        public Vector2 panLimitMin;
-        public Vector2 panLimitMax;
+        [SerializeField] private Vector2 _panLimitMin;
+        [SerializeField] private Vector2 _panLimitMax;
+
 
         private Camera _cam;
 
         [Header("Input Action References")]
         [SerializeField] private InputActionReference _panAction;
-        [SerializeField] private InputActionReference _panAxisAction;
         [SerializeField] private InputActionReference _zoomAction;
         [SerializeField] private InputActionReference _mousePosAction;
 
-        private Vector2 _panAxis;
-        private Vector2 _mousePos;
-        private Vector3 _newPos;
         private bool _isDragging = false;
+        private Vector3 _lastDragWorldPos;
 
 
         private void Awake()
         {
             _cam = GetComponent<Camera>();
 
-            _panAction.action.started += ctx => _Drag();
-            _panAction.action.canceled += ctx => _Undrag();
+            _panAction.action.started += ctx => _StartDrag();
+            _panAction.action.canceled += ctx => _EndDrag();
         }
 
         void Update()
         {
-            // Get the scroll
+            //Zooming
             float t_scroll = _zoomAction.action.ReadValue<float>();
-            if ( t_scroll != 0)
+            if (t_scroll != 0)
             {
                 _HandleZoom(t_scroll);
             }
 
-            _panAxis = _panAxisAction.action.ReadValue<Vector2>();
-            _mousePos = _mousePosAction.action.ReadValue<Vector2>();
-
+            //Panning
             if (_isDragging)
             {
-                //get new pos of camera
-                _newPos = transform.position + new Vector3(-_panAxis.x, -_panAxis.y, 0) * panSpeed * Time.deltaTime;
-
-                //Apply pan limits to the camera
-                _newPos.x = Mathf.Clamp(_newPos.x, panLimitMin.x, panLimitMax.x);
-                _newPos.y = Mathf.Clamp(_newPos.y, panLimitMin.y, panLimitMax.y);
-                _newPos.z = transform.position.z;
-
-                //apply new position to camera
-                transform.position = _newPos;
+                _HandleDrag();
             }
             else
             {
-                Vector3 t_move = Vector3.zero;
-
-                //Handle the camera pan when the mouse is at the edge of the screen
-                if (_mousePos.x < edgeThickness)
-                {
-                    t_move.x -= panSpeed * Time.deltaTime;
-                }
-                if (_mousePos.x > Screen.width - edgeThickness)
-                {
-                    t_move.x += panSpeed * Time.deltaTime;
-                }
-                if (_mousePos.y < edgeThickness)
-                {
-                    t_move.y -= panSpeed * Time.deltaTime;
-                }
-                if (_mousePos.y > Screen.height - edgeThickness)
-                {
-                    t_move.y += panSpeed * Time.deltaTime;
-                }
-
-                // Get new position of the camera
-                _newPos = transform.position + t_move;
-
-                // Apply pan limits to the camera
-                _newPos.x = Mathf.Clamp(_newPos.x, panLimitMin.x, panLimitMax.x);
-                _newPos.y = Mathf.Clamp(_newPos.y, panLimitMin.y, panLimitMax.y);
-                _newPos.z = transform.position.z;
-
-                // Apply new position to camera
-                transform.position = _newPos;
+                _HandleEdgePan();
             }
         }
 
-        // Handle the zoom of the camera
-        private void _HandleZoom(float p_scroll)
-        {
-            if(UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) { return; }
+        #region Drag and Pan
 
-            float t_newSize = _cam.orthographicSize - p_scroll * zoomSpeed;
-            _cam.orthographicSize = Mathf.Clamp(t_newSize, maxZoom, maxUnzoom);
+        private void _StartDrag()
+        {
+            if (EventSystem.current.IsPointerOverGameObject()) return;
+            _isDragging = true;
+            float t_dragDistance = -_cam.transform.position.z;
+            _lastDragWorldPos = _cam.ScreenToWorldPoint(new Vector3(_mousePosAction.action.ReadValue<Vector2>().x, _mousePosAction.action.ReadValue<Vector2>().y, t_dragDistance));
         }
 
-        private void _Drag()
+        private void _EndDrag()
+        {
+            _isDragging = false;
+        }
+
+        // Use World Space to compute delta of the drag
+        private void _HandleDrag()
+        {
+            float t_dragDistance = -_cam.transform.position.z;
+            Vector3 t_currentWorldPos = _cam.ScreenToWorldPoint(new Vector3(_mousePosAction.action.ReadValue<Vector2>().x, _mousePosAction.action.ReadValue<Vector2>().y, t_dragDistance));
+            Vector3 t_dragDelta = t_currentWorldPos - _lastDragWorldPos;
+            // To simulate a "grab" of the scene, camera move in opposite direction of the mouse
+            Vector3 t_newPos = transform.position - t_dragDelta * _panDragSpeed * Time.deltaTime;
+
+            t_newPos = _ClampCameraPosition(t_newPos);
+            transform.position = t_newPos;
+            _lastDragWorldPos = t_currentWorldPos;
+        }
+
+        // Panning by screen borders
+        private void _HandleEdgePan()
+        {
+            Vector3 t_move = Vector3.zero;
+            Vector2 t_mousePos = _mousePosAction.action.ReadValue<Vector2>();
+
+            if (t_mousePos.x < _edgeThickness)
+            {
+                t_move.x -= _panEdgeSpeed * Time.deltaTime;
+            }
+            if (t_mousePos.x > Screen.width - _edgeThickness)
+            {
+                t_move.x += _panEdgeSpeed * Time.deltaTime;
+            }
+            if (t_mousePos.y < _edgeThickness)
+            {
+                t_move.y -= _panEdgeSpeed * Time.deltaTime;
+            }
+            if (t_mousePos.y > Screen.height - _edgeThickness)
+            {
+                t_move.y += _panEdgeSpeed * Time.deltaTime;
+            }
+
+            Vector3 t_newPos = transform.position + t_move;
+            t_newPos = _ClampCameraPosition(t_newPos);
+            transform.position = t_newPos;
+        }
+
+        // Clamp the camera position to the pan limits
+        private Vector3 _ClampCameraPosition(Vector3 p_pos)
+        {
+            // For an orthographic camera, we can calculate the visible extents in world space
+            float t_halfHeight = _cam.orthographicSize;
+            float t_halfWidth = t_halfHeight * _cam.aspect;
+
+
+            // We put the camera's position within the limits
+
+            p_pos.x = Mathf.Clamp(p_pos.x, _panLimitMin.x + t_halfWidth, _panLimitMax.x - t_halfWidth);
+            p_pos.y = Mathf.Clamp(p_pos.y, _panLimitMin.y + t_halfHeight, _panLimitMax.y - t_halfHeight);
+            p_pos.z = transform.position.z; // We don't want to change the z position
+            return p_pos;
+        }
+
+        #endregion
+
+        #region Zoom
+
+        private void _HandleZoom(float p_scroll)
+        {
+            if (EventSystem.current.IsPointerOverGameObject()) return;
+
+            float t_newSize = _cam.orthographicSize - p_scroll * _zoomSpeed;
+            _cam.orthographicSize = Mathf.Clamp(t_newSize, _maxZoom, _maxUnzoom);
+
+            // We also need to clamp the camera position after zooming
+            transform.position = _ClampCameraPosition(transform.position);
+        }
+
+        #endregion
+
         {
             //if the mouse is over a UI element, we do nothing
             if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) { return; }
 
-            _isDragging = true;
         }
-        private void _Undrag()
+
         {
-            _isDragging = false;
         }
     }
 }
