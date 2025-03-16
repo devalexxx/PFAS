@@ -42,7 +42,7 @@ namespace PFAS.Propagation
                     Debug.LogWarning($"City {t_name} can't be found in scene!");
                 }
             });
-            _mappedLinks    = _links
+            _mappedLinks = _links
                 .SelectMany(t_link => new[]
                 {
                     new KeyValuePair<(string, string), float>((t_link.lhs, t_link.rhs), t_link.factor),
@@ -65,13 +65,13 @@ namespace PFAS.Propagation
 
         public List<City> GetLinked(string p_city)
         {
-            List<City> cities = new();
+            List<City> t_cities = new();
             _mappedLinks.ForEach(t_link => {
                 if (t_link.Key.Item1 == p_city)
-                    cities.Add(_citiesResolver[t_link.Key.Item2]);
+                    t_cities.Add(_citiesResolver[t_link.Key.Item2]);
             });
 
-            return cities;
+            return t_cities;
         }
     }   
 }
