@@ -71,36 +71,36 @@ namespace PFAS.Cam
             }
             else
             {
-                // Vector3 t_move = Vector3.zero;
+                Vector3 t_move = Vector3.zero;
 
-                // //Handle the camera pan when the mouse is at the edge of the screen
-                // if (_mousePos.x < edgeThickness)
-                // {
-                //     t_move.x -= panSpeed * Time.deltaTime;
-                // }
-                // if (_mousePos.x > Screen.width - edgeThickness)
-                // {
-                //     t_move.x += panSpeed * Time.deltaTime;
-                // }
-                // if (_mousePos.y < edgeThickness)
-                // {
-                //     t_move.y -= panSpeed * Time.deltaTime;
-                // }
-                // if (_mousePos.y > Screen.height - edgeThickness)
-                // {
-                //     t_move.y += panSpeed * Time.deltaTime;
-                // }
+                //Handle the camera pan when the mouse is at the edge of the screen
+                if (_mousePos.x < edgeThickness)
+                {
+                    t_move.x -= panSpeed * Time.deltaTime;
+                }
+                if (_mousePos.x > Screen.width - edgeThickness)
+                {
+                    t_move.x += panSpeed * Time.deltaTime;
+                }
+                if (_mousePos.y < edgeThickness)
+                {
+                    t_move.y -= panSpeed * Time.deltaTime;
+                }
+                if (_mousePos.y > Screen.height - edgeThickness)
+                {
+                    t_move.y += panSpeed * Time.deltaTime;
+                }
 
-                // // Get new position of the camera
-                // _newPos = transform.position + t_move;
+                // Get new position of the camera
+                _newPos = transform.position + t_move;
 
-                // // Apply pan limits to the camera
-                // _newPos.x = Mathf.Clamp(_newPos.x, panLimitMin.x, panLimitMax.x);
-                // _newPos.y = Mathf.Clamp(_newPos.y, panLimitMin.y, panLimitMax.y);
-                // _newPos.z = transform.position.z;
+                // Apply pan limits to the camera
+                _newPos.x = Mathf.Clamp(_newPos.x, panLimitMin.x, panLimitMax.x);
+                _newPos.y = Mathf.Clamp(_newPos.y, panLimitMin.y, panLimitMax.y);
+                _newPos.z = transform.position.z;
 
-                // // Apply new position to camera
-                // transform.position = _newPos;
+                // Apply new position to camera
+                transform.position = _newPos;
             }
         }
 
