@@ -722,8 +722,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
+      propertyPath: _panLimitMin.x
+      value: -70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
       propertyPath: cameraTransitionDuration
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
