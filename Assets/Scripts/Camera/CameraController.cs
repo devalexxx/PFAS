@@ -161,7 +161,18 @@ namespace PFAS.Cam
 
         }
 
+        private void OnDrawGizmos()
         {
+            Gizmos.color = Color.red;
+
+            // Draw the pan limits
+            Gizmos.DrawLine(new(_panLimitMin.x, _panLimitMin.y, 0), new(_panLimitMax.x, _panLimitMin.y, 0));
+            Gizmos.DrawLine(new(_panLimitMax.x, _panLimitMin.y, 0), new(_panLimitMax.x, _panLimitMax.y, 0));
+            Gizmos.DrawLine(new(_panLimitMax.x, _panLimitMax.y, 0), new(_panLimitMin.x, _panLimitMax.y, 0));
+            Gizmos.DrawLine(new(_panLimitMin.x, _panLimitMax.y, 0), new(_panLimitMin.x, _panLimitMin.y, 0));
+
+            // Draw the relocation position
+            Gizmos.DrawSphere(gameObject.GetComponent<Camera>().ViewportToWorldPoint(new(targetViewportPos.x, targetViewportPos.y, 0)), 1f);
         }
     }
 }
