@@ -51,6 +51,15 @@ namespace PFAS.SystemEvent
             TimerManager.OnTick += ChangeDay;
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.T))
+            {
+                PolygonCollider2D t_poly = GameManager.instance.countries[0].gameObject.GetComponent<PolygonCollider2D>();
+                SpawnObjectInside(t_poly);
+            }
+        }
+
         /// <summary>
         /// This function selects a random event from the list of available events that can be used.
         /// </summary>
@@ -91,6 +100,42 @@ namespace PFAS.SystemEvent
                 PolygonCollider2D t_poly = GameManager.instance.GetRandomCountry().gameObject.GetComponent<PolygonCollider2D>();
                 SpawnObjectInside(t_poly);
             }
+        }
+
+        public void SpawnObjectInside(PolygonCollider2D p_polygonCollider)
+        {
+            if (p_polygonCollider == null || moneyBuble == null) return;
+
+            int t_attempts = 0;
+            Vector2 t_spawnPos;
+
+            do
+            {
+                t_spawnPos = _GetRandomPointInBounds(p_polygonCollider.bounds);
+                t_attempts++;
+            }
+            while (!_IsPointInsidePolygon(t_spawnPos, p_polygonCollider) && t_attempts < maxAttempts);
+
+            if (t_attempts < maxAttempts)
+            {
+                Instantiate(moneyBuble, t_spawnPos, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogWarning("Impossible de trouver une position valide dans le polygone !");
+            }
+        }
+
+        Vector2 _GetRandomPointInBounds(Bounds bounds)
+        {
+            float x = Random.Range(bounds.min.x, bounds.max.x);
+            float y = Random.Range(bounds.min.y, bounds.max.y);
+            return new Vector2(x, y);
+        }
+
+        bool _IsPointInsidePolygon(Vector2 point, PolygonCollider2D p_polygonCollider)
+        {
+            return p_polygonCollider.OverlapPoint(point);
         }
 
         public void SpawnObjectInside(PolygonCollider2D p_polygonCollider)
