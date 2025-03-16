@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2248405502399609258}
   - component: {fileID: 1596281324386449104}
   - component: {fileID: 3823719155416988145}
+  - component: {fileID: 8794727336936219515}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -54,6 +55,7 @@ MonoBehaviour:
     - 0
     - 0
   competencePoints: 0
+  money: 0
   countries: []
 --- !u!114 &2248405502399609258
 MonoBehaviour:
@@ -70,7 +72,8 @@ MonoBehaviour:
   eventPanel: {fileID: 0}
   eventTitle: {fileID: 0}
   eventDescription: {fileID: 0}
-  EventDay: 30
+  eventDay: 30
+  bubbleDay: 15
   moneyBuble: {fileID: 1287751810159407715, guid: 6831448e166d38a498c2dd5a33cdf6fd, type: 3}
   maxAttempts: 100
 --- !u!114 &1596281324386449104
@@ -103,3 +106,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 0}
   _selectAction: {fileID: -2570222712123007097, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+--- !u!114 &8794727336936219515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205339928025227240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5977a79186ea5c34189e05e50559434f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newsText: {fileID: 0}
+  EventDay: 10
