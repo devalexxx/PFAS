@@ -12,7 +12,7 @@ namespace PFAS.SystemEvent
         /// <summary>
         /// The UI panel that displays event information.
         /// </summary>
-        [Header("UI")]
+        [Header("UI - Event")]
         public GameObject eventPanel;
 
         /// <summary>
@@ -27,6 +27,10 @@ namespace PFAS.SystemEvent
 
         public int EventDay = 30;
         int _currentDay = 0;
+
+        [Header("Money Buble")]
+        public GameObject moneyBuble;
+        public int maxAttempts = 100;
 
 
         /// <summary>
@@ -44,6 +48,15 @@ namespace PFAS.SystemEvent
             _events = new List<EventObject>(Resources.LoadAll<EventObject>("Events"));
 
             TimerManager.OnTick += ChangeDay;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.T))
+            {
+                PolygonCollider2D t_poly = GameManager.instance.countries[0].gameObject.GetComponent<PolygonCollider2D>();
+                SpawnObjectInside(t_poly);
+            }
         }
 
         /// <summary>
@@ -81,6 +94,42 @@ namespace PFAS.SystemEvent
                 if (Random.value < 0.5f) ShowEvent();
                 _currentDay = 0;
             }
+        }
+
+        public void SpawnObjectInside(PolygonCollider2D p_polygonCollider)
+        {
+            if (p_polygonCollider == null || moneyBuble == null) return;
+
+            int t_attempts = 0;
+            Vector2 t_spawnPos;
+
+            do
+            {
+                t_spawnPos = _GetRandomPointInBounds(p_polygonCollider.bounds);
+                t_attempts++;
+            }
+            while (!_IsPointInsidePolygon(t_spawnPos, p_polygonCollider) && t_attempts < maxAttempts);
+
+            if (t_attempts < maxAttempts)
+            {
+                Instantiate(moneyBuble, t_spawnPos, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogWarning("Impossible de trouver une position valide dans le polygone !");
+            }
+        }
+
+        Vector2 _GetRandomPointInBounds(Bounds bounds)
+        {
+            float x = Random.Range(bounds.min.x, bounds.max.x);
+            float y = Random.Range(bounds.min.y, bounds.max.y);
+            return new Vector2(x, y);
+        }
+
+        bool _IsPointInsidePolygon(Vector2 point, PolygonCollider2D p_polygonCollider)
+        {
+            return p_polygonCollider.OverlapPoint(point);
         }
     }
 }
