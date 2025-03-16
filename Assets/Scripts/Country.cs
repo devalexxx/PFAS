@@ -1,17 +1,21 @@
 using System.Collections.Generic;
 using System.Linq;
+using PFAS.Map;
 using PFAS.Stats;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace PFAS
 {
-    public class Country : MonoBehaviour
+    public class Country : MonoBehaviour, IPointerClickHandler
     {
         /// <summary>
         /// A property that holds a list of cities. The list is only accessible for reading outside the class, but can be modified within the class.
         /// </summary>
         [field: SerializeField]
         public List<City> cities { get; private set; }
+
+        MapInputManager _map;
 
         /// <summary>
         /// This function is called when the object is initialized. It sets up each city by calling the Setup method for every city in the cities list.
@@ -20,6 +24,11 @@ namespace PFAS
         private void Awake()
         {
             cities.ForEach(city => city.Setup(name));
+        }
+
+        private void Start()
+        {
+            _map = GameManager.instance.GetComponent<MapInputManager>();
         }
 
         /// <summary>
@@ -45,6 +54,11 @@ namespace PFAS
             if (p_divide) t_amout = p_amout / cities.Count;
 
             cities.ForEach(city => city.OnEvent(p_stat, t_amout));
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            
         }
     }
 }

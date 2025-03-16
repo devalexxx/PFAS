@@ -516,30 +516,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: orthographic size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.69803923
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.7019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.6039216
-      objectReference: {fileID: 0}
     - target: {fileID: 1654979367286189006, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
       propertyPath: m_Name
       value: Camera
@@ -583,30 +559,6 @@ PrefabInstance:
     - target: {fileID: 2647151616503033933, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: panSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: maxUnzoom
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: panLimitMax.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: panLimitMax.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: panLimitMin.x
-      value: -40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: panLimitMin.y
-      value: -20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1177,6 +1129,10 @@ PrefabInstance:
     - target: {fileID: 5205339928025227240, guid: 75858eb316bfce64f860ba0b901ccb84, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5584830561723628809, guid: 75858eb316bfce64f860ba0b901ccb84, type: 3}
+      propertyPath: countries.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6142648301101662235, guid: 75858eb316bfce64f860ba0b901ccb84, type: 3}
       propertyPath: newsText
