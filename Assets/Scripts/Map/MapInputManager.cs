@@ -1,4 +1,5 @@
 using PFAS.UI;
+using PFAS.Cam;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,6 +9,8 @@ namespace PFAS.Map
     {
         // Reference to the UI manager
         [SerializeField] private UIManager _uiManager;
+        // Reference to the camera controller
+        [SerializeField] private CameraController _cameraController;
 
         // The selected country
         private CountryOutline _selectedCountry;
@@ -53,6 +56,9 @@ namespace PFAS.Map
                         // Outline the country and set it as the selected country
                         _selectedCountry = t_country;
                         _selectedCountry.Outline();
+
+                        // Move camera to the country
+                        _cameraController.RelocateCountry(t_worldPoint);
 
                         _uiManager.ShowCountryPanel(t_country.gameObject.GetComponent<Country>());
                     }

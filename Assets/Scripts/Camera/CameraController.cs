@@ -24,6 +24,9 @@ namespace PFAS.Cam
         [SerializeField] private Vector2 _panLimitMin;
         [SerializeField] private Vector2 _panLimitMax;
 
+        [Header("Country Relocation Position")]
+        //coordinates of the relocation position
+        [SerializeField] private Vector2 targetViewportPos = new(0.75f, 0.25f);
 
         private Camera _cam;
 
@@ -154,11 +157,23 @@ namespace PFAS.Cam
 
         #endregion
 
+        #region MoveCameraToCountry
+
+        // Move the camera so that the country is at the relocation position
+        public void RelocateCountry(Vector3 p_countryPos)
         {
-            //if the mouse is over a UI element, we do nothing
-            if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) { return; }
+            float t_distance = -_cam.transform.position.z;
+            // Relocation Position in world space
+            Vector3 t_relocationWorldPos = _cam.ViewportToWorldPoint(new(targetViewportPos.x, targetViewportPos.y,t_distance));
+            // We want t_relocationWorldPos to become p_countryPos, so delta is :
+            Vector3 t_delta = p_countryPos - t_relocationWorldPos;
+            Vector3 t_targetCamPos = transform.position + t_delta;
+            t_targetCamPos = _ClampCameraPosition(t_targetCamPos);
+            transform.position = t_targetCamPos;
 
         }
+
+        #endregion
 
         private void OnDrawGizmos()
         {
