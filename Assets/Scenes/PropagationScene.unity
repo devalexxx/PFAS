@@ -572,6 +572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newsText: {fileID: 454198845}
+  eventDay: 10
 --- !u!114 &544035647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -676,7 +677,7 @@ PrefabInstance:
     - target: {fileID: 1934922928674523006, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 0791c4566d13f40a590da14375ed64ae, type: 2}
+      objectReference: {fileID: 2100000, guid: 3481769a44d1640d8acda312d97bdcf2, type: 2}
     - target: {fileID: 3980738614883586458, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
       propertyPath: m_Name
       value: Map_0
@@ -720,7 +721,7 @@ PrefabInstance:
     - target: {fileID: 7310482200563969590, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 0791c4566d13f40a590da14375ed64ae, type: 2}
+      objectReference: {fileID: 2100000, guid: 3481769a44d1640d8acda312d97bdcf2, type: 2}
     - target: {fileID: 7362336778264110363, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
       propertyPath: <cities>k__BackingField.Array.size
       value: 2
