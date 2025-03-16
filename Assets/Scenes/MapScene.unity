@@ -677,30 +677,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: orthographic size
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0.69803923
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0.7019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 1389384265463702492, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0.6039216
-      objectReference: {fileID: 0}
     - target: {fileID: 1654979367286189006, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
       propertyPath: m_Name
       value: Camera
@@ -744,30 +720,6 @@ PrefabInstance:
     - target: {fileID: 2647151616503033933, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: panSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: maxUnzoom
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: panLimitMax.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: panLimitMax.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: panLimitMin.x
-      value: -40
-      objectReference: {fileID: 0}
-    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
-      propertyPath: panLimitMin.y
-      value: -20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1023,6 +975,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d814f2b353647d4dac3226fa06aabdf, type: 3}
+--- !u!114 &1370056913 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
+  m_PrefabInstance: {fileID: 789318906}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00c909ec0132511468dc58abfa153cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1501500744 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 491922722536708662, guid: e6add66a1a75721499b9080ecc2028b6, type: 3}
@@ -1591,6 +1554,14 @@ PrefabInstance:
       propertyPath: UIManager
       value: 
       objectReference: {fileID: 1538847711}
+    - target: {fileID: 3823719155416988145, guid: 75858eb316bfce64f860ba0b901ccb84, type: 3}
+      propertyPath: _uiManager
+      value: 
+      objectReference: {fileID: 1538847711}
+    - target: {fileID: 3823719155416988145, guid: 75858eb316bfce64f860ba0b901ccb84, type: 3}
+      propertyPath: _cameraController
+      value: 
+      objectReference: {fileID: 1370056913}
     - target: {fileID: 3997331574662392000, guid: 75858eb316bfce64f860ba0b901ccb84, type: 3}
       propertyPath: m_LocalPosition.x
       value: 428.3169
