@@ -1,47 +1,16 @@
-using System.Collections;
-using PFAS;
-using PFAS.Timer;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class MoneyBuble : MonoBehaviour, IPointerClickHandler
+public class MoneyBuble : MonoBehaviour
 {
-    public float lifeTime = 5;
-    public float reduceTime = 2;
-    public int moneyGive = 10;
-
-    int _currentDay = 0;
-
-    public void OnPointerClick(PointerEventData eventData)
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        GameManager.instance.money += moneyGive;
-        Destroy(gameObject);
+        
     }
 
-    private void Start()
+    // Update is called once per frame
+    void Update()
     {
-        _currentDay = 0;
-        TimerManager.OnTick += OnDayChange;
-    }
-
-    public void OnDayChange()
-    {
-        _currentDay++;
-        if(_currentDay >= lifeTime)
-        {
-            int t_steps = Mathf.CeilToInt(reduceTime / 0.5f);
-            Vector3 t_scaleStep = transform.localScale / t_steps;
-            transform.localScale -= t_scaleStep;
-        }
-        else if(_currentDay >= lifeTime + reduceTime)
-        {
-            transform.localScale = Vector3.zero;
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        TimerManager.OnTick -= OnDayChange;
+        
     }
 }
