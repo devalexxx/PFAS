@@ -30,7 +30,7 @@ namespace PFAS.UI {
             _currentCountry = p_country;
             _currentCityDisplayed = null;
             gameObject.SetActive(true);
-            SetCountry();
+            _SetCountry();
         }
 
         public void Hide()
@@ -39,7 +39,7 @@ namespace PFAS.UI {
         }
 
         //set all informations about the selected country
-        private void SetCountry()
+        private void _SetCountry()
         {
             _countryNameText.text = _currentCountry.name;
 
@@ -58,8 +58,8 @@ namespace PFAS.UI {
                     Button t_button = Instantiate(_cityButtonPrefab, _cityTabsContainer);
                     t_button.GetComponentInChildren<TextMeshProUGUI>().text = city.name;
                     // catch local var to avoid closing problems
-                    City t_City = city;
-                    t_button.onClick.AddListener(() => ToggleCityStats(t_City));
+                    City t_city = city;
+                    t_button.onClick.AddListener(() => _ToggleCityStats(t_city));
                 }
             }
             else if (_currentCountry.cities.Count < 1) // if no city, hide buttons container
@@ -73,12 +73,12 @@ namespace PFAS.UI {
                 _countryNameText.text = _currentCountry.cities[0].name;
             }
 
-            DisplayCountryStats();
+            _DisplayCountryStats();
 
             _campagnesText.text = "TODO: j'ai pas compris les campagnes je vous avoue donc pour l'instant il y a rien";
         }
 
-        private void DisplayCountryStats()
+        private void _DisplayCountryStats()
         {
             _statVulnerabilityText.text = _currentCountry.GetStat(CityStats.Vulnerability).ToString();
             _statSocialResilienceText.text = _currentCountry.GetStat(CityStats.SocialResilience).ToString();
@@ -91,7 +91,7 @@ namespace PFAS.UI {
             );
         }
 
-        private void DisplayCityStats(City p_city)
+        private void _DisplayCityStats(City p_city)
         {
             _statVulnerabilityText.text = p_city.GetStat(CityStats.Vulnerability).ToString();
             _statSocialResilienceText.text = p_city.GetStat(CityStats.SocialResilience).ToString();
@@ -104,18 +104,18 @@ namespace PFAS.UI {
             );
         }
 
-        private void ToggleCityStats(City p_city)
+        private void _ToggleCityStats(City p_city)
         {
             //if the city is already displayed, display country stats
             if (_currentCityDisplayed == p_city)
             {
                 _currentCityDisplayed = null;
-                DisplayCountryStats();
+                _DisplayCountryStats();
             }
             else
             {
                 _currentCityDisplayed = p_city;
-                DisplayCityStats(p_city);
+                _DisplayCityStats(p_city);
             }
         }
 
@@ -124,11 +124,11 @@ namespace PFAS.UI {
         {
             if(_currentCityDisplayed == null)
             {
-                DisplayCountryStats();
+                _DisplayCountryStats();
             }
             else
             {
-                DisplayCityStats(_currentCityDisplayed);
+                _DisplayCityStats(_currentCityDisplayed);
             }
         }
     }
