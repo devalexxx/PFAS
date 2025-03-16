@@ -158,6 +158,7 @@ MonoBehaviour:
   _edgeThickness: 15
   _panLimitMin: {x: -60, y: -40}
   _panLimitMax: {x: 40, y: 50}
+  targetViewportPos: {x: 0.75, y: 0.25}
   _panAction: {fileID: 7543940388244525776, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _zoomAction: {fileID: 6769923013451603427, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _mousePosAction: {fileID: -4917146618988018546, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
