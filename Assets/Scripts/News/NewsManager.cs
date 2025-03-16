@@ -9,7 +9,7 @@ namespace PFAS.News
         NewsList _news;
         public ScrollingText newsText;
 
-        public int EventDay = 10;
+        public int eventDay = 10;
         int _currentDay = 0;
 
         void Start()
@@ -21,7 +21,7 @@ namespace PFAS.News
         public void ChangeDay()
         {
             _currentDay++;
-            if (_currentDay == EventDay)
+            if (_currentDay == eventDay)
             {
                 if (Random.value < 0.5f) newsText.SetUpNews(_news.news[Random.Range(0, _news.news.Count)]);
                 _currentDay = 0;
