@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace PFAS.UI {
     public class UICountryPanel : MonoBehaviour
     {
-        private Country _CurrentCountry;
+        private Country _currentCountry;
         private City _currentCityDisplayed; // (null = Display country stats)
 
         [Header("Top Row")]
@@ -27,7 +27,7 @@ namespace PFAS.UI {
 
         public void Show(Country p_country)
         {
-            _CurrentCountry = p_country;
+            _currentCountry = p_country;
             _currentCityDisplayed = null;
             gameObject.SetActive(true);
             SetCountry();
@@ -41,7 +41,7 @@ namespace PFAS.UI {
         //set all informations about the selected country
         private void SetCountry()
         {
-            _countryNameText.text = _CurrentCountry.name;
+            _countryNameText.text = _currentCountry.name;
 
             //destroy all buttons in the container before adding new ones
             foreach (Transform t_child in _cityTabsContainer)
@@ -50,19 +50,19 @@ namespace PFAS.UI {
             }
             
             // If country has more than one city, display buttons
-            if (_CurrentCountry.cities.Count > 1)
+            if (_currentCountry.cities.Count > 1)
             {
                 _cityTabsContainer.gameObject.SetActive(true);
-                foreach (City city in _CurrentCountry.cities)
+                foreach (City city in _currentCountry.cities)
                 {
                     Button t_button = Instantiate(_cityButtonPrefab, _cityTabsContainer);
                     t_button.GetComponentInChildren<TextMeshProUGUI>().text = city.name;
                     // catch local var to avoid closing problems
-                    City tempCity = city;
-                    t_button.onClick.AddListener(() => ToggleCityStats(tempCity));
+                    City t_City = city;
+                    t_button.onClick.AddListener(() => ToggleCityStats(t_City));
                 }
             }
-            else if (_CurrentCountry.cities.Count < 1) // if no city, hide buttons container
+            else if (_currentCountry.cities.Count < 1) // if no city, hide buttons container
             {
                 _cityTabsContainer.gameObject.SetActive(false);
             }
@@ -70,7 +70,7 @@ namespace PFAS.UI {
 
             {
                 _cityTabsContainer.gameObject.SetActive(false);
-                _countryNameText.text = _CurrentCountry.cities[0].name;
+                _countryNameText.text = _currentCountry.cities[0].name;
             }
 
             DisplayCountryStats();
@@ -80,9 +80,9 @@ namespace PFAS.UI {
 
         private void DisplayCountryStats()
         {
-            _statVulnerabilityText.text = _CurrentCountry.GetStat(CityStats.Vulnerability).ToString();
-            _statSocialResilienceText.text = _CurrentCountry.GetStat(CityStats.SocialResilience).ToString();
-            _statAdaptabilityText.text = _CurrentCountry.GetStat(CityStats.Adaptability).ToString();
+            _statVulnerabilityText.text = _currentCountry.GetStat(CityStats.Vulnerability).ToString();
+            _statSocialResilienceText.text = _currentCountry.GetStat(CityStats.SocialResilience).ToString();
+            _statAdaptabilityText.text = _currentCountry.GetStat(CityStats.Adaptability).ToString();
 
             //TODO: set the progress bar value dynamically
             _pfasProgressBarForeground.SetSizeWithCurrentAnchors(
