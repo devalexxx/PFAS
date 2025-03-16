@@ -1,5 +1,6 @@
 using System.Collections;
 using PFAS;
+using PFAS.Timer;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -9,6 +10,8 @@ public class MoneyBuble : MonoBehaviour, IPointerClickHandler
     public float reduceTime = 2;
     public int moneyGive = 10;
 
+    int _currentDay = 0;
+
     public void OnPointerClick(PointerEventData eventData)
     {
         GameManager.instance.money += moneyGive;
@@ -17,27 +20,28 @@ public class MoneyBuble : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-        StartCoroutine(Duration());
+        _currentDay = 0;
+        TimerManager.OnTick += OnDayChange;
     }
 
-    public IEnumerator Duration()
+    public void OnDayChange()
     {
-        yield return new WaitForSeconds(lifeTime);
-
-        float t_time = 0;
-        int t_steps = Mathf.CeilToInt(reduceTime / 0.1f); // Nombre d'itérations
-        Vector3 t_scaleStep = transform.localScale / t_steps; // Réduction exacte par step
-
-        while (t_time < reduceTime)
+        _currentDay++;
+        if(_currentDay >= lifeTime)
         {
-            yield return new WaitForSeconds(0.1f);
-            t_time += 0.1f;
+            int t_steps = Mathf.CeilToInt(reduceTime / 0.5f);
+            Vector3 t_scaleStep = transform.localScale / t_steps;
             transform.localScale -= t_scaleStep;
         }
-
-        // S'assurer que la taille est bien à zéro après la boucle
-        transform.localScale = Vector3.zero;
-        Destroy(gameObject);
+        else if(_currentDay >= lifeTime + reduceTime)
+        {
+            transform.localScale = Vector3.zero;
+            Destroy(gameObject);
+        }
     }
 
+    private void OnDestroy()
+    {
+        TimerManager.OnTick -= OnDayChange;
+    }
 }
