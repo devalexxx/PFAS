@@ -62,6 +62,10 @@ namespace PFAS.UI {
                     t_button.onClick.AddListener(() => ToggleCityStats(tempCity));
                 }
             }
+            else if (_CurrentCountry.cities.Count < 1) // if no city, hide buttons container
+            {
+                _cityTabsContainer.gameObject.SetActive(false);
+            }
             else // if only one city, hide buttons container and rename _countryNameText.text by city name
 
             {
