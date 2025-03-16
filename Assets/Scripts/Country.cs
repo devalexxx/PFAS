@@ -16,6 +16,7 @@ namespace PFAS
         public List<City> cities { get; private set; }
 
         MapInputManager _map;
+        private SpriteRenderer        _mask;
         private MaterialPropertyBlock _blockProps;
 
         /// <summary>
@@ -26,12 +27,14 @@ namespace PFAS
         {
             cities.ForEach(city => city.Setup(name));
             _blockProps = new();
+            
+            _mask = GetComponent<SpriteRenderer>();
         }
 
         private void Update()
         {
             _blockProps.SetFloat("_Spread", cities.Sum(t_city => t_city.currentContamination) / (100f * cities.Count));
-            GetComponent<SpriteRenderer>().SetPropertyBlock(_blockProps);
+            _mask.SetPropertyBlock(_blockProps);
         }
 
         private void Start()
