@@ -61,11 +61,13 @@ namespace PFAS.Map
                         _cameraController.RelocateCountry(t_worldPoint);
 
                         _uiManager.ShowCountryPanel(t_country.gameObject.GetComponent<Country>());
+                        _cameraController.SetCanEdgePan(false);
                     }
                     else
                     {
                         _selectedCountry = null;
                         _uiManager.HideCountryPanel();
+                        _cameraController.SetCanEdgePan(true);
                     }
                 }
                 else
@@ -75,6 +77,7 @@ namespace PFAS.Map
                         // remove outline
                         _selectedCountry.RemoveOutline();
                         _selectedCountry = null;
+                        _cameraController.SetCanEdgePan(true);
                     }
                 }
             }

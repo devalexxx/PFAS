@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 namespace PFAS.Cam
@@ -25,6 +26,7 @@ namespace PFAS.Cam
         //coordinates of the boundaries in world space
         [SerializeField] private Vector2 _panLimitMin;
         [SerializeField] private Vector2 _panLimitMax;
+        private bool _canEdgePan = true;
 
         private Camera _cam;
 
@@ -66,7 +68,7 @@ namespace PFAS.Cam
             {
                 _HandleDrag();
             }
-            else
+            else if (_canEdgePan)
             {
                 _HandleEdgePan();
             }
@@ -143,6 +145,11 @@ namespace PFAS.Cam
             p_pos.y = Mathf.Clamp(p_pos.y, _panLimitMin.y + t_halfHeight, _panLimitMax.y - t_halfHeight);
             p_pos.z = transform.position.z; // We don't want to change the z position
             return p_pos;
+        }
+
+        public void SetCanEdgePan(bool p_canEdgePan)
+        {
+            _canEdgePan = p_canEdgePan;
         }
 
         #endregion
