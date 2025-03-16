@@ -495,10 +495,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1391990812471314093, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
-      propertyPath: m_TagString
-      value: Country
-      objectReference: {fileID: 0}
     - target: {fileID: 3980738614883586458, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
       propertyPath: m_Name
       value: Map_0
@@ -775,6 +771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pauseInput: {fileID: 880605461409731417, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _pausePanel: {fileID: 1841941866}
+  _countryPanel: {fileID: 0}
 --- !u!1001 &1841941864
 PrefabInstance:
   m_ObjectHideFlags: 0

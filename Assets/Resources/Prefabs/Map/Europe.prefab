@@ -141,6 +141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portugal
       objectReference: {fileID: 0}
+    - target: {fileID: 4671434223108132733, guid: 36056d17f856d984fafba5e74b3b4708, type: 3}
+      propertyPath: m_TagString
+      value: Country
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -202,6 +206,10 @@ PrefabInstance:
     - target: {fileID: 5384129131116574857, guid: f11ad2b77656d4442ac117a17901e47e, type: 3}
       propertyPath: m_Name
       value: France
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384129131116574857, guid: f11ad2b77656d4442ac117a17901e47e, type: 3}
+      propertyPath: m_TagString
+      value: Country
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

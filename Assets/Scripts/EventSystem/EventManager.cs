@@ -128,9 +128,9 @@ namespace PFAS.SystemEvent
 
         Vector2 _GetRandomPointInBounds(Bounds bounds)
         {
-            float x = Random.Range(bounds.min.x, bounds.max.x);
-            float y = Random.Range(bounds.min.y, bounds.max.y);
-            return new Vector2(x, y);
+            float t_x = Random.Range(bounds.min.x, bounds.max.x);
+            float t_y = Random.Range(bounds.min.y, bounds.max.y);
+            return new Vector2(t_x, t_y);
         }
 
         bool _IsPointInsidePolygon(Vector2 point, PolygonCollider2D p_polygonCollider)
