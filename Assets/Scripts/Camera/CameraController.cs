@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -25,10 +26,6 @@ namespace PFAS.Cam
         [SerializeField] private Vector2 _panLimitMin;
         [SerializeField] private Vector2 _panLimitMax;
 
-        [Header("Country Relocation Position")]
-        //coordinates of the relocation position
-        [SerializeField] private Vector2 targetViewportPos = new(0.75f, 0.25f);
-
         private Camera _cam;
 
         [Header("Input Action References")]
@@ -38,6 +35,13 @@ namespace PFAS.Cam
 
         private bool _isDragging = false;
         private Vector3 _lastDragWorldPos;
+
+        [Header("Smooth Camera Transition")]
+        //coordinates of the relocation position
+        [SerializeField] private Vector2 targetViewportPos = new(0.75f, 0.25f);
+
+        [SerializeField] private float cameraTransitionDuration = 1f;
+        private Coroutine cameraTransitionCoroutine;
 
 
         private void Awake()
@@ -170,8 +174,23 @@ namespace PFAS.Cam
             Vector3 t_delta = p_countryPos - t_relocationWorldPos;
             Vector3 t_targetCamPos = transform.position + t_delta;
             t_targetCamPos = _ClampCameraPosition(t_targetCamPos);
-            transform.position = t_targetCamPos;
 
+            // Smoothly move the camera to the new position
+            if (cameraTransitionCoroutine != null)
+                StopCoroutine(cameraTransitionCoroutine);
+            cameraTransitionCoroutine = StartCoroutine(_SmoothMoveCamera(transform.position, t_targetCamPos, cameraTransitionDuration));
+        }
+
+        private IEnumerator _SmoothMoveCamera(Vector3 p_startPos, Vector3 p_endPos, float p_duration)
+        {
+            float t_elapsed = 0;
+            while (t_elapsed < p_duration)
+            {
+                t_elapsed += Time.deltaTime;
+                transform.position = Vector3.Lerp(p_startPos, p_endPos, t_elapsed / p_duration);
+                yield return null;
+            }
+            transform.position = p_endPos;
         }
 
         #endregion
