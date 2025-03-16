@@ -1,4 +1,5 @@
 using System.Collections;
+using PFAS;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,9 +7,11 @@ public class MoneyBuble : MonoBehaviour, IPointerClickHandler
 {
     public float lifeTime = 5;
     public float reduceTime = 2;
+    public int moneyGive = 10;
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        GameManager.instance.money += moneyGive;
         Destroy(gameObject);
     }
 

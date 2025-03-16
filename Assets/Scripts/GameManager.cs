@@ -24,6 +24,8 @@ namespace PFAS
         /// </summary>
         public int competencePoints = 0;
 
+        public int money = 0;
+
         /// <summary>
         /// A readonly list of countries in the game.
         /// </summary>
@@ -53,6 +55,8 @@ namespace PFAS
         /// </summary>
         /// <returns>Returns a list of all City objects in the game.</returns>
         public List<City> GetAllCities() => countries.SelectMany(c => c.cities).ToList();
+
+        public Country GetRandomCountry() => countries[Random.Range(0, countries.Count)];
 
         /// <summary>
         /// This function returns the cities of a specific country, identified by its name.

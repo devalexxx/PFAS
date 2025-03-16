@@ -25,7 +25,8 @@ namespace PFAS.SystemEvent
         /// </summary>
         public TextMeshProUGUI eventDescription;
 
-        public int EventDay = 30;
+        public int eventDay = 30;
+        public int bubbleDay = 15;
         int _currentDay = 0;
 
         [Header("Money Buble")]
@@ -48,15 +49,6 @@ namespace PFAS.SystemEvent
             _events = new List<EventObject>(Resources.LoadAll<EventObject>("Events"));
 
             TimerManager.OnTick += ChangeDay;
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyUp(KeyCode.T))
-            {
-                PolygonCollider2D t_poly = GameManager.instance.countries[0].gameObject.GetComponent<PolygonCollider2D>();
-                SpawnObjectInside(t_poly);
-            }
         }
 
         /// <summary>
@@ -89,10 +81,15 @@ namespace PFAS.SystemEvent
         public void ChangeDay()
         {
             _currentDay++;
-            if(_currentDay == EventDay)
+            if(_currentDay % eventDay == 0)
             {
                 if (Random.value < 0.5f) ShowEvent();
-                _currentDay = 0;
+            }
+            else if(_currentDay % bubbleDay == 0)
+            {
+
+                PolygonCollider2D t_poly = GameManager.instance.GetRandomCountry().gameObject.GetComponent<PolygonCollider2D>();
+                SpawnObjectInside(t_poly);
             }
         }
 
