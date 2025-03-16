@@ -7,7 +7,7 @@ namespace PFAS.Map
     public class MapInputManager : MonoBehaviour
     {
         // Reference to the UI manager
-        [SerializeField] private UIManager UIManager;
+        [SerializeField] private UIManager _uiManager;
 
         // The selected country
         private CountryOutline _selectedCountry;
@@ -54,12 +54,12 @@ namespace PFAS.Map
                         _selectedCountry = t_country;
                         _selectedCountry.Outline();
 
-                        UIManager.ShowCountryPanel(t_country.gameObject.GetComponent<Country>());
+                        _uiManager.ShowCountryPanel(t_country.gameObject.GetComponent<Country>());
                     }
                     else
                     {
                         _selectedCountry = null;
-                        UIManager.HideCountryPanel();
+                        _uiManager.HideCountryPanel();
                     }
                 }
                 else
