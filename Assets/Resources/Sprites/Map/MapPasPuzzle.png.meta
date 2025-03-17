@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0f22e450369ee27478f42cba26da2b7b
+guid: e861703fdabe1604c96ccd031c861df3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7337233616846088891
-    second: PortugalHighlighted_0
+      213: 7627023563991720096
+    second: MapPasPuzzle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PortugalHighlighted_0
+      name: MapPasPuzzle_0
       rect:
         serializedVersion: 2
-        x: 713
-        y: 491
-        width: 657
-        height: 1103
+        x: 0
+        y: 0
+        width: 8000
+        height: 8027
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: bba6a26a91713d560800000000000000
-      internalID: 7337233616846088891
+      spriteID: 0a0a2419581a8d960800000000000000
+      internalID: 7627023563991720096
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      PortugalHighlighted_0: 7337233616846088891
+      MapPasPuzzle_0: 7627023563991720096
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

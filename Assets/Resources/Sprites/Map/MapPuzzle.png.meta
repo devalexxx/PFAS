@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7261ecabf74558a43971d754d1d2f033
+guid: d41a76157664eb94cbe60847279b47e1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5905195807194413844
-    second: EspagneHighlighted_0
+      213: 187700224745927096
+    second: MapPuzzle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: EspagneHighlighted_0
+      name: MapPuzzle_0
       rect:
         serializedVersion: 2
-        x: 94
-        y: 164
-        width: 1950
-        height: 1749
+        x: 0
+        y: 0
+        width: 8000
+        height: 8027
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ce40d0f43b78c0ea0800000000000000
-      internalID: -5905195807194413844
+      spriteID: 8b1fd342c58da9200800000000000000
+      internalID: 187700224745927096
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      EspagneHighlighted_0: -5905195807194413844
+      MapPuzzle_0: 187700224745927096
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

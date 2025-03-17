@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 86ef48de644f5484ebe9cb15d90376e9
+guid: ce7dc03f0d3f22a4eb4999a6afe75954
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 32356730255885450
-    second: Espagne_0
+      213: -1658120227761295864
+    second: France_Highlighted_0
   - first:
-      213: 4931928642867696031
-    second: Espagne_1
+      213: -9094142462195309187
+    second: France_Highlighted_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Espagne_0
+      name: France_Highlighted_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 175
-        width: 1936
-        height: 1735
+        x: 83
+        y: 290
+        width: 1839
+        height: 1861
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a84cef45644f27000800000000000000
-      internalID: 32356730255885450
+      spriteID: 80ee56d107c2df8e0800000000000000
+      internalID: -1658120227761295864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Espagne_1
+      name: France_Highlighted_1
       rect:
         serializedVersion: 2
-        x: 2023
-        y: 783
-        width: 53
-        height: 31
+        x: 1981
+        y: 50
+        width: 135
+        height: 267
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9114bf58fab17440800000000000000
-      internalID: 4931928642867696031
+      spriteID: d756d0c0d9d1bc180800000000000000
+      internalID: -9094142462195309187
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Espagne_0: 32356730255885450
-      Espagne_1: 4931928642867696031
+      France_Highlighted_0: -1658120227761295864
+      France_Highlighted_1: -9094142462195309187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
