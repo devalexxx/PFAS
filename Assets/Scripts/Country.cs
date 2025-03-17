@@ -33,6 +33,7 @@ namespace PFAS
 
         private void Update()
         {
+            _mask.GetPropertyBlock(_blockProps);
             _blockProps.SetFloat("_Spread", cities.Sum(t_city => t_city.currentContamination) / (100f * cities.Count));
             _mask.SetPropertyBlock(_blockProps);
         }
