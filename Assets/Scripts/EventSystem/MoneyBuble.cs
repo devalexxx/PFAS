@@ -21,7 +21,6 @@ namespace PFAS.SystemEvent {
         {
             _currentDay = 0;
             TimerManager.OnTick += OnDayChange;
-            Destroy(gameObject, lifeTime + reduceTime);
         }
 
         public void OnDayChange()
@@ -33,7 +32,7 @@ namespace PFAS.SystemEvent {
                 Vector3 t_scaleStep = transform.localScale / t_steps;
                 transform.localScale -= t_scaleStep;
             }
-            else if (_currentDay >= lifeTime + reduceTime)
+            if (_currentDay >= lifeTime + reduceTime)
             {
                 transform.localScale = Vector3.zero;
                 Destroy(gameObject);
