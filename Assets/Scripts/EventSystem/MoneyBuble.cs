@@ -21,6 +21,7 @@ namespace PFAS.SystemEvent {
         {
             _currentDay = 0;
             TimerManager.OnTick += OnDayChange;
+            Destroy(gameObject, lifeTime + reduceTime);
         }
 
         public void OnDayChange()
