@@ -102,7 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05dda5d94e15c34bba1aa45ba323062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectionScaleFactor: 1.1
 --- !u!60 &-2584530692507218562
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -639,3 +638,24 @@ MonoBehaviour:
     isCapital: 1
     stats:
       _array: []
+    _currentContamination: 0
+  - name: La ville en bretagne la
+    isCapital: 0
+    stats:
+      _array: []
+    _currentContamination: 0
+  - name: La ville au nord mais pas en bretagne
+    isCapital: 1
+    stats:
+      _array: []
+    _currentContamination: 0
+  - name: Renaud City
+    isCapital: 1
+    stats:
+      _array: []
+    _currentContamination: 0
+  - name: Ivan Ville
+    isCapital: 1
+    stats:
+      _array: []
+    _currentContamination: 0
