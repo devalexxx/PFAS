@@ -7,14 +7,13 @@ namespace PFAS.Gameplay
 {
     public class Skill : MonoBehaviour
     {
-        public string name { get; private set; }
-        public string description { get; private set; }
-        public int cost { get; private set; }
+        public string description;
+        public int cost;
         public EnumArray<GlobalStats, float> stats;
-        public Skill[] after { get; private set; }
-        public Skill[] previous { get; private set; }
-        public bool unlocked { get; private set; }
-        public bool purchased { get; private set; } = false;
+        public Skill[] previous;
+        public Skill[] after;
+        public bool unlocked;
+        public bool purchased = false;
 
         public Skill(string p_name, string p_description, int p_cost, float p_regulation, float p_technologie, float p_prevention, float p_globalPollution, bool p_unlocked, Skill[] p_after = default(Skill[]), Skill[] p_previous = default(Skill[]))
         {
@@ -31,23 +30,25 @@ namespace PFAS.Gameplay
             previous = p_previous;
         }
 
-        public void BuySkill(int competencePoints)
+        public bool BuySkill()
         {
-            if (competencePoints >= cost)
+            if (purchased)
+                return true;
+            if (unlocked)
             {
-                if (unlocked)
+                if (GameManager.instance.competencePoints >= cost)
                 {
-                    foreach (GlobalStats currentStat in Enum.GetValues(typeof(GlobalStats)))
-                    {
-                        GameManager.instance.UpdateStats(currentStat, stats[currentStat], cost);
-                    }
+                    
+                    GameManager.instance.UpdateStats(stats, cost);
                     purchased = true;
                     foreach (Skill skill in after)
                     {
                         skill.CheckUnlockSkill();
                     }
+                    return true;
                 }
             }
+            return false;
         }
         public void CheckUnlockSkill()
         {
@@ -57,13 +58,15 @@ namespace PFAS.Gameplay
             }
             else
             {
+                bool isUnlockable = true;
                 foreach (Skill skill in previous)
                 {
-                    if (skill.purchased)
+                    if (!skill.purchased)
                     {
-                        unlocked = true;
+                        isUnlockable = false;
                     }
                 }
+                unlocked = isUnlockable;
             }
         }
     }

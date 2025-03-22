@@ -26,6 +26,23 @@ namespace PFAS.Gameplay
             _extensiveEpidemiologicalStudies[0] = new Skill("Mapping of PFAS-related diseases", "", 7, 0, 8, 8, 5, false);
             _extensiveEpidemiologicalStudies[1] = new Skill("Advanced bioassays", "", 8, 0, 10, 10, 0, false);
             _extensiveEpidemiologicalStudies[2] = new Skill("Impact on reproduction and development", "", 9, 6, 8, 5, 0, false);
+
+            foreach (Skill skill in _advancedDetectionMethods)
+            {
+                skill.CheckUnlockSkill();
+            }
+            foreach (Skill skill in _innovativeDecontaminationTechnologies)
+            {
+                skill.CheckUnlockSkill();
+            }
+            foreach (Skill skill in _chemicalAlternatives)
+            {
+                skill.CheckUnlockSkill();
+            }
+            foreach (Skill skill in _extensiveEpidemiologicalStudies)
+            {
+                skill.CheckUnlockSkill();
+            }
         }
 
     }

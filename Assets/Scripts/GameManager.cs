@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using MyBox;
 using PFAS.Stats;
 using PFAS.Utils;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace PFAS
 {
@@ -17,7 +19,7 @@ namespace PFAS
         /// <summary>
         /// A variable that holds an EnumArray mapping GlobalStats to corresponding float values. It is used to track and modify global statistics.
         /// </summary>
-        public EnumArray<GlobalStats, float> gloablStats = new EnumArray<GlobalStats, float>();
+        public EnumArray<GlobalStats, float> globalStats = new EnumArray<GlobalStats, float>();
 
         /// <summary>
         /// A variable that holds the number of competence points available.
@@ -65,12 +67,14 @@ namespace PFAS
         /// <summary>
         /// This function updates the global statistics and subtracts the given cost from the competence points.
         /// </summary>
-        /// <param name="p_stat">The global statistic to be updated.</param>
-        /// <param name="p_amount">The amount to be added to the global statistic.</param>
+        /// <param name="stats">The global statistic to be updated.</param>
         /// <param name="p_cost">The cost in competence points for updating the statistic.</param>
-        public void UpdateStats(GlobalStats p_stat, float p_amount, int p_cost)
+        public void UpdateStats(EnumArray<GlobalStats, float> stats, int p_cost)
         {
-            gloablStats[p_stat] += p_amount;
+            foreach (GlobalStats p_stat in Enum.GetValues(typeof(GlobalStats)))
+            {
+                globalStats[p_stat] += stats[p_stat];
+            }
             competencePoints -= p_cost;
         }
     }

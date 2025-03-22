@@ -25,6 +25,23 @@ namespace PFAS.Gameplay
             _scenarioSimulation[0] = new Skill("Predictive contamination models", "", 1, 0, 5, 10, -6, false);
             _scenarioSimulation[1] = new Skill("Impact studies on flora and fauna", "", 2, 0, 4, 8, -4, false);
             _scenarioSimulation[2] = new Skill("Preparing for health crises", "", 3, 5, 0, 12, -7, false);
+
+            foreach (Skill skill in _globalNetworkOfEnvironmentalSensors)
+            {
+                skill.CheckUnlockSkill();
+            }
+            foreach (Skill skill in _targetedAwarenessCampaigns)
+            {
+                skill.CheckUnlockSkill();
+            }
+            foreach (Skill skill in _industrialTracing)
+            {
+                skill.CheckUnlockSkill();
+            }
+            foreach (Skill skill in _scenarioSimulation)
+            {
+                skill.CheckUnlockSkill();
+            }
         }
 
     }

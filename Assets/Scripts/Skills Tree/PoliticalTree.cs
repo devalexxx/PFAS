@@ -26,6 +26,23 @@ namespace PFAS.Gameplay
             _pfasTaxes[0] = new Skill("Progressive taxation", "", 7, 10, 0, 0, -7, false);
             _pfasTaxes[1] = new Skill("Fines for pollution", "", 8, 6, 0, 0, -5, false);
             _pfasTaxes[2] = new Skill("Reinvestment of taxes", "", 9, 0, 8, 0, -6, false);
+
+            foreach (Skill skill in _acceleratedLegislation)
+            {
+                skill.CheckUnlockSkill();
+            }
+            foreach (Skill skill in _environmentalSubsidies)
+            {
+                skill.CheckUnlockSkill();
+            }
+            foreach (Skill skill in _internationalStandards)
+            {
+                skill.CheckUnlockSkill();
+            }
+            foreach (Skill skill in _pfasTaxes)
+            {
+                skill.CheckUnlockSkill();
+            }
         }
     }
 }

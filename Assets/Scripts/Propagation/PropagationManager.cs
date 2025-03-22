@@ -21,7 +21,7 @@ namespace PFAS.Propagation
 
         private void _OnTimerTick()
         {
-            _graph.Propagate(GameManager.instance.gloablStats);
+            _graph.Propagate(GameManager.instance.globalStats);
         }
     }
 

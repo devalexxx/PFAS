@@ -45,13 +45,13 @@ namespace PFAS.Stats
                 .Cast<GlobalStats>()
                 .Where(stat => minGlobalStats[stat] != 0)
                 .ToList()
-                .ForEach(stat => t_canUse &= minGlobalStats[stat] <= GameManager.instance.gloablStats[stat]);
+                .ForEach(stat => t_canUse &= minGlobalStats[stat] <= GameManager.instance.globalStats[stat]);
 
             Enum.GetValues(typeof(GlobalStats))
                 .Cast<GlobalStats>()
                 .Where(stat => maxGlobalStats[stat] != 0)
                 .ToList()
-                .ForEach(stat => t_canUse &= maxGlobalStats[stat] >= GameManager.instance.gloablStats[stat]);
+                .ForEach(stat => t_canUse &= maxGlobalStats[stat] >= GameManager.instance.globalStats[stat]);
 
             return t_canUse;
         }
