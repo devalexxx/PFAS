@@ -65,9 +65,7 @@ namespace PFAS.Map
                     }
                     else
                     {
-                        _selectedCountry = null;
-                        _uiManager.HideCountryPanel();
-                        _cameraController.SetCanEdgePan(true);
+                        UnselectCountry();
                     }
                 }
                 else
@@ -82,5 +80,15 @@ namespace PFAS.Map
                 }
             }
         }
+
+        public void UnselectCountry()
+        {
+            if (_selectedCountry.hasOutline) { _selectedCountry.RemoveOutline(); }
+
+            _selectedCountry = null;
+            _uiManager.HideCountryPanel();
+            _cameraController.SetCanEdgePan(true);
+        }
+
     }
 }
