@@ -1,4 +1,5 @@
 using System.Linq;
+using PFAS.Campagnes;
 using PFAS.Stats;
 using TMPro;
 using UnityEngine;
@@ -24,7 +25,7 @@ namespace PFAS.UI {
         [SerializeField] private RectTransform _pfasProgressBarForeground;
 
         [Header("Campagnes")]
-        [SerializeField] private TextMeshProUGUI _campagnesText;
+        [SerializeField] private CampagnesUI _campagnesObj;
 
         public void Show(Country p_country)
         {
@@ -75,8 +76,6 @@ namespace PFAS.UI {
             }
 
             _DisplayCountryStats();
-
-            _campagnesText.text = "TODO: j'ai pas compris les campagnes je vous avoue donc pour l'instant il y a rien";
         }
 
         private void _DisplayCountryStats()
@@ -90,6 +89,8 @@ namespace PFAS.UI {
                 RectTransform.Axis.Horizontal,
                 _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width * (_currentCountry.cities.Sum(t_city => t_city.currentContamination) / (100f * _currentCountry.cities.Count))
             );
+
+            _campagnesObj.gameObject.SetActive(false);
         }
 
         private void _DisplayCityStats(City p_city)
@@ -103,6 +104,9 @@ namespace PFAS.UI {
                 RectTransform.Axis.Horizontal,
                 _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width * (p_city.currentContamination / 100f)
             );
+
+            _campagnesObj.gameObject.SetActive(true);
+            _campagnesObj.SetUpCampagne(p_city);
         }
 
         private void _ToggleCityStats(City p_city)
