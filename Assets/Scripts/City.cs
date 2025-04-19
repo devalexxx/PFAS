@@ -3,6 +3,7 @@ using PFAS.Stats;
 using PFAS.Utils;
 using MyBox;
 using UnityEngine;
+using PFAS.SystemEvent;
 
 namespace PFAS
 {
@@ -73,11 +74,11 @@ namespace PFAS
         /// <summary>
         /// This function is used to modify a specific city's statistic by a certain amount.
         /// </summary>
-        /// <param name="statToChange">The statistic to be modified.</param>
-        /// <param name="amount">The amount to change the statistic by.</param>
-        public void OnEvent(CityStats statToChange, float amount)
+        /// <param name="t_statToChange">The statistic to be modified.</param>
+        /// <param name="t_amount">The amount to change the statistic by.</param>
+        public void OnEvent(CityStats t_statToChange, float t_amount, TypeEvent t_eventType)
         {
-            stats[statToChange] += amount;
+            stats[t_statToChange] += t_amount;
         }
 
         /// <summary>

@@ -114,7 +114,7 @@ namespace PFAS.SystemEvent.Events
                 .Cast<CityStats>()
                 .Where(stat => statsToChange[stat] != 0)
                 .ToList()
-                .ForEach(stat => _country.OnEvent(stat, statsToChange[stat], divideForEachCity));
+                .ForEach(stat => _country.OnEvent(stat, statsToChange[stat], TypeEvent.Event, divideForEachCity));
         }
 
         /// <summary>

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PFAS.Map;
 using PFAS.Stats;
+using PFAS.SystemEvent;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -59,12 +60,12 @@ namespace PFAS
         /// <param name="p_amout">The amount of change to apply to the statistic.</param>
         /// <param name="p_divide">Optional parameter to determine if the amount should be divided by the number of cities (default is true).</param>
 
-        public void OnEvent(CityStats p_stat, float p_amout, bool p_divide = true)
+        public void OnEvent(CityStats p_stat, float p_amout, TypeEvent p_eventType, bool p_divide = true)
         {
             float t_amout = p_amout;
             if (p_divide) t_amout = p_amout / cities.Count;
 
-            cities.ForEach(city => city.OnEvent(p_stat, t_amout));
+            cities.ForEach(city => city.OnEvent(p_stat, t_amout, p_eventType));
         }
 
         public void OnPointerClick(PointerEventData eventData)

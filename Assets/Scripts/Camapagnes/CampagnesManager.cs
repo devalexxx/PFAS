@@ -23,7 +23,13 @@ namespace PFAS.Campagnes
 
         public void OnDay()
         {
-            campagnes.ForEach(c => c.timeBeforeFinish--);
+            campagnes.ForEach(c => {
+                c.timeBeforeFinish--;
+                if(c.timeBeforeFinish <= 0)
+                {
+                    c.city.OnEvent(c.stats, c.amount, SystemEvent.TypeEvent.Campagne);
+                }
+            });
             campagnes.RemoveAll(c => c.timeBeforeFinish <= 0);
         }
 
@@ -36,6 +42,7 @@ namespace PFAS.Campagnes
         public City city;
         public int amount;
         public int timeBeforeFinish;
+        public int initialTime { get; private set; }
 
         public Campagne(CityStats t_stats, City t_city, int t_amount, int t_timeBeforeFinish)
         {
@@ -43,6 +50,7 @@ namespace PFAS.Campagnes
             city = t_city;
             amount = t_amount;
             timeBeforeFinish = t_timeBeforeFinish;
+            initialTime = t_timeBeforeFinish;
         }
     }
 }
