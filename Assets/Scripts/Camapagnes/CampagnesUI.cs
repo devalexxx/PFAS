@@ -1,5 +1,8 @@
 using System;
+using System.Linq;
+using MyBox;
 using PFAS.Stats;
+using PFAS.Timer;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,30 +11,84 @@ namespace PFAS.Campagnes
 {
     public class CampagnesUI : MonoBehaviour
     {
+        [Separator("Choose Campagne")]
         public TMP_Dropdown campagneDropdown;
         public Slider campagneSlider;
         public TextMeshProUGUI moneyText, timeText, amountText;
 
+        [Separator("Campagne Obj")]
+        public GameObject chooseCampagne, showCampagne;
+
         public CampagnesManager manager;
+
+        [Separator("Show Campagne")]
+        public Image sliderImage;
+        public TextMeshProUGUI campagneTitre;
 
         int _currentMoneyToUse;
 
         City _city;
         CityStats _cityStats;
 
+        Campagne _campagne;
+
+        private void Start()
+        {
+            TimerManager.OnTick += OnDay;
+        }
+
+        ~CampagnesUI()
+        {
+            TimerManager.OnTick -= OnDay;
+        }
+
         public void SetUpCampagne(City p_city)
         {
-            _cityStats = CityStats.Adaptability;
-            campagneDropdown.ClearOptions(); 
+            _city = p_city;
+            var t_campagne = manager.campagnes.FirstOrDefault(c => c.city == _city);
+            if (t_campagne != null)
+            {
+                _campagne = t_campagne;
+                ShowCampagne();
+            }
+            else
+            {
+                ChooseCampagne();
+            }
+        }
 
-            foreach(var stat in Enum.GetValues(typeof(CityStats)))
+        private void ShowCampagne()
+        {
+            chooseCampagne.SetActive(false);
+            showCampagne.SetActive(true);
+
+            campagneTitre.text = _campagne.stats.ToString() + " x" + _campagne.amount;
+
+            sliderImage.fillAmount = (float)((float)_campagne.timeBeforeFinish / (float)_campagne.initialTime);
+        }
+
+        public void OnDay()
+        {
+            if (showCampagne.activeSelf && _campagne != null)
+            {
+                SetUpCampagne(_city);
+            }
+        }
+
+        private void ChooseCampagne()
+        {
+            chooseCampagne.SetActive(true);
+            showCampagne.SetActive(false);
+            _campagne = null;
+            _cityStats = CityStats.Adaptability;
+            campagneDropdown.ClearOptions();
+
+            foreach (var stat in Enum.GetValues(typeof(CityStats)))
             {
                 TMP_Dropdown.OptionData t_option = new TMP_Dropdown.OptionData();
                 t_option.text = stat.ToString();
                 campagneDropdown.options.Add(t_option);
             }
-
-            _city = p_city;
 
             campagneSlider.minValue = 0;
             campagneSlider.maxValue = GameManager.instance.money;
@@ -57,9 +114,9 @@ namespace PFAS.Campagnes
 
         public void AddCampagne()
         {
-            
             Campagne t_campagne = new Campagne(_cityStats, _city, _currentMoneyToUse, _currentMoneyToUse);
             manager.campagnes.Add(t_campagne);
+            SetUpCampagne(_city);
         }
     }
 }

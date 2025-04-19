@@ -125,7 +125,7 @@ namespace PFAS.SystemEvent.Events
                 .Cast<CityStats>()
                 .Where(stat => statsToChange[stat] != 0)
                 .ToList()
-                .ForEach(stat => _city.OnEvent(stat, statsToChange[stat]));
+                .ForEach(stat => _city.OnEvent(stat, statsToChange[stat], TypeEvent.Event));
         }
     }
 }
