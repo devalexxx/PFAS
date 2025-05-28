@@ -13,6 +13,8 @@ namespace PFAS.Timer
         [SerializeField] private TextMeshProUGUI _timerText;
         // Assign the UI Text for the time scale
         [SerializeField] private TextMeshProUGUI _timeScaleText;
+        // Assign the UI Button for the stop button
+        [SerializeField] private Button _stopButton;
 
         [Header("Time Settings")]
         // Time scale multiplier: 1 = normal speed, 0 = pause, >1 = accelerated (can only use integer)
@@ -37,6 +39,13 @@ namespace PFAS.Timer
             currentDate = startDate;
             SetTimeScale(0);
             _UpdateTimerUI();
+
+            //Change animation of stop button at start to selected
+            if (_stopButton != null)
+            {
+                _stopButton.Select();
+            }
+
         }
 
         void Update()
