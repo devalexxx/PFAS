@@ -74,21 +74,21 @@ namespace PFAS
         /// <summary>
         /// This function is used to modify a specific city's statistic by a certain amount.
         /// </summary>
-        /// <param name="t_statToChange">The statistic to be modified.</param>
-        /// <param name="t_amount">The amount to change the statistic by.</param>
-        public void OnEvent(CityStats t_statToChange, float t_amount, TypeEvent t_eventType)
+        /// <param name="p_statToChange">The statistic to be modified.</param>
+        /// <param name="p_amount">The amount to change the statistic by.</param>
+        public void OnEvent(CityStats p_statToChange, float p_amount, TypeEvent p_eventType)
         {
-            stats[t_statToChange] += t_amount;
+            stats[p_statToChange] += p_amount;
         }
 
         /// <summary>
         /// This function returns the value of a specific statistic for the city.
         /// </summary>
-        /// <param name="stat">The specific statistic to retrieve.</param>
+        /// <param name="p_stat">The specific statistic to retrieve.</param>
         /// <returns>Returns the value of the specified statistic.</returns>
-        public float GetStat(CityStats stat)
+        public float GetStat(CityStats p_stat)
         {
-            return stats[stat];
+            return stats[p_stat];
         }
     }
 }
