@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1596281324386449104}
   - component: {fileID: 3823719155416988145}
   - component: {fileID: 8794727336936219515}
+  - component: {fileID: 3463180014302429888}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -89,7 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timerText: {fileID: 0}
-  _timeScaleInput: {fileID: 0}
+  _timeScaleText: {fileID: 0}
+  _stopButton: {fileID: 0}
   _timeScale: 0
   _accumulatorMax: 1
 --- !u!114 &3823719155416988145
@@ -105,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _uiManager: {fileID: 0}
+  _cameraController: {fileID: 0}
   _selectAction: {fileID: -2570222712123007097, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!114 &8794727336936219515
 MonoBehaviour:
@@ -119,4 +122,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newsText: {fileID: 0}
-  EventDay: 10
+  eventDay: 10
+--- !u!114 &3463180014302429888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5205339928025227240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54470adaa6fb7f5409b916a1837f2f4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  campagnes: []
