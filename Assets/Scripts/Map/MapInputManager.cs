@@ -83,6 +83,9 @@ namespace PFAS.Map
 
         public void UnselectCountry()
         {
+            if (_selectedCountry == null) return;
+
+
             if (_selectedCountry.hasOutline) { _selectedCountry.RemoveOutline(); }
 
             _selectedCountry = null;
