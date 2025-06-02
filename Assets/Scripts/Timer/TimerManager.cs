@@ -11,8 +11,10 @@ namespace PFAS.Timer
         [Header("UI")]
         // Assign the UI Text for the date
         [SerializeField] private TextMeshProUGUI _timerText;
-        // Assign the Slider for the time scale
-        [SerializeField] private Slider _timeScaleInput;
+        // Assign the UI Text for the time scale
+        [SerializeField] private TextMeshProUGUI _timeScaleText;
+        // Assign the UI Button for the stop button
+        [SerializeField] private Button _stopButton;
 
         [Header("Time Settings")]
         // Time scale multiplier: 1 = normal speed, 0 = pause, >1 = accelerated (can only use integer)
@@ -32,10 +34,18 @@ namespace PFAS.Timer
         // should subscribe to this event for other scripts to update at each tick
         public static event TickAction OnTick;
 
-        private void Awake()
+        private void Start()
         {
             currentDate = startDate;
+            SetTimeScale(0);
             _UpdateTimerUI();
+
+            //Change animation of stop button at start to selected
+            if (_stopButton != null)
+            {
+                _stopButton.Select();
+            }
+
         }
 
         void Update()
@@ -74,16 +84,24 @@ namespace PFAS.Timer
             }
         }
 
+        private void _UpdateTimeScaleUI()
+        {
+            if (_timeScaleText != null)
+            {
+                // Update the time scale text in the UI
+                _timeScaleText.text = 'x'+_timeScale.ToString();
+            }
+        }
+
         // Method to modify the time speed from other scripts
         public void SetTimeScale(float newTimeScale)
         {
             _timeScale = (int)newTimeScale;
 
-            // If _timeScale is modified by something else than the slider, we update it
-            if (_timeScaleInput != null && _timeScaleInput.value != newTimeScale)
-            {
-                _timeScaleInput.value = _timeScale;
-            }
+            // Update the time scale text in the UI
+            _UpdateTimeScaleUI();
         }
+
+
     }
 }

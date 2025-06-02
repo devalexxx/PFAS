@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using PFAS.Map;
 using PFAS.Objects;
 using PFAS.Timer;
 using TMPro;
@@ -82,9 +83,18 @@ namespace PFAS.SystemEvent
 
             t_event.instance.Use();
 
+            _timerManager.SetTimeScale(0);
+            gameObject.GetComponent<MapInputManager>().UnselectCountry();
+
             eventPanel.SetActive(true);
             eventTitle.text  = t_event.eventName;
             eventDescription.text = t_event.eventDescription + "\n" + t_event.instance.ToString();
+        }
+
+        public void CloseEvent()
+        {
+            eventPanel.SetActive(false);
+            _timerManager.SetTimeScale(1);
         }
 
         public void ChangeDay()
