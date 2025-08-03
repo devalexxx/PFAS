@@ -3,6 +3,7 @@ using System.Linq;
 using MyBox;
 using PFAS.Stats;
 using PFAS.Utils;
+using TMPro;
 using UnityEngine;
 
 namespace PFAS
@@ -32,6 +33,8 @@ namespace PFAS
         [ReadOnly]
         public List<Country> countries;
 
+        [Separator("UI")]
+        public TextMeshProUGUI moneyText;
 
         private void Awake()
         {
@@ -72,6 +75,12 @@ namespace PFAS
         {
             gloablStats[p_stat] += p_amount;
             competencePoints -= p_cost;
+        }
+
+        public void addMoney(int amount)
+        {
+            money += amount;
+            moneyText.text = money.ToString();
         }
     }
 }

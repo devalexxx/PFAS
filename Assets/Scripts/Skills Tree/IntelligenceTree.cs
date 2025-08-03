@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PFAS.Gameplay
 {
-    public class IntelligenceTree : MonoBehaviour
+    public class IntelligenceTree : GlobalTree
     {
         private Skill[] _globalNetworkOfEnvironmentalSensors;
         private Skill[] _targetedAwarenessCampaigns;
