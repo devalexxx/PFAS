@@ -13,7 +13,7 @@ namespace PFAS.SystemEvent {
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            GameManager.instance.money += moneyGive;
+            GameManager.instance.addMoney(moneyGive);
             Destroy(gameObject);
         }
 
