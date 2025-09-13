@@ -1,17 +1,24 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PFAS.Gameplay
 {
     public class PoliticalTree : GlobalTree
     {
-        private Skill[] _acceleratedLegislation;
-        private Skill[] _environmentalSubsidies;
-        private Skill[] _internationalStandards;
-        private Skill[] _pfasTaxes;
+        [SerializeField]
+        private Skill[] _acceleratedLegislation = new Skill[3];
+        private Skill[] _environmentalSubsidies = new Skill[3];
+        private Skill[] _internationalStandards = new Skill[3];
+        private Skill[] _pfasTaxes = new Skill[3];
 
         private void Start()
         {
-            _acceleratedLegislation[0] = new Skill("Regulatory emergency commitees", "", 1, 8, 0, 0, -5, false);
+            initialisation();
+        }
+
+        public void initialisation()
+        {
+            _acceleratedLegislation[0] = new Skill("Regulatory emergency commitees", "", 1, 8, 0, 0, -5, false, new Vector2(-479, 192.97f));
             _acceleratedLegislation[1] = new Skill("Simplified procedures", "", 2, 10, 0, 0, -7, false);
             _acceleratedLegislation[2] = new Skill("Progressive bans", "", 3, 12, 0, 0, -10, false);
 
@@ -26,6 +33,26 @@ namespace PFAS.Gameplay
             _pfasTaxes[0] = new Skill("Progressive taxation", "", 7, 10, 0, 0, -7, false);
             _pfasTaxes[1] = new Skill("Fines for pollution", "", 8, 6, 0, 0, -5, false);
             _pfasTaxes[2] = new Skill("Reinvestment of taxes", "", 9, 0, 8, 0, -6, false);
+        }
+
+        public override void SetUp()
+        {
+            initialisation();
+
+            foreach (var item in _acceleratedLegislation)
+            {
+                if(item.pos != Vector2.zero)
+                {
+                    var obj = Instantiate(btnPrefab, root.transform);
+
+                    RectTransform rect = obj.GetComponent<RectTransform>();
+
+                    rect.anchoredPosition = item.pos;
+
+
+                    allObject.Add(obj);
+                }
+            }
         }
     }
 }
