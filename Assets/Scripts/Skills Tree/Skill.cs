@@ -5,7 +5,8 @@ using UnityEngine;
 
 namespace PFAS.Gameplay
 {
-    public class Skill : MonoBehaviour
+    [System.Serializable]
+    public class Skill
     {
         public string name { get; private set; }
         public string description { get; private set; }
@@ -16,7 +17,9 @@ namespace PFAS.Gameplay
         public bool unlocked { get; private set; }
         public bool purchased { get; private set; } = false;
 
-        public Skill(string p_name, string p_description, int p_cost, float p_regulation, float p_technologie, float p_prevention, float p_globalPollution, bool p_unlocked, Skill[] p_after = default(Skill[]), Skill[] p_previous = default(Skill[]))
+        public Vector2 pos = Vector2.zero;
+
+        public Skill(string p_name, string p_description, int p_cost, float p_regulation, float p_technologie, float p_prevention, float p_globalPollution, bool p_unlocked, Vector2 p_pos = default, Skill[] p_after = default(Skill[]), Skill[] p_previous = default(Skill[]))
         {
             name = p_name;
             description = p_description;
@@ -29,6 +32,7 @@ namespace PFAS.Gameplay
             unlocked = p_unlocked;
             after = p_after;
             previous = p_previous;
+            pos = p_pos;
         }
 
         public void BuySkill(int competencePoints)
