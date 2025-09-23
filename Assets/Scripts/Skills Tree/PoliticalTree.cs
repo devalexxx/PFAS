@@ -18,9 +18,11 @@ namespace PFAS.Gameplay
 
         public void initialisation()
         {
+            allObject = new List<GameObject>();
+
             _acceleratedLegislation[0] = new Skill("Regulatory emergency commitees", "", 1, 8, 0, 0, -5, false, new Vector2(-479, 192.97f));
-            _acceleratedLegislation[1] = new Skill("Simplified procedures", "", 2, 10, 0, 0, -7, false);
-            _acceleratedLegislation[2] = new Skill("Progressive bans", "", 3, 12, 0, 0, -10, false);
+            _acceleratedLegislation[1] = new Skill("Simplified procedures", "", 2, 10, 0, 0, -7, false, new Vector2(-279, 192.97f));
+            _acceleratedLegislation[2] = new Skill("Progressive bans", "", 3, 12, 0, 0, -10, false, new Vector2(-79, 192.97f));
 
             _environmentalSubsidies[0] = new Skill("Tax incentives", "", 5, 5, 0, 0, -5, false);
             _environmentalSubsidies[1] = new Skill("Research grants", "", 8, 4, 8, 0, 0, false);
@@ -41,18 +43,26 @@ namespace PFAS.Gameplay
 
             foreach (var item in _acceleratedLegislation)
             {
-                if(item.pos != Vector2.zero)
+                if (item.pos != Vector2.zero)
                 {
+                    Debug.Log("Prefab: " + btnPrefab);
+                    Debug.Log("Root: " + root);
+
                     var obj = Instantiate(btnPrefab, root.transform);
 
+                    if (obj == null) Debug.LogError("obj est null !");
+
                     RectTransform rect = obj.GetComponent<RectTransform>();
+                    if (rect == null) Debug.LogError("RectTransform est null sur " + obj.name);
 
                     rect.anchoredPosition = item.pos;
 
+                    if (allObject == null) Debug.LogError("allObject est null !");
 
                     allObject.Add(obj);
                 }
             }
         }
+
     }
 }
