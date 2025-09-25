@@ -1,5 +1,6 @@
 using PFAS;
 using PFAS.Gameplay;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,9 +9,13 @@ using UnityEngine.UI;
 public class SkillTreeUI : MonoBehaviour, IPointerClickHandler
 {
     public PoliticalTree politicalTree;
+    public TechnologicalTree technologicalTree;
+    public IntelligenceTree intelligenceTree;
 
     public GlobalTree currentTree;
 
+
+    public List<GameObject> allObject;
 
     [Header("UI")]
     public GameObject root;
@@ -26,6 +31,21 @@ public class SkillTreeUI : MonoBehaviour, IPointerClickHandler
         politicalTree.initialisation();
 
         gameObject.SetActive(false);
+    }
+
+    public void changeTree(int id)
+    {
+        switch (id)
+        {
+            case 0: currentTree = politicalTree; break;
+            case 1: currentTree = technologicalTree; break;
+            case 2: currentTree = intelligenceTree; break;
+            default: break;
+        }
+
+        currentTree.root = root;
+        currentTree.btnPrefab = btnPrefab;
+        currentTree.SetUp();
     }
 
     public void setArgentText()
