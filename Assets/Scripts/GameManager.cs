@@ -23,7 +23,7 @@ namespace PFAS
         /// </summary>
         public EnumArray<GlobalStats, float> gloablStats = new EnumArray<GlobalStats, float>();
 
-        public GameObject victoryScreen;
+        public GameObject victoryScreen, defaiteScreen;
 
         /// <summary>
         /// A variable that holds the number of competence points available.
@@ -75,6 +75,7 @@ namespace PFAS
         public void OnDay()
         {
             dayPass++;
+            CheckDefete();
         }
 
         /// <summary>
@@ -97,6 +98,24 @@ namespace PFAS
             {
                 timerManager.SetTimeScale(0);
                 victoryScreen.SetActive(true);
+            }
+        }
+
+        public void CheckDefete()
+        {
+            int citysDead = 0;
+            foreach (var item in GetAllCities())
+            {
+                if (item.currentContamination >= 100)
+                {
+                    citysDead++;
+                }
+            }
+
+            if (citysDead >= GetAllCities().Count())
+            {
+                timerManager.SetTimeScale(0);
+                defaiteScreen.SetActive(true);
             }
         }
 
