@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MyBox;
 using PFAS.Stats;
+using PFAS.Timer;
 using PFAS.Utils;
 using TMPro;
 using UnityEngine;
@@ -15,10 +16,14 @@ namespace PFAS
         /// </summary>
         public static GameManager instance;
 
+        TimerManager timerManager;
+
         /// <summary>
         /// A variable that holds an EnumArray mapping GlobalStats to corresponding float values. It is used to track and modify global statistics.
         /// </summary>
         public EnumArray<GlobalStats, float> gloablStats = new EnumArray<GlobalStats, float>();
+
+        public GameObject victoryScreen;
 
         /// <summary>
         /// A variable that holds the number of competence points available.
@@ -26,6 +31,8 @@ namespace PFAS
         public int competencePoints = 0;
 
         public int money = 0;
+
+        public int dayPass {  get; private set; }
 
         /// <summary>
         /// A readonly list of countries in the game.
@@ -50,6 +57,13 @@ namespace PFAS
                    .ToList();
         }
 
+        private void Start()
+        {
+            gloablStats[GlobalStats.GlobalPollution] = 100;
+            timerManager = GetComponent<TimerManager>();
+            TimerManager.OnTick += OnDay;
+        }
+
         // <summary>
         /// This function returns a list of all cities from all countries in the game.
         /// </summary>
@@ -57,6 +71,11 @@ namespace PFAS
         public List<City> GetAllCities() => countries.SelectMany(c => c.cities).ToList();
 
         public Country GetRandomCountry() => countries[Random.Range(0, countries.Count)];
+
+        public void OnDay()
+        {
+            dayPass++;
+        }
 
         /// <summary>
         /// This function returns the cities of a specific country, identified by its name.
@@ -73,7 +92,12 @@ namespace PFAS
         /// <param name="p_cost">The cost in competence points for updating the statistic.</param>
         public void UpdateStats(GlobalStats p_stat, float p_amount)
         {
-            gloablStats[p_stat] += p_amount;            
+            gloablStats[p_stat] += p_amount;
+            if (gloablStats[p_stat] <= 0)
+            {
+                timerManager.SetTimeScale(0);
+                victoryScreen.SetActive(true);
+            }
         }
 
         public void addMoney(int amount)
