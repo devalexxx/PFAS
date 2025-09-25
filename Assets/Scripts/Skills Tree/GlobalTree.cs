@@ -28,6 +28,7 @@ namespace PFAS.Gameplay
         {
             foreach (var item in skills)
             {
+                if (item == null) continue;
                 item.CheckUnlockSkill();
 
                 if (item.pos != Vector2.zero && item.unlocked)
