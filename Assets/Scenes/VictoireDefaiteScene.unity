@@ -3475,7 +3475,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   root: {fileID: 0}
   btnPrefab: {fileID: 0}
-  ui: {fileID: 0}
   _acceleratedLegislation:
   - stats:
       _array:
@@ -3511,18 +3510,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   politicalTree: {fileID: 7385848713162083839}
-  technologicalTree: {fileID: 0}
-  intelligenceTree: {fileID: 0}
   currentTree: {fileID: 7385848713162083839}
-  allObject: []
   root: {fileID: 7385848713162083838}
   btnPrefab: {fileID: 1119800278210165747, guid: e3016aa6999aac549b3434600b8ff68b, type: 3}
-  panelSkill: {fileID: 0}
-  panelTxtTitle: {fileID: 0}
-  panelTxtDesc: {fileID: 0}
-  btnPriceTxt: {fileID: 0}
-  argentTxt: {fileID: 0}
-  btnBuy: {fileID: 0}
 --- !u!1001 &7450706415299098346
 PrefabInstance:
   m_ObjectHideFlags: 0
