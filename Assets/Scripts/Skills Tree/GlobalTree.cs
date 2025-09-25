@@ -13,17 +13,15 @@ namespace PFAS.Gameplay
 
         public SkillTreeUI ui;
 
-        protected List<GameObject> allObject;
-
         private void Start()
         {
-            allObject = new List<GameObject>();
+            ui.allObject = new List<GameObject>();
         }
 
         public virtual void SetUp()
         {
-            allObject.ForEach(obj => { Destroy(obj); });
-            allObject.Clear();
+            ui.allObject.ForEach(obj => { Destroy(obj); });
+            ui.allObject.Clear();
         }
 
         public void ShowUpgrades(Skill[] skills)
@@ -49,12 +47,12 @@ namespace PFAS.Gameplay
 
                     if (item.purchased) button.interactable = false;
 
-                    allObject.Add(obj);
+                    ui.allObject.Add(obj);
                 }
             }
         }
 
-        public void SetUpBeforeAfter(Skill[] skills)
+        public void SetUpPreviousAfter(Skill[] skills)
         {
             skills[0].after = new Skill[] { skills[1], skills[2] };
             skills[1].after = new Skill[] { skills[2] };
