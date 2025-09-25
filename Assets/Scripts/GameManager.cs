@@ -71,10 +71,9 @@ namespace PFAS
         /// <param name="p_stat">The global statistic to be updated.</param>
         /// <param name="p_amount">The amount to be added to the global statistic.</param>
         /// <param name="p_cost">The cost in competence points for updating the statistic.</param>
-        public void UpdateStats(GlobalStats p_stat, float p_amount, int p_cost)
+        public void UpdateStats(GlobalStats p_stat, float p_amount)
         {
-            gloablStats[p_stat] += p_amount;
-            competencePoints -= p_cost;
+            gloablStats[p_stat] += p_amount;            
         }
 
         public void addMoney(int amount)
