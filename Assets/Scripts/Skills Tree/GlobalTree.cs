@@ -53,5 +53,13 @@ namespace PFAS.Gameplay
                 }
             }
         }
+
+        public void SetUpBeforeAfter(Skill[] skills)
+        {
+            skills[0].after = new Skill[] { skills[1], skills[2] };
+            skills[1].after = new Skill[] { skills[2] };
+            skills[1].previous = new Skill[] { skills[0] };
+            skills[2].previous = new Skill[] { skills[1], skills[0] };
+        }
     }
 }

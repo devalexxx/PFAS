@@ -12,9 +12,9 @@ namespace PFAS.Gameplay
         public string description { get; private set; }
         public int cost { get; private set; }
         public EnumArray<GlobalStats, float> stats;
-        public Skill[] after { get; private set; }
+        public Skill[] after { get; set; }
         [SerializeField]
-        public Skill[] previous { get; private set; }
+        public Skill[] previous { get; set; }
         public bool unlocked { get; private set; }
         public bool purchased { get; private set; } = false;
 
