@@ -1,7 +1,6 @@
 using PFAS;
 using PFAS.Gameplay;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
