@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8624599250498668834}
   m_Layer: 0
   m_Name: Croatie
-  m_TagString: Untagged
+  m_TagString: Country
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -334,3 +334,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <cities>k__BackingField: []
+  neighbourCountries: []

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8301157415792147999}
   m_Layer: 0
   m_Name: France
-  m_TagString: Untagged
+  m_TagString: Country
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.84, y: 20.84}
+    oldSize: {x: 22, y: 22}
     newSize: {x: 20.84, y: 20.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -659,3 +659,4 @@ MonoBehaviour:
     stats:
       _array: []
     _currentContamination: 0
+  neighbourCountries: []
