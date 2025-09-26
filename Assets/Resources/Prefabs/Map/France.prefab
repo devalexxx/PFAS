@@ -645,17 +645,17 @@ MonoBehaviour:
       _array: []
     _currentContamination: 0
   - name: Metz
-    isCapital: 1
+    isCapital: 0
     stats:
       _array: []
     _currentContamination: 0
   - name: Lyon
-    isCapital: 1
+    isCapital: 0
     stats:
       _array: []
     _currentContamination: 0
   - name: Cannes
-    isCapital: 1
+    isCapital: 0
     stats:
       _array: []
     _currentContamination: 0
