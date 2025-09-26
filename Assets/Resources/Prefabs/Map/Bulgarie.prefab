@@ -333,4 +333,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4267c08f761a44c7b93c3ecd53d25a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <cities>k__BackingField: []
+  <cities>k__BackingField:
+  - name: Sofia
+    isCapital: 1
+    stats:
+      _array: []
+    _currentContamination: 0
+  - name: Plovdiv
+    isCapital: 0
+    stats:
+      _array: []
+    _currentContamination: 0

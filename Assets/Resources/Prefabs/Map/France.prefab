@@ -140,7 +140,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 20.84, y: 20.84}
+    oldSize: {x: 22, y: 22}
     newSize: {x: 20.84, y: 20.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -634,27 +634,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <cities>k__BackingField:
-  - name: Rive de Gier
+  - name: Paris
     isCapital: 1
     stats:
       _array: []
     _currentContamination: 0
-  - name: La ville en bretagne la
+  - name: Lille
     isCapital: 0
     stats:
       _array: []
     _currentContamination: 0
-  - name: La ville au nord mais pas en bretagne
+  - name: Metz
     isCapital: 1
     stats:
       _array: []
     _currentContamination: 0
-  - name: Renaud City
+  - name: Lyon
     isCapital: 1
     stats:
       _array: []
     _currentContamination: 0
-  - name: Ivan Ville
+  - name: Cannes
     isCapital: 1
     stats:
       _array: []

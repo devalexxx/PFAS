@@ -634,27 +634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <cities>k__BackingField:
-  - name: Rive de Gier
-    isCapital: 1
-    stats:
-      _array: []
-    _currentContamination: 0
-  - name: La ville en bretagne la
-    isCapital: 0
-    stats:
-      _array: []
-    _currentContamination: 0
-  - name: La ville au nord mais pas en bretagne
-    isCapital: 1
-    stats:
-      _array: []
-    _currentContamination: 0
-  - name: Renaud City
-    isCapital: 1
-    stats:
-      _array: []
-    _currentContamination: 0
-  - name: Ivan Ville
+  - name: Pristina
     isCapital: 1
     stats:
       _array: []

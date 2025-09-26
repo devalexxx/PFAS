@@ -634,28 +634,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <cities>k__BackingField:
-  - name: Rive de Gier
+  - name: "Ath\xE8nes"
     isCapital: 1
     stats:
       _array: []
     _currentContamination: 0
-  - name: La ville en bretagne la
+  - name: Argos
     isCapital: 0
     stats:
       _array: []
     _currentContamination: 0
-  - name: La ville au nord mais pas en bretagne
-    isCapital: 1
-    stats:
-      _array: []
-    _currentContamination: 0
-  - name: Renaud City
-    isCapital: 1
-    stats:
-      _array: []
-    _currentContamination: 0
-  - name: Ivan Ville
-    isCapital: 1
+  - name: "H\xE9raklion"
+    isCapital: 0
     stats:
       _array: []
     _currentContamination: 0

@@ -102,7 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05dda5d94e15c34bba1aa45ba323062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectionScaleFactor: 1.1
 --- !u!60 &2695991018333988723
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -334,4 +333,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4267c08f761a44c7b93c3ecd53d25a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <cities>k__BackingField: []
+  <cities>k__BackingField:
+  - name: Lisbonne
+    isCapital: 1
+    stats:
+      _array: []
+    _currentContamination: 0
+  - name: Porto
+    isCapital: 0
+    stats:
+      _array: []
+    _currentContamination: 0
