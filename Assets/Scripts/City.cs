@@ -90,5 +90,11 @@ namespace PFAS
         {
             return stats[p_stat];
         }
+
+        public void propagation(float MoyenneVoisines)
+        {
+            currentContamination += (GameManager.BASEGROWTH * stats[CityStats.Vulnerability]) - (GameManager.RESISTFACTOR * stats[CityStats.SocialResilience])
+                - (GameManager.ADAPTFACTOR * stats[CityStats.Adaptability]) + GameManager.OTHERCITYFACOTR * (MoyenneVoisines - currentContamination);
+        }
     }
 }
