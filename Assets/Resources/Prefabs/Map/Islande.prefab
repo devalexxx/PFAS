@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8301157415792147999}
   m_Layer: 0
   m_Name: Islande
-  m_TagString: Country
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -634,29 +634,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <cities>k__BackingField:
-  - name: Rive de Gier
+  - name: Reykjavik
     isCapital: 1
     stats:
       _array: []
     _currentContamination: 0
-  - name: La ville en bretagne la
+  - name: Akureyri
     isCapital: 0
     stats:
       _array: []
     _currentContamination: 0
-  - name: La ville au nord mais pas en bretagne
-    isCapital: 1
-    stats:
-      _array: []
-    _currentContamination: 0
-  - name: Renaud City
-    isCapital: 1
-    stats:
-      _array: []
-    _currentContamination: 0
-  - name: Ivan Ville
-    isCapital: 1
-    stats:
-      _array: []
-    _currentContamination: 0
-  neighbourCountries: []

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8498254128096412209}
   m_Layer: 0
   m_Name: Finlande
-  m_TagString: Country
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -503,5 +503,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4267c08f761a44c7b93c3ecd53d25a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <cities>k__BackingField: []
-  neighbourCountries: []
+  <cities>k__BackingField:
+  - name: Helsinki
+    isCapital: 1
+    stats:
+      _array: []
+    _currentContamination: 0
+  - name: Turku
+    isCapital: 0
+    stats:
+      _array: []
+    _currentContamination: 0
+  - name: Tampere
+    isCapital: 0
+    stats:
+      _array: []
+    _currentContamination: 0
+  - name: Porvoo
+    isCapital: 0
+    stats:
+      _array: []
+    _currentContamination: 0
