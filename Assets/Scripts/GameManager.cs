@@ -1,9 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyBox;
+using PFAS.Cam;
 using PFAS.Stats;
+using PFAS.Timer;
 using PFAS.Utils;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PFAS
 {
@@ -14,10 +18,16 @@ namespace PFAS
         /// </summary>
         public static GameManager instance;
 
+        TimerManager timerManager;
+
         /// <summary>
         /// A variable that holds an EnumArray mapping GlobalStats to corresponding float values. It is used to track and modify global statistics.
         /// </summary>
         public EnumArray<GlobalStats, float> gloablStats = new EnumArray<GlobalStats, float>();
+
+        public GameObject victoryScreen, defaiteScreen;
+
+        public CameraController cam;
 
         /// <summary>
         /// A variable that holds the number of competence points available.
@@ -26,12 +36,17 @@ namespace PFAS
 
         public int money = 0;
 
+        public int dayPass {  get; private set; }
+
         /// <summary>
         /// A readonly list of countries in the game.
         /// </summary>
         [ReadOnly]
         public List<Country> countries;
 
+        [Separator("UI")]
+        public TextMeshProUGUI moneyText;
+        public Image globalPollutionBar;
 
         private void Awake()
         {
@@ -47,6 +62,13 @@ namespace PFAS
                    .ToList();
         }
 
+        private void Start()
+        {
+            gloablStats[GlobalStats.GlobalPollution] = 100;
+            timerManager = GetComponent<TimerManager>();
+            TimerManager.OnTick += OnDay;
+        }
+
         // <summary>
         /// This function returns a list of all cities from all countries in the game.
         /// </summary>
@@ -54,6 +76,12 @@ namespace PFAS
         public List<City> GetAllCities() => countries.SelectMany(c => c.cities).ToList();
 
         public Country GetRandomCountry() => countries[Random.Range(0, countries.Count)];
+
+        public void OnDay()
+        {
+            dayPass++;
+            CheckDefete();
+        }
 
         /// <summary>
         /// This function returns the cities of a specific country, identified by its name.
@@ -68,10 +96,42 @@ namespace PFAS
         /// <param name="p_stat">The global statistic to be updated.</param>
         /// <param name="p_amount">The amount to be added to the global statistic.</param>
         /// <param name="p_cost">The cost in competence points for updating the statistic.</param>
-        public void UpdateStats(GlobalStats p_stat, float p_amount, int p_cost)
+        public void UpdateStats(GlobalStats p_stat, float p_amount)
         {
             gloablStats[p_stat] += p_amount;
-            competencePoints -= p_cost;
+            if (gloablStats[GlobalStats.GlobalPollution] <= 0)
+            {
+                timerManager.SetTimeScale(0);
+                cam.enabled = false;
+                victoryScreen.SetActive(true);
+            }
+
+            globalPollutionBar.fillAmount = gloablStats[GlobalStats.GlobalPollution] / 100;
+        }
+
+        public void CheckDefete()
+        {
+            int citysDead = 0;
+            foreach (var item in GetAllCities())
+            {
+                if (item.currentContamination >= 100)
+                {
+                    citysDead++;
+                }
+            }
+
+            if (citysDead >= GetAllCities().Count())
+            {
+                timerManager.SetTimeScale(0);
+                cam.enabled = false;
+                defaiteScreen.SetActive(true);
+            }
+        }
+
+        public void addMoney(int amount)
+        {
+            money += amount;
+            moneyText.text = money.ToString();
         }
     }
 }

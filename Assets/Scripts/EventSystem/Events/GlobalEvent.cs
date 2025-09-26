@@ -18,7 +18,7 @@ namespace PFAS.SystemEvent.Events
                 .Cast<GlobalStats>()
                 .Where(stat => statsToChange[stat] != 0)
                 .ToList()
-                .ForEach(stat => GameManager.instance.UpdateStats(stat, statsToChange[stat], 0));
+                .ForEach(stat => GameManager.instance.UpdateStats(stat, statsToChange[stat]));
         }
 
         public override string ToString()
