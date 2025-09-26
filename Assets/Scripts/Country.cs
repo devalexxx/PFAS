@@ -3,6 +3,7 @@ using System.Linq;
 using PFAS.Map;
 using PFAS.Stats;
 using PFAS.SystemEvent;
+using PFAS.Timer;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -20,6 +21,10 @@ namespace PFAS
         private SpriteRenderer        _mask;
         private MaterialPropertyBlock _blockProps;
 
+        public float globalContamination => cities.Sum(city => city.currentContamination);
+
+        public List<Country> neighboringCountries;
+
         /// <summary>
         /// This function is called when the object is initialized. It sets up each city by calling the Setup method for every city in the cities list.
         /// </summary>
@@ -34,13 +39,24 @@ namespace PFAS
 
         private void Update()
         {
-            _blockProps.SetFloat("_Spread", cities.Sum(t_city => t_city.currentContamination) / (100f * cities.Count));
+            //_blockProps.SetFloat("_Spread", cities.Sum(t_city => t_city.currentContamination) / (100f * cities.Count));
             //_mask.SetPropertyBlock(_blockProps);
+        }
+
+        public void OnDay()
+        {
+            cities.ForEach((city) =>
+            {
+                float otherfactor = cities.Where(c => c.name != city.name).Sum(city => city.currentContamination);
+                city.propagation(otherfactor);
+
+            });
         }
 
         private void Start()
         {
             _map = GameManager.instance.GetComponent<MapInputManager>();
+            TimerManager.OnTick += OnDay;
         }
 
         /// <summary>
