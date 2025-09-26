@@ -25,6 +25,8 @@ namespace PFAS
 
         public List<Country> neighbourCountries = new List<Country>();
 
+        private Material _mat;
+
         /// <summary>
         /// This function is called when the object is initialized. It sets up each city by calling the Setup method for every city in the cities list.
         /// </summary>
@@ -35,6 +37,7 @@ namespace PFAS
             _blockProps = new();
             
             _mask = GetComponent<SpriteRenderer>();
+            _mat = GetComponent<Renderer>().material;
         }
 
         private void Update()
@@ -55,6 +58,8 @@ namespace PFAS
             {
                 country.SpreadPollution(GameManager.OTHERFACOTR * (globalContamination - country.globalContamination));
             });
+
+            _mat.SetFloat("_Progress", globalContamination / 100);
         }
 
         private void Start()
