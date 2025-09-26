@@ -10,7 +10,7 @@ namespace PFAS.Map
         // Reference to the UI manager
         [SerializeField] private UIManager _uiManager;
         // Reference to the camera controller
-        [SerializeField] private CameraController _cameraController;
+        [SerializeField] public CameraController _cameraController;
 
         // The selected country
         private CountryOutline _selectedCountry;
