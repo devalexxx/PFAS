@@ -413,7 +413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 85ee8836da7883b478a62f01e5a0ae11, type: 3}
       propertyPath: m_Name
-      value: Italie (1)
+      value: Italie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -475,7 +475,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4671434223108132733, guid: ff50d54ca79a63740b5414323c5a3614, type: 3}
       propertyPath: m_Name
-      value: Bielorussie (1)
+      value: Bielorussie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -537,7 +537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 5e4afa9e5c027e94893711313cbe346b, type: 3}
       propertyPath: m_Name
-      value: Norvege (1)
+      value: Norvege
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -661,7 +661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4671434223108132733, guid: 1388e5cc25a412b4c95ae8d11f687e27, type: 3}
       propertyPath: m_Name
-      value: Autriche (1)
+      value: Autriche
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -723,7 +723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4671434223108132733, guid: 36056d17f856d984fafba5e74b3b4708, type: 3}
       propertyPath: m_Name
-      value: Portugal (1)
+      value: Portugal
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -785,7 +785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 5af872058c31003408dd57dc3964dd80, type: 3}
       propertyPath: m_Name
-      value: Hongrie (1)
+      value: Hongrie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -909,7 +909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 90cb79dd21ff7b542bd179cb1ccfc715, type: 3}
       propertyPath: m_Name
-      value: Montenegro (1)
+      value: Montenegro
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -931,7 +931,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2711630200111682073, guid: 0f795900faa07e74ca7b5d2e8d3a1db9, type: 3}
       propertyPath: m_Name
-      value: Finlande (1)
+      value: Finlande
       objectReference: {fileID: 0}
     - target: {fileID: 7113358602827327288, guid: 0f795900faa07e74ca7b5d2e8d3a1db9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1033,7 +1033,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 0ea20ea81e077eb4a85b069841de8abf, type: 3}
       propertyPath: m_Name
-      value: Islande (1)
+      value: Islande
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1095,7 +1095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4671434223108132733, guid: b8e3a77f3d7445444b2d66c43e542daa, type: 3}
       propertyPath: m_Name
-      value: Croatie (1)
+      value: Croatie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1157,7 +1157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 3cacaad2e1ee5dc4abe103f687aee203, type: 3}
       propertyPath: m_Name
-      value: Pays-Bas (1)
+      value: Pays-Bas
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1219,7 +1219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: db22b106c1b3db04a80ad485b28ae5ba, type: 3}
       propertyPath: m_Name
-      value: Lettonie (1)
+      value: Lettonie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1343,7 +1343,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: f11ad2b77656d4442ac117a17901e47e, type: 3}
       propertyPath: m_Name
-      value: France (1)
+      value: France
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1405,7 +1405,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: d14156644d05aa04898485563b040046, type: 3}
       propertyPath: m_Name
-      value: Lituanie (1)
+      value: Lituanie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1551,7 +1551,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2711630200111682073, guid: a2a1ec3611cae964492eb2115e7fd1d8, type: 3}
       propertyPath: m_Name
-      value: Espagne (1)
+      value: Espagne
       objectReference: {fileID: 0}
     - target: {fileID: 7113358602827327288, guid: a2a1ec3611cae964492eb2115e7fd1d8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1715,7 +1715,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 795c02f8f1a90274790380de4ecd2a1f, type: 3}
       propertyPath: m_Name
-      value: Macedoine (1)
+      value: Macedoine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1799,7 +1799,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2711630200111682073, guid: 0fb7ae116a24d5843bbb0104568d762e, type: 3}
       propertyPath: m_Name
-      value: Estonie (1)
+      value: Estonie
       objectReference: {fileID: 0}
     - target: {fileID: 7113358602827327288, guid: 0fb7ae116a24d5843bbb0104568d762e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1901,7 +1901,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 3e020823c635820468c77eea13874dd6, type: 3}
       propertyPath: m_Name
-      value: Pologne (1)
+      value: Pologne
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1963,7 +1963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 0602989519d1d364fbd414205be71ac4, type: 3}
       propertyPath: m_Name
-      value: Luxembourg (1)
+      value: Luxembourg
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2025,7 +2025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4671434223108132733, guid: d8e85892af1b0be4492f89defc2fffa4, type: 3}
       propertyPath: m_Name
-      value: Danemark (1)
+      value: Danemark
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2087,7 +2087,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4671434223108132733, guid: 3170147214b239b44a254c1b385c8976, type: 3}
       propertyPath: m_Name
-      value: Bulgarie (1)
+      value: Bulgarie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2211,7 +2211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 92ab448b0e34e04469937ec51f939edb, type: 3}
       propertyPath: m_Name
-      value: Moldavie (1)
+      value: Moldavie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2335,7 +2335,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 37f64de12030e2e4bb9bb38f1474959f, type: 3}
       propertyPath: m_Name
-      value: Kosovo (1)
+      value: Kosovo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2397,7 +2397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4671434223108132733, guid: a56d587061b433e4a95c29ef374b8976, type: 3}
       propertyPath: m_Name
-      value: Bosnie (1)
+      value: Bosnie
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2459,7 +2459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: 3b36877c04b0a604d92c18d570673495, type: 3}
       propertyPath: m_Name
-      value: Irlande (1)
+      value: Irlande
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2583,7 +2583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4671434223108132733, guid: 259c3ed7bd4df5d49b5f0534d3bc4f77, type: 3}
       propertyPath: m_Name
-      value: Belgique (1)
+      value: Belgique
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2645,7 +2645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5384129131116574857, guid: e59b7e120d66c4a4ab52d1046eacc9de, type: 3}
       propertyPath: m_Name
-      value: Grece (1)
+      value: Grece
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
