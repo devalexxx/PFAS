@@ -1,4 +1,3 @@
-using MyBox;
 using PFAS;
 using PFAS.Gameplay;
 using System.Collections.Generic;
@@ -59,7 +58,7 @@ public class SkillTreeUI : MonoBehaviour, IPointerClickHandler
 
     public void setArgentText()
     {
-        argentTxt.text = $"{GameManager.instance.money}€";
+        if(GameManager.instance != null) argentTxt.text = $"{GameManager.instance.money}€";
     }
 
     private void OnEnable()

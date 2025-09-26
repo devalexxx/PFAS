@@ -1,11 +1,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using MyBox;
+using PFAS.Cam;
 using PFAS.Stats;
 using PFAS.Timer;
 using PFAS.Utils;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PFAS
 {
@@ -25,6 +27,8 @@ namespace PFAS
 
         public GameObject victoryScreen, defaiteScreen;
 
+        public CameraController cam;
+
         /// <summary>
         /// A variable that holds the number of competence points available.
         /// </summary>
@@ -42,6 +46,7 @@ namespace PFAS
 
         [Separator("UI")]
         public TextMeshProUGUI moneyText;
+        public Image globalPollutionBar;
 
         private void Awake()
         {
@@ -94,11 +99,14 @@ namespace PFAS
         public void UpdateStats(GlobalStats p_stat, float p_amount)
         {
             gloablStats[p_stat] += p_amount;
-            if (gloablStats[p_stat] <= 0)
+            if (gloablStats[GlobalStats.GlobalPollution] <= 0)
             {
                 timerManager.SetTimeScale(0);
+                cam.enabled = false;
                 victoryScreen.SetActive(true);
             }
+
+            globalPollutionBar.fillAmount = gloablStats[GlobalStats.GlobalPollution] / 100;
         }
 
         public void CheckDefete()
@@ -115,6 +123,7 @@ namespace PFAS
             if (citysDead >= GetAllCities().Count())
             {
                 timerManager.SetTimeScale(0);
+                cam.enabled = false;
                 defaiteScreen.SetActive(true);
             }
         }
