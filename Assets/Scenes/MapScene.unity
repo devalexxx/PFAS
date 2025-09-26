@@ -434,6 +434,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Europe
       objectReference: {fileID: 0}
+    - target: {fileID: 6135382497722171333, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
+      propertyPath: neighbourCountries.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6135382497722171333, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
+      propertyPath: 'neighbourCountries.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1772860234}
+    - target: {fileID: 7362336778264110363, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
+      propertyPath: neighbourCountries.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362336778264110363, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
+      propertyPath: 'neighbourCountries.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1205918945}
+    - target: {fileID: 7362336778264110363, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
+      propertyPath: <cities>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7362336778264110363, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
+      propertyPath: <cities>k__BackingField.Array.data[0].name
+      value: "Une ville l\xE0"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1950,6 +1974,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8670850215214676121, guid: 9d814f2b353647d4dac3226fa06aabdf, type: 3}
   m_PrefabInstance: {fileID: 1134042920}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1205918945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6135382497722171333, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
+  m_PrefabInstance: {fileID: 144186924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4267c08f761a44c7b93c3ecd53d25a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1321280003 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1559862603774856368, guid: 36dca6a084ecd4ed2b973942af3c852e, type: 3}
@@ -2151,6 +2186,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1772860234 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7362336778264110363, guid: cd6b201fdea065f49be0a583faff43b3, type: 3}
+  m_PrefabInstance: {fileID: 144186924}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4267c08f761a44c7b93c3ecd53d25a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1841941864
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -54,8 +54,9 @@ namespace PFAS
 
         public void Setup(string p_countryName)
         {
-            stats = new EnumArray<CityStats, float>(() => UnityEngine.Random.Range(0, 50));
+            stats = new EnumArray<CityStats, float>(() => UnityEngine.Random.Range(0, 25));
             _currentContamination = UnityEngine.Random.Range(0, 10);
+            stats[CityStats.Vulnerability] = UnityEngine.Random.Range(50, 75);
             country = p_countryName;
         }
 
@@ -94,7 +95,7 @@ namespace PFAS
         public void propagation(float MoyenneVoisines)
         {
             currentContamination += (GameManager.BASEGROWTH * stats[CityStats.Vulnerability]) - (GameManager.RESISTFACTOR * stats[CityStats.SocialResilience])
-                - (GameManager.ADAPTFACTOR * stats[CityStats.Adaptability]) + GameManager.OTHERCITYFACOTR * (MoyenneVoisines - currentContamination);
+                - (GameManager.ADAPTFACTOR * stats[CityStats.Adaptability]) + GameManager.OTHERFACOTR * (MoyenneVoisines - currentContamination);
         }
     }
 }

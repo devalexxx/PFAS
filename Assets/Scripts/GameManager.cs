@@ -16,7 +16,7 @@ namespace PFAS
         public const float BASEGROWTH = 0.005f;
         public const float RESISTFACTOR = 0.005f;
         public const float ADAPTFACTOR = 0.001f;
-        public const float OTHERCITYFACOTR = 0.001f;
+        public const float OTHERFACOTR = 0.001f;
             
         /// <summary>
         /// A singleton instance of the GameManager class, allowing access from anywhere in the game.

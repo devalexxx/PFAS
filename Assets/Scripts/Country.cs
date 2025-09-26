@@ -23,7 +23,7 @@ namespace PFAS
 
         public float globalContamination => cities.Sum(city => city.currentContamination);
 
-        public List<Country> neighboringCountries;
+        public List<Country> neighbourCountries = new List<Country>();
 
         /// <summary>
         /// This function is called when the object is initialized. It sets up each city by calling the Setup method for every city in the cities list.
@@ -48,8 +48,12 @@ namespace PFAS
             cities.ForEach((city) =>
             {
                 float otherfactor = cities.Where(c => c.name != city.name).Sum(city => city.currentContamination);
-                city.propagation(otherfactor);
+                city.propagation(otherfactor / cities.Count - 1);
+            });
 
+            neighbourCountries.ForEach((country) => 
+            {
+                country.SpreadPollution(GameManager.OTHERFACOTR * (globalContamination - country.globalContamination));
             });
         }
 
@@ -82,6 +86,11 @@ namespace PFAS
             if (p_divide) t_amout = p_amout / cities.Count;
 
             cities.ForEach(city => city.OnEvent(p_stat, t_amout, p_eventType));
+        }
+
+        public void SpreadPollution(float p_pollution)
+        {
+            cities.ForEach(city => city.currentContamination += p_pollution / cities.Count);
         }
 
         public void OnPointerClick(PointerEventData eventData)
