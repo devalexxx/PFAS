@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8624599250498668834}
   m_Layer: 0
   m_Name: Portugal
-  m_TagString: Untagged
+  m_TagString: Country
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05dda5d94e15c34bba1aa45ba323062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _selectionScaleFactor: 1.1
 --- !u!60 &2695991018333988723
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -335,3 +334,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <cities>k__BackingField: []
+  neighbourCountries: []
