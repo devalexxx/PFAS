@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 1fe986e47f37cbc4baed6a72c458a191
+guid: 53465d5421204ab4fb809eabc5546ec3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1259475735272057510
-    second: BtnPressed_0
+      213: -3079993625995671052
+    second: upgrade1_0
+  - first:
+      213: 4471705684211094214
+    second: upgrade1_1
+  - first:
+      213: 3694289985398143075
+    second: upgrade1_2
+  - first:
+      213: 1879450353747360417
+    second: upgrade1_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BtnPressed_0
+      name: upgrade1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 333
-        height: 85
+        x: 22
+        y: 218
+        width: 468
+        height: 267
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6aa6d1c128e8a7110800000000000000
-      internalID: 1259475735272057510
+      spriteID: 4f98f0c9d1aa145d0800000000000000
+      internalID: -3079993625995671052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrade1_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 158
+        width: 308
+        height: 199
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c25f7fa0a0be0e30800000000000000
+      internalID: 4471705684211094214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrade1_2
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 112
+        width: 180
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36870f42b21c44330800000000000000
+      internalID: 3694289985398143075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: upgrade1_3
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 26
+        width: 180
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1aaf7149326251a10800000000000000
+      internalID: 1879450353747360417
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BtnPressed_0: 1259475735272057510
+      upgrade1_0: -3079993625995671052
+      upgrade1_1: 4471705684211094214
+      upgrade1_2: 3694289985398143075
+      upgrade1_3: 1879450353747360417
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
