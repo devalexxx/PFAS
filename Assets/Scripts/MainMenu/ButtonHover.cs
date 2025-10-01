@@ -39,18 +39,19 @@ public class ButtonHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         _cursorRT.anchoredPosition = anchor.anchoredPosition;
         _cursorRT.rotation = anchor.rotation;      // si tu veux suivre l’orientation
 
-        // Ajuste la position X des 2 enfants
-        if (_child1 != null && _child2 != null)
-        {
-            var pos1 = _child1.anchoredPosition;
-            var pos2 = _child2.anchoredPosition;
+        //// Ajuste la position X des 2 enfants
+        //if (_child1 != null && _child2 != null)
+        //{
+        //    var pos1 = _child1.anchoredPosition;
+        //    var pos2 = _child2.anchoredPosition;
 
-            pos1.x = -ecart;
-            pos2.x = ecart;
+        //    pos1.x = -ecart;
+        //    pos2.x = ecart;
 
-            _child1.anchoredPosition = pos1;
-            _child2.anchoredPosition = pos2;
-        }
+        //    _child1.anchoredPosition = pos1;
+        //    _child2.anchoredPosition = pos2;
+        //}
+        _cursorRT.position = new Vector2(anchor.position.x,anchor.position.y + ecart);
     }
 
     public void OnPointerExit(PointerEventData eventData)
