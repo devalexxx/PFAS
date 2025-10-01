@@ -3,6 +3,7 @@ using PFAS.Campagnes;
 using PFAS.Stats;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace PFAS.UI {
@@ -85,10 +86,18 @@ namespace PFAS.UI {
             _statAdaptabilityText.text = _currentCountry.GetStat(CityStats.Adaptability).ToString();
 
             //TODO: set the progress bar value dynamically
+            float t_parentWidth = _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width;
+            float t_ratio = _currentCountry.cities.Sum(t_city => t_city.currentContamination) / (100f * _currentCountry.cities.Count);
+
+            // Ajuste la largeur
             _pfasProgressBarForeground.SetSizeWithCurrentAnchors(
                 RectTransform.Axis.Horizontal,
-                _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width * (_currentCountry.cities.Sum(t_city => t_city.currentContamination) / (100f * _currentCountry.cities.Count))
+                t_parentWidth * t_ratio
             );
+
+            // Réaligne la position X du foreground sur le côté gauche du parent
+            _pfasProgressBarForeground.anchoredPosition = new Vector2(0f, _pfasProgressBarForeground.anchoredPosition.y);
+
 
             _campagnesObj.gameObject.SetActive(false);
         }
@@ -100,10 +109,18 @@ namespace PFAS.UI {
             _statAdaptabilityText.text = p_city.GetStat(CityStats.Adaptability).ToString();
 
             //TODO: set the progress bar value dynamically
+            float t_parentWidth = _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width;
+            float t_ratio = p_city.currentContamination / 100f;
+
+            // Ajuste la largeur
             _pfasProgressBarForeground.SetSizeWithCurrentAnchors(
                 RectTransform.Axis.Horizontal,
-                _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width * (p_city.currentContamination / 100f)
+                t_parentWidth * t_ratio
             );
+
+            // Réaligne la position X du foreground sur le côté gauche du parent
+            _pfasProgressBarForeground.anchoredPosition = new Vector2(0f, _pfasProgressBarForeground.anchoredPosition.y);
+
 
             _campagnesObj.gameObject.SetActive(true);
             _campagnesObj.SetUpCampagne(p_city);
@@ -116,6 +133,7 @@ namespace PFAS.UI {
             {
                 _currentCityDisplayed = null;
                 _DisplayCountryStats();
+                EventSystem.current.SetSelectedGameObject(null);
             }
             else
             {
