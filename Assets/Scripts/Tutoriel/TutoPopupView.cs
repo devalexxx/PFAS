@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class TutoPopupView : MonoBehaviour
 {
-    [SerializeField] private TMP_Text titleText;   // ou Text si tu n'utilises pas TMP
-    [SerializeField] private TMP_Text bodyText;    // ou Text
-    [SerializeField] private Button confirmButton; // “Compris !”
+    [SerializeField] private TMP_Text titleText;
+    [SerializeField] private TMP_Text bodyText;
+    [SerializeField] private Button confirmButton;
+    [SerializeField] private Button SkipButton;
 
-    public void Show(string title, string body, UnityAction onConfirm, string buttonLabel = "Compris !")
+    public void Show(string title, string body, UnityAction onConfirm,UnityAction onSkip = null, string buttonLabel = "Compris !")
     {
         if (titleText) titleText.text = title;
         if (bodyText) bodyText.text = body;
@@ -21,6 +22,13 @@ public class TutoPopupView : MonoBehaviour
 
             confirmButton.onClick.RemoveAllListeners();
             confirmButton.onClick.AddListener(onConfirm);
+        }
+
+        if (SkipButton)
+        {
+            SkipButton.onClick.RemoveAllListeners();
+            if (onSkip != null)
+                SkipButton.onClick.AddListener(onSkip);
         }
 
         gameObject.SetActive(true);

@@ -222,6 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51fec32cd5c278e4cb347009d66f9abb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 10
+  lifeTime: 5
   reduceTime: 2
   moneyGive: 10

@@ -3484,16 +3484,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9736688af63b01248bba89bfc9cabbc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  campagneDropdown: {fileID: 2898892284882692093}
   campagneSlider: {fileID: 6129914386567483179}
   moneyText: {fileID: 6705504555659474327}
   timeText: {fileID: 1095747478765102770}
-  amountText: {fileID: 4734860153963062392}
   chooseCampagne: {fileID: 5198357679805687031}
   showCampagne: {fileID: 9097478434585363725}
   manager: {fileID: 0}
   sliderImage: {fileID: 5196392703292769806}
-  campagneTitre: {fileID: 1219737730828609792}
+  campagneEnCoursText: {fileID: 0}
 --- !u!1 &7140340405004271413
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,6 +4380,8 @@ MonoBehaviour:
   _countryNameText: {fileID: 2737962434188963503}
   _cityTabsContainer: {fileID: 5457728221801162139}
   _cityButtonPrefab: {fileID: 3866783778810202430, guid: f368b8fc27f2bbe4e8b9a2f3ad88a079, type: 3}
+  _cityButtonSelectedImage: {fileID: 0}
+  _cityButtonUnselectedImage: {fileID: 0}
   _statVulnerabilityText: {fileID: 48648041344205669}
   _statSocialResilienceText: {fileID: 6042975246744775948}
   _statAdaptabilityText: {fileID: 5926261235961859436}
