@@ -31,7 +31,7 @@ namespace PFAS.Gameplay
                 if (item == null) continue;
                 item.CheckUnlockSkill();
 
-                if (item.pos != Vector2.zero && item.unlocked)
+                if (item.pos != Vector2.zero)
                 {
                     var obj = Instantiate(btnPrefab, root.transform);
 
@@ -44,7 +44,7 @@ namespace PFAS.Gameplay
                     Button button = obj.GetComponent<Button>();
 
                     button.onClick.AddListener(() => { ui.SelectSkill(item.name, item.description, item.cost, item); });
-                    button.interactable = true;
+                    button.interactable = item.unlocked;
 
                     if (item.purchased) button.interactable = false;
 
