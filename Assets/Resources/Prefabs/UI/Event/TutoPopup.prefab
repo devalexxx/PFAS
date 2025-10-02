@@ -592,7 +592,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -952,6 +952,7 @@ MonoBehaviour:
   titleText: {fileID: 3595642551242535880}
   bodyText: {fileID: 6620035258581753024}
   confirmButton: {fileID: 8121770337843191554}
+  SkipButton: {fileID: 4904425010637635827}
 --- !u!1 &4329555952323158320
 GameObject:
   m_ObjectHideFlags: 0

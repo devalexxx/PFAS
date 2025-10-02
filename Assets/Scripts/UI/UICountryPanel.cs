@@ -16,6 +16,13 @@ namespace PFAS.UI {
         [SerializeField] private TextMeshProUGUI _countryNameText;
         [SerializeField] private Transform _cityTabsContainer;
         [SerializeField] private Button _cityButtonPrefab;
+        
+        [Header("L'enfer des boutons")]
+        [SerializeField] private Sprite _cityButtonSelectedImage;
+        [SerializeField] private Sprite _cityButtonUnselectedImage;
+
+        private Button _currentSelectedCityButton;
+        private Button _lastSelectedCityButton;
 
         [Header("Stats")]
         [SerializeField] private TextMeshProUGUI _statVulnerabilityText;
@@ -53,7 +60,7 @@ namespace PFAS.UI {
             }
             
             // If country has more than one city, display buttons
-            if (_currentCountry.cities.Count > 1)
+            if (_currentCountry.cities.Count >= 1)
             {
                 _cityTabsContainer.gameObject.SetActive(true);
                 foreach (City city in _currentCountry.cities)
@@ -62,19 +69,14 @@ namespace PFAS.UI {
                     t_button.GetComponentInChildren<TextMeshProUGUI>().text = city.name;
                     // catch local var to avoid closing problems
                     City t_city = city;
-                    t_button.onClick.AddListener(() => _ToggleCityStats(t_city));
+                    t_button.onClick.AddListener(() => { _lastSelectedCityButton = _currentSelectedCityButton; _currentSelectedCityButton = t_button; _ToggleCityStats(t_city); });
                 }
             }
-            else if (_currentCountry.cities.Count < 1) // if no city, hide buttons container
+            else // if no city, hide buttons container
             {
                 _cityTabsContainer.gameObject.SetActive(false);
             }
-            else // if only one city, hide buttons container and rename _countryNameText.text by city name
 
-            {
-                _cityTabsContainer.gameObject.SetActive(false);
-                _countryNameText.text = _currentCountry.cities[0].name;
-            }
 
             _DisplayCountryStats();
         }
@@ -121,7 +123,6 @@ namespace PFAS.UI {
             // Réaligne la position X du foreground sur le côté gauche du parent
             _pfasProgressBarForeground.anchoredPosition = new Vector2(0f, _pfasProgressBarForeground.anchoredPosition.y);
 
-
             _campagnesObj.gameObject.SetActive(true);
             _campagnesObj.SetUpCampagne(p_city);
         }
@@ -132,12 +133,22 @@ namespace PFAS.UI {
             if (_currentCityDisplayed == p_city)
             {
                 _currentCityDisplayed = null;
+
+                _currentSelectedCityButton.image.sprite = _cityButtonUnselectedImage;
                 _DisplayCountryStats();
                 EventSystem.current.SetSelectedGameObject(null);
             }
             else
             {
                 _currentCityDisplayed = p_city;
+
+                if (_lastSelectedCityButton != null)
+                {
+                    _lastSelectedCityButton.image.sprite = _cityButtonUnselectedImage;
+                    _currentSelectedCityButton.image.sprite = _cityButtonSelectedImage;
+                }
+                else { _currentSelectedCityButton.image.sprite = _cityButtonSelectedImage; }
+
                 _DisplayCityStats(p_city);
             }
         }

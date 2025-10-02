@@ -34,9 +34,12 @@ public class TutoManager : MonoBehaviour
         _timerManager = GetComponent<TimerManager>();
         _cameraController = GetComponent<MapInputManager>()._cameraController;
 
-        _popupInstance = Instantiate(popupPrefab, uiParent);
-        _popupInstance.Hide();
+        StartTuto();
+    }
 
+    public void StartTuto()
+    {
+        _popupInstance = Instantiate(popupPrefab, uiParent);
         _timerManager.SetTimeScale(0);
         _cameraController.enabled = false;
         _index = 0;
@@ -59,6 +62,7 @@ public class TutoManager : MonoBehaviour
                 if (_index >= steps.Count) EndTutorial();
                 else ShowCurrent();
             },
+            onSkip: EndTutorial,
             buttonLabel: isLast ? "Terminer" : "Compris !"
         );
     }
