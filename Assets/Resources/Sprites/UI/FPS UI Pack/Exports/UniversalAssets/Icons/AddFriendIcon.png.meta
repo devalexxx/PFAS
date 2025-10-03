@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      AddFriendIcon_0: 1302638158970293393
+      AddFriendIcon_1: -8196315138182907028
+      AddFriendIcon_2: 5867440306317049108
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

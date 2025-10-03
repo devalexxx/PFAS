@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI_Different_Free_Wenrexa01_0: -5824560436179560781
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
