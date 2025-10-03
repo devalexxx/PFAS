@@ -59,7 +59,8 @@ namespace PFAS
                 country.SpreadPollution(GameManager.OTHERFACOTR * (globalContamination - country.globalContamination));
             });
 
-            _mat.SetFloat("_Progress", globalContamination / 100);
+            //print(globalContamination/cities.Count);
+            _mat.SetFloat("_Progress", (globalContamination / cities.Count)/100);
         }
 
         private void Start()
