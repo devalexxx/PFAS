@@ -30,7 +30,7 @@ namespace PFAS.UI {
         [SerializeField] private TextMeshProUGUI _statAdaptabilityText;
 
         [Header("PFAS Progress")]
-        [SerializeField] private RectTransform _pfasProgressBarForeground;
+        [SerializeField] private Image _pfasProgressBarForeground;
 
         [Header("Campagnes")]
         [SerializeField] private CampagnesUI _campagnesObj;
@@ -88,17 +88,19 @@ namespace PFAS.UI {
             _statAdaptabilityText.text = _currentCountry.GetStat(CityStats.Adaptability).ToString();
 
             //TODO: set the progress bar value dynamically
-            float t_parentWidth = _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width;
+            //float t_parentWidth = _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width;
             float t_ratio = _currentCountry.cities.Sum(t_city => t_city.currentContamination) / (100f * _currentCountry.cities.Count);
 
-            // Ajuste la largeur
-            _pfasProgressBarForeground.SetSizeWithCurrentAnchors(
-                RectTransform.Axis.Horizontal,
-                t_parentWidth * t_ratio
-            );
+            _pfasProgressBarForeground.fillAmount = t_ratio;
 
-            // Réaligne la position X du foreground sur le côté gauche du parent
-            _pfasProgressBarForeground.anchoredPosition = new Vector2(0f, _pfasProgressBarForeground.anchoredPosition.y);
+            //// Ajuste la largeur
+            //_pfasProgressBarForeground.SetSizeWithCurrentAnchors(
+            //    RectTransform.Axis.Horizontal,
+            //    t_parentWidth * t_ratio
+            //);
+
+            //// Réaligne la position X du foreground sur le côté gauche du parent
+            //_pfasProgressBarForeground.anchoredPosition = new Vector2(0f, _pfasProgressBarForeground.anchoredPosition.y);
 
 
             _campagnesObj.gameObject.SetActive(false);
@@ -110,18 +112,18 @@ namespace PFAS.UI {
             _statSocialResilienceText.text = p_city.GetStat(CityStats.SocialResilience).ToString();
             _statAdaptabilityText.text = p_city.GetStat(CityStats.Adaptability).ToString();
 
-            //TODO: set the progress bar value dynamically
-            float t_parentWidth = _pfasProgressBarForeground.parent.GetComponent<RectTransform>().rect.width;
             float t_ratio = p_city.currentContamination / 100f;
 
-            // Ajuste la largeur
-            _pfasProgressBarForeground.SetSizeWithCurrentAnchors(
-                RectTransform.Axis.Horizontal,
-                t_parentWidth * t_ratio
-            );
+            _pfasProgressBarForeground.fillAmount = t_ratio;
+            //// Ajuste la largeur
+            //_pfasProgressBarForeground.SetSizeWithCurrentAnchors(
+            //    RectTransform.Axis.Horizontal,
+            //    t_parentWidth * t_ratio
+            //);
 
-            // Réaligne la position X du foreground sur le côté gauche du parent
-            _pfasProgressBarForeground.anchoredPosition = new Vector2(0f, _pfasProgressBarForeground.anchoredPosition.y);
+            //// Réaligne la position X du foreground sur le côté gauche du parent
+            //_pfasProgressBarForeground.anchoredPosition = new Vector2(0f, _pfasProgressBarForeground.anchoredPosition.y);
+            //_pfasProgressBarForeground.position.Set(_pfasProgressBarForeground.rect.width / 2, _pfasProgressBarForeground.position.y, _pfasProgressBarForeground.position.z);
 
             _campagnesObj.gameObject.SetActive(true);
             _campagnesObj.SetUpCampagne(p_city);

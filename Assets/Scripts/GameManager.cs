@@ -69,7 +69,7 @@ namespace PFAS
 
         private void Start()
         {
-            gloablStats[GlobalStats.GlobalPollution] = 100;
+            gloablStats[GlobalStats.GlobalPollution] = ComputeGlobalPollutionRatio();
             timerManager = GetComponent<TimerManager>();
             TimerManager.OnTick += OnDay;
         }
@@ -86,6 +86,9 @@ namespace PFAS
         {
             dayPass++;
             CheckDefete();
+
+            gloablStats[GlobalStats.GlobalPollution] = ComputeGlobalPollutionRatio();
+            globalPollutionBar.fillAmount = gloablStats[GlobalStats.GlobalPollution] / 100;
         }
 
         /// <summary>
@@ -104,14 +107,13 @@ namespace PFAS
         public void UpdateStats(GlobalStats p_stat, float p_amount)
         {
             gloablStats[p_stat] += p_amount;
+            gloablStats[GlobalStats.GlobalPollution] = ComputeGlobalPollutionRatio();
             if (gloablStats[GlobalStats.GlobalPollution] <= 0)
             {
                 timerManager.SetTimeScale(0);
                 cam.enabled = false;
                 victoryScreen.SetActive(true);
             }
-
-            globalPollutionBar.fillAmount = gloablStats[GlobalStats.GlobalPollution] / 100;
         }
 
         public void CheckDefete()
@@ -131,6 +133,18 @@ namespace PFAS
                 cam.enabled = false;
                 defaiteScreen.SetActive(true);
             }
+        }
+
+        public float ComputeGlobalPollutionRatio() 
+        {
+            int t_citycount = 0;
+            float t_contaminations = 0;
+            foreach (var item in GetAllCities())
+            {
+                t_citycount++;
+                t_contaminations += item.currentContamination;
+            }
+            return t_contaminations / t_citycount;
         }
 
         public void addMoney(int amount)
