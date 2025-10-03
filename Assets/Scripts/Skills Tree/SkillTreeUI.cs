@@ -78,6 +78,7 @@ public class SkillTreeUI : MonoBehaviour, IPointerClickHandler
         {
             panelSkill.SetActive(false);
             selectedUpgrade = null;
+            btnBuy.onClick.RemoveAllListeners();
         }
         else 
         {
@@ -88,8 +89,9 @@ public class SkillTreeUI : MonoBehaviour, IPointerClickHandler
 
             if (GameManager.instance.money < price) btnBuy.interactable = false;
             else btnBuy.interactable = true;
-            
-            btnBuy.onClick.AddListener(() => { if (skill.BuySkill()) panelSkill.SetActive(false); setArgentText(); currentTree.SetUp(); });
+
+            btnBuy.onClick.RemoveAllListeners();
+            btnBuy.onClick.AddListener(() => { if (skill.BuySkill()) panelSkill.SetActive(false); btnBuy.onClick.RemoveAllListeners(); setArgentText(); currentTree.SetUp(); });
 
             selectedUpgrade = skill;
         }

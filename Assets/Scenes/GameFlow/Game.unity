@@ -1464,6 +1464,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1462285019}
     m_Modifications:
+    - target: {fileID: 3251177136892565427, guid: 05380ffb988f48040851ca31f0371a0b, type: 3}
+      propertyPath: m_Spacing.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251177136892565427, guid: 05380ffb988f48040851ca31f0371a0b, type: 3}
+      propertyPath: m_CellSize.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251177136892565427, guid: 05380ffb988f48040851ca31f0371a0b, type: 3}
+      propertyPath: m_Padding.m_Left
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 3942491261850503033, guid: 05380ffb988f48040851ca31f0371a0b, type: 3}
       propertyPath: m_Name
       value: UpgradePanel
