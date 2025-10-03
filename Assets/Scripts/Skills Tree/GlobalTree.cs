@@ -8,6 +8,10 @@ namespace PFAS.Gameplay
     public class GlobalTree : MonoBehaviour
     {
 
+        [SerializeField] Sprite _buyableSkillsSprite;
+        [SerializeField] Sprite _lockedSkillsSprite;
+        [SerializeField] Sprite _unlockedSkillsSprite;
+
         [HideInInspector]
         public GameObject root, btnPrefab;
 
@@ -45,8 +49,10 @@ namespace PFAS.Gameplay
 
                     button.onClick.AddListener(() => { ui.SelectSkill(item.name, item.description, item.cost, item); });
                     button.interactable = item.unlocked;
+                    if (item.unlocked) { button.image.sprite = _buyableSkillsSprite; }
+                    else { button.image.sprite = _lockedSkillsSprite; }
 
-                    if (item.purchased) button.interactable = false;
+                    if (item.purchased) { button.interactable = false; button.image.sprite = _unlockedSkillsSprite; }
 
                     ui.allObject.Add(obj);
                 }

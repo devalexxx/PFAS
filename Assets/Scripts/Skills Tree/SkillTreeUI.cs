@@ -13,6 +13,7 @@ public class SkillTreeUI : MonoBehaviour, IPointerClickHandler
     public IntelligenceTree intelligenceTree;
 
     public GlobalTree currentTree;
+    [SerializeField] GameObject _statsButtonRoot;
 
     public Skill selectedUpgrade { get; private set; } = null;
 
@@ -51,7 +52,7 @@ public class SkillTreeUI : MonoBehaviour, IPointerClickHandler
             btnsPanel[i].interactable = i != id;
         }
 
-        currentTree.root = root;
+        currentTree.root = _statsButtonRoot;
         currentTree.btnPrefab = btnPrefab;
         currentTree.SetUp();
     }
@@ -63,7 +64,7 @@ public class SkillTreeUI : MonoBehaviour, IPointerClickHandler
 
     private void OnEnable()
     {
-        currentTree.root = root;
+        currentTree.root = _statsButtonRoot;
         currentTree.btnPrefab = btnPrefab;
 
         currentTree.SetUp();
