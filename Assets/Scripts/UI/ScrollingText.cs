@@ -56,7 +56,7 @@ namespace PFAS.UI
 
         void Update()
         {
-            if(playNews)
+            if (playNews)
             {
                 _rectTransform.anchoredPosition += Vector2.left * speed * Time.deltaTime;
 
@@ -73,6 +73,13 @@ namespace PFAS.UI
                         _text.text = _newsQueue[0];
                         Init();
                     }
+                }
+            }
+            else
+            {
+                if (_newsQueue.Count > 0)
+                {
+                    playNews = true;
                 }
             }
         }
