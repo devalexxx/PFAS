@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7593021959856654629
 RectTransform:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Inteligence
+  m_text: Axe Renseignement
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f8ddf879697c0a6479bc12e3527a061d, type: 2}
   m_sharedMaterial: {fileID: 2870783311165680115, guid: f8ddf879697c0a6479bc12e3527a061d, type: 2}
@@ -2058,7 +2058,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Political
+  m_text: Axe Politique
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f8ddf879697c0a6479bc12e3527a061d, type: 2}
   m_sharedMaterial: {fileID: 2870783311165680115, guid: f8ddf879697c0a6479bc12e3527a061d, type: 2}
@@ -2315,7 +2315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Technological
+  m_text: Axe Technologique
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f8ddf879697c0a6479bc12e3527a061d, type: 2}
   m_sharedMaterial: {fileID: 2870783311165680115, guid: f8ddf879697c0a6479bc12e3527a061d, type: 2}

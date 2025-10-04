@@ -58,7 +58,8 @@ namespace PFAS.Map
                         _selectedCountry.Outline();
 
                         // Move camera to the country
-                        _cameraController.RelocateCountry(t_worldPoint);
+                        Vector3 countryCenter = t_country.gameObject.transform.position;
+                        _cameraController.RelocateCountry(countryCenter);
 
                         _uiManager.ShowCountryPanel(t_country.gameObject.GetComponent<Country>());
                         _cameraController.SetCanEdgePan(false);

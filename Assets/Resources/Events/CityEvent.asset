@@ -13,9 +13,25 @@ MonoBehaviour:
   m_Name: CityEvent
   m_EditorClassIdentifier: 
   eventName: Event de test
-  eventDescription: c'est que du test tona
+  eventDescription: 'c''est que du test '
   instance:
     rid: 305424754694684742
+  condition:
+    useCondition: 0
+    maxDate: 
+    minDate: 
+    minGlobalStats:
+      _array:
+      - 0
+      - 0
+      - 0
+      - 0
+    maxGlobalStats:
+      _array:
+      - 0
+      - 0
+      - 0
+      - 0
   references:
     version: 2
     RefIds:

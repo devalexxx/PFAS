@@ -313,6 +313,14 @@ PrefabInstance:
       value: -70
       objectReference: {fileID: 0}
     - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
+      propertyPath: targetViewportPos.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
+      propertyPath: targetViewportPos.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5455271279937888611, guid: e55ecc351c784e140a69d9c1effb65dd, type: 3}
       propertyPath: cameraTransitionDuration
       value: 0.2
       objectReference: {fileID: 0}
