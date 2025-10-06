@@ -10,17 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ec1437e53721b94f93e0e05dc6df2c1, type: 3}
-  m_Name: GlobalEvent
+  m_Name: GlobalEvent 5
   m_EditorClassIdentifier: 
-  eventName: Evenement Global
-  eventDescription: Test
+  eventName: Plan de financement d'urgence
+  eventDescription: "Un plan de financement acc\xE9l\xE8re l\u2019\xE9quipement des
+    stations et la R&D."
   instance:
     rid: 305424754694684741
   condition:
     useCondition: 0
     maxDate: 31/03/2025
     minDate: 09/03/2025
-    globalStats:
+    minGlobalStats:
+      _array:
+      - 0
+      - 0
+      - 0
+      - 0
+    maxGlobalStats:
       _array:
       - 0
       - 0
@@ -36,5 +43,5 @@ MonoBehaviour:
           _array:
           - 15
           - 20
-          - 0
+          - 15
           - 0

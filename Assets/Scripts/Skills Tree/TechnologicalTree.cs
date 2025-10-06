@@ -29,7 +29,7 @@ namespace PFAS.Gameplay
                 "\r\nEffet : permet d’agir immédiatement sur les zones polluées." +
                 "\r\n+8% Technologie, +8% Prévention, -4% Pollution globale",
                 2, 0, 8, 8, -4, false, new Vector2(-279, 192.97f));
-            _advancedDetectionMethods[2] = new Skill("Analyse génétique des PFAS",
+            _advancedDetectionMethods[2] = new Skill("Analyse des PFAS",
                 "Chaque PFAS est traqué comme un criminel avec son ADN chimique. On identifie les pires coupables et leurs origines. CSI : Pollution Edition" +
                 "\r\nEffet : priorise l’élimination des variantes les plus toxiques." +
                 "\r\n+12% Technologie, +5% Régulation, -6% Pollution globale",
@@ -38,7 +38,7 @@ namespace PFAS.Gameplay
             SetUpPreviousAfter(_advancedDetectionMethods);
 
             _innovativeDecontaminationTechnologies[0] = new Skill("Biorémédiation",
-                "Des microbes affamés transforment les PFAS en casse-croûte. L’écosystème devient son propre nettoyeur… tant que personne ne décide de breveter les bactéries." +
+                "Des bactéries transforment les PFAS en nutriments. L’écosystème devient son propre nettoyeur… tant que personne ne décide de breveter les bactéries." +
                 "\r\nEffet : réduit naturellement la pollution sur le long terme." +
                 "\r\n+15% Technologie, -12% Pollution globale",
                 5, 0, 15, 0, -12, false, new Vector2(-479, -8.97f));

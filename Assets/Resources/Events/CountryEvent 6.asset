@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ec1437e53721b94f93e0e05dc6df2c1, type: 3}
+  m_Name: CountryEvent 6
+  m_EditorClassIdentifier: 
+  eventName: Projet universitaire
+  eventDescription: "Une universit\xE9 locale met au point un nouveau mod\xE8le de
+    bior\xE9acteur."
+  instance:
+    rid: 305424754694684743
+  condition:
+    useCondition: 0
+    maxDate: 
+    minDate: 
+    minGlobalStats:
+      _array:
+      - 0
+      - 0
+      - 0
+      - 0
+    maxGlobalStats:
+      _array:
+      - 0
+      - 0
+      - 0
+      - 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 305424754694684743
+      type: {class: CountryEvent, ns: PFAS.SystemEvent.Events, asm: Assembly-CSharp}
+      data:
+        statsToChange:
+          _array:
+          - 3
+          - 3
+          - 5
+        divideForEachCity: 1
+        asCountryCondition: 0
+        maxCity: -1
+        minCity: -1
+        maxStats:
+          _array:
+          - 0
+          - 0
+          - 0
+        minStats:
+          _array:
+          - 0
+          - 0
+          - 0

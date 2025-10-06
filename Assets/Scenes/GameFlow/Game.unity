@@ -1941,6 +1941,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2248405502399609258, guid: 75858eb316bfce64f860ba0b901ccb84, type: 3}
+      propertyPath: bubbleDay
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248405502399609258, guid: 75858eb316bfce64f860ba0b901ccb84, type: 3}
       propertyPath: eventPanel
       value: 
       objectReference: {fileID: 446894844}
