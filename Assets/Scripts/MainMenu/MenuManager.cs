@@ -38,5 +38,10 @@ namespace PFAS.MainMenu
                 menuPanel.SetActive(true);
             }
         }
+
+        public void QuitGame()
+        {
+            Application.Quit();
+        }
     }
 }
