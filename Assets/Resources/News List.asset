@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d273395d0c0085f448e7165aef068600, type: 3}
+  m_Name: News List
+  m_EditorClassIdentifier: 
+  news:
+  - "De fortes pluies entra\xEEnent une contamination accrue des sols en Europe de
+    l\u2019Ouest."
+  - "Un sommet international sur la pollution chimique s\u2019ouvre \xE0 Gen\xE8ve."
+  - "Des chercheurs annoncent la d\xE9couverte d\u2019une enzyme capable de d\xE9grader
+    les PFAS."
+  - "L\u2019ONU alerte sur l\u2019accumulation des substances persistantes dans les
+    oc\xE9ans."
+  - Les stocks mondiaux de charbon actif atteignent un niveau critique.
+  - "Une fuite chimique non ma\xEEtris\xE9e est signal\xE9e dans une usine asiatique."
+  - "Les satellites d\xE9tectent une concentration inhabituelle de PFAS dans l\u2019Arctique."
+  - "Une panne dans une station d\u2019\xE9puration provoque des inqui\xE9tudes dans
+    la population."
+  - Un groupe industriel annonce le retrait volontaire des PFAS de sa production.
+  - "L\u2019OMS actualise ses seuils de tol\xE9rance pour les PFAS dans l\u2019eau
+    potable."
+  - "Un nouveau bior\xE9acteur enzymatique montre des r\xE9sultats prometteurs."
+  - "Une \xE9quipe de chercheurs d\xE9veloppe un biosenseur capable de d\xE9tecter
+    les PFAS \xE0 1 ppt."
+  - "L\u2019universit\xE9 de Lyon re\xE7oit un financement europ\xE9en pour \xE9tudier
+    la d\xE9pollution."
+  - "Des simulations IA r\xE9v\xE8lent des routes de propagation inattendues."
+  - "Les experts d\xE9battent sur l\u2019efficacit\xE9 des filtres \xE0 osmose invers\xE9e."
+  - Des scientifiques publient un rapport alarmant sur les PFAS dans le sang humain.
+  - "Une avanc\xE9e majeure dans le s\xE9quen\xE7age ARN des bact\xE9ries expos\xE9es
+    aux PFAS."
+  - "Les habitants d\u2019une ville protestent contre la pollution de leur rivi\xE8re."
+  - "Une nouvelle taxe sur les produits chimiques est entr\xE9e en vigueur."
+  - "Le prix des bouteilles d\u2019eau explose apr\xE8s un scandale de contamination."
+  - "Des \xE9coles ferment temporairement \xE0 cause de niveaux \xE9lev\xE9s de PFAS."
+  - "Une campagne de sensibilisation attire l\u2019attention sur les plastiques persistants."
+  - "Des b\xE9n\xE9voles nettoient les berges d\u2019un fleuve contamin\xE9."
+  - "Une startup lance un filtre \u201CPFAS-Free\u201D \xE0 destination des particuliers."
+  - "Un maire local promet une eau \xAB plus pure que jamais \xBB d\u2019ici la fin
+    de son mandat."
+  - "Un chat devient la mascotte d\u2019un laboratoire de recherche."
+  - "Des scientifiques d\xE9couvrent un microbe qui adore le caf\xE9."
+  - "Un influenceur vante les bienfaits de l\u2019eau distill\xE9e\u2026 sur TikTok."
+  - "Une vache s\u2019\xE9chappe d\u2019un centre de recherche et s\xE8me la pagaille."
+  - "Des ing\xE9nieurs construisent un bior\xE9acteur en LEGO pour le fun."
+  - "Des \xE9tudiants confondent PFAS et P\xE2tes au Fromage dans un questionnaire."
+  - "Un laboratoire f\xEAte 100 jours sans explosion accidentelle."
+  - "Une m\xE9t\xE9orite atterrit dans un bassin d\u2019eau contamin\xE9e \u2014
+    co\xEFncidence ?"
+  - "L\u2019Union Europ\xE9enne envisage une interdiction totale des PFAS d\u2019ici
+    2030."
+  - "Les \xC9tats-Unis lancent un plan massif pour d\xE9contaminer les nappes phr\xE9atiques."
+  - "Une multinationale poursuivie pour pollution accepte un accord \xE0 2 milliards
+    $."
+  - "La bourse s\u2019effondre apr\xE8s l\u2019annonce d\u2019une fuite chimique."
+  - Un gouvernement vote une loi pour financer la recherche environnementale.
+  - Le FMI recommande une taxe mondiale sur les polluants industriels.
+  - "Le Parlement adopte une \u201CSemaine de la Science\u201D pour sensibiliser
+    les jeunes."
+  - "Des chercheurs affirment que l\u2019eau du robinet est d\xE9sormais un booster
+    immunitaire naturel."
+  - "Les PFAS sont officiellement plus persistants que les ex toxiques selon une
+    \xE9tude."
+  - "Une ville remplace ses fontaines par des distributeurs d\u2019eau filtr\xE9e
+    connect\xE9s."
+  - "Des chercheurs testent un bior\xE9acteur dans une cafeti\xE8re. R\xE9sultats
+    mitig\xE9s."
+  - "Un ministre boit un verre d\u2019eau en direct pour prouver la puret\xE9 nationale."
+  - "Le taux de PFAS dans la mer d\xE9passe d\xE9sormais celui du sel."
+  - "Un filtre \xE0 charbon remporte le titre de h\xE9ros de l\u2019ann\xE9e."
+  - "Les chercheurs d\xE9couvrent que les PFAS, \xE7a rime avec gal\xE8re."

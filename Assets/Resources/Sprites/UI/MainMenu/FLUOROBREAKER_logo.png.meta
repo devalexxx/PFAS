@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 735ed9a32fa5828479f520b3c9d46b3a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1626394584994346682
+    second: FLUOROBREAKER_logo_0
+  - first:
+      213: -6515086398198422017
+    second: FLUOROBREAKER_logo_1
+  - first:
+      213: 3475147941521502229
+    second: FLUOROBREAKER_logo_2
+  - first:
+      213: 2960811237543260553
+    second: FLUOROBREAKER_logo_3
+  - first:
+      213: -4940029197703361700
+    second: FLUOROBREAKER_logo_4
+  - first:
+      213: 5593792558408381107
+    second: FLUOROBREAKER_logo_5
+  - first:
+      213: -8966236834108162064
+    second: FLUOROBREAKER_logo_6
+  - first:
+      213: 4422073417997150035
+    second: FLUOROBREAKER_logo_7
+  - first:
+      213: 119387765098014780
+    second: FLUOROBREAKER_logo_8
+  - first:
+      213: 7847001481027412616
+    second: FLUOROBREAKER_logo_9
+  - first:
+      213: 5867632408770586491
+    second: FLUOROBREAKER_logo_10
+  - first:
+      213: 8319066718897404956
+    second: FLUOROBREAKER_logo_11
+  - first:
+      213: 8198880728155643837
+    second: FLUOROBREAKER_logo_12
+  - first:
+      213: 4160265453174368003
+    second: FLUOROBREAKER_logo_13
+  - first:
+      213: 3733173842867603033
+    second: FLUOROBREAKER_logo_14
+  - first:
+      213: 515842630920403421
+    second: FLUOROBREAKER_logo_15
+  - first:
+      213: 1558023396223235388
+    second: FLUOROBREAKER_logo_16
+  - first:
+      213: 8585086020475185350
+    second: FLUOROBREAKER_logo_17
+  - first:
+      213: -3911200202670479179
+    second: FLUOROBREAKER_logo_18
+  - first:
+      213: -1347449805980399382
+    second: FLUOROBREAKER_logo_19
+  - first:
+      213: 9049989740787634248
+    second: FLUOROBREAKER_logo_20
+  - first:
+      213: -5988273940198418186
+    second: FLUOROBREAKER_logo_21
+  - first:
+      213: -8139844527369095875
+    second: FLUOROBREAKER_logo_22
+  - first:
+      213: 1784295696005544417
+    second: FLUOROBREAKER_logo_23
+  - first:
+      213: 8124106679713817177
+    second: FLUOROBREAKER_logo_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 15
+        width: 330
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab6f43f024d129610800000000000000
+      internalID: 1626394584994346682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_1
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 298
+        width: 464
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff567627073c595a0800000000000000
+      internalID: -6515086398198422017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_2
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 304
+        width: 67
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510b15404a43a3030800000000000000
+      internalID: 3475147941521502229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_3
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 290
+        width: 103
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98130cc222ae61920800000000000000
+      internalID: 2960811237543260553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_4
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 196
+        width: 69
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5b45da3e9d717bb0800000000000000
+      internalID: -4940029197703361700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_5
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 196
+        width: 67
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b2b727d1b421ad40800000000000000
+      internalID: 5593792558408381107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_6
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 196
+        width: 60
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ffb5f2ca17819380800000000000000
+      internalID: -8966236834108162064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_7
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 196
+        width: 84
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 357ea62385c5e5d30800000000000000
+      internalID: 4422073417997150035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_8
+      rect:
+        serializedVersion: 2
+        x: 733
+        y: 196
+        width: 71
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c38e1313a8628a100800000000000000
+      internalID: 119387765098014780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_9
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 196
+        width: 59
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8826a94954626ec60800000000000000
+      internalID: 7847001481027412616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_10
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 196
+        width: 65
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77275576940e6150800000000000000
+      internalID: 5867632408770586491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_11
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 161
+        width: 574
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1c77a2ca13437370800000000000000
+      internalID: 8319066718897404956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_12
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 143
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbf538d259648c170800000000000000
+      internalID: 8198880728155643837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_13
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 119
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 307a9cb336b3cb930800000000000000
+      internalID: 4160265453174368003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_14
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 119
+        width: 29
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95647e4b4d5eec330800000000000000
+      internalID: 3733173842867603033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_15
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 119
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd97308c324a82700800000000000000
+      internalID: 515842630920403421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_16
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 119
+        width: 34
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3532ab26063f9510800000000000000
+      internalID: 1558023396223235388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_17
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 119
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c86898ff3a542770800000000000000
+      internalID: 8585086020475185350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_18
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 112
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b8e36a5320a8b9c0800000000000000
+      internalID: -3911200202670479179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_19
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 119
+        width: 26
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae88ed16a85ec4de0800000000000000
+      internalID: -1347449805980399382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_20
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 119
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 840939868b5089d70800000000000000
+      internalID: 9049989740787634248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_21
+      rect:
+        serializedVersion: 2
+        x: 735
+        y: 119
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f89eb0249065eca0800000000000000
+      internalID: -5988273940198418186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_22
+      rect:
+        serializedVersion: 2
+        x: 763
+        y: 119
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d35f1437786790f80800000000000000
+      internalID: -8139844527369095875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_23
+      rect:
+        serializedVersion: 2
+        x: 793
+        y: 119
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e93bae5b7713c810800000000000000
+      internalID: 1784295696005544417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FLUOROBREAKER_logo_24
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 119
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95268b95bff9eb070800000000000000
+      internalID: 8124106679713817177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FLUOROBREAKER_logo_0: 1626394584994346682
+      FLUOROBREAKER_logo_1: -6515086398198422017
+      FLUOROBREAKER_logo_10: 5867632408770586491
+      FLUOROBREAKER_logo_11: 8319066718897404956
+      FLUOROBREAKER_logo_12: 8198880728155643837
+      FLUOROBREAKER_logo_13: 4160265453174368003
+      FLUOROBREAKER_logo_14: 3733173842867603033
+      FLUOROBREAKER_logo_15: 515842630920403421
+      FLUOROBREAKER_logo_16: 1558023396223235388
+      FLUOROBREAKER_logo_17: 8585086020475185350
+      FLUOROBREAKER_logo_18: -3911200202670479179
+      FLUOROBREAKER_logo_19: -1347449805980399382
+      FLUOROBREAKER_logo_2: 3475147941521502229
+      FLUOROBREAKER_logo_20: 9049989740787634248
+      FLUOROBREAKER_logo_21: -5988273940198418186
+      FLUOROBREAKER_logo_22: -8139844527369095875
+      FLUOROBREAKER_logo_23: 1784295696005544417
+      FLUOROBREAKER_logo_24: 8124106679713817177
+      FLUOROBREAKER_logo_3: 2960811237543260553
+      FLUOROBREAKER_logo_4: -4940029197703361700
+      FLUOROBREAKER_logo_5: 5593792558408381107
+      FLUOROBREAKER_logo_6: -8966236834108162064
+      FLUOROBREAKER_logo_7: 4422073417997150035
+      FLUOROBREAKER_logo_8: 119387765098014780
+      FLUOROBREAKER_logo_9: 7847001481027412616
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
